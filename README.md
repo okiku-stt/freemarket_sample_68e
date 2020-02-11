@@ -23,4 +23,7 @@ Things you may want to cover:
 
 * ...
 
+
 hamadatakurou
+宮下 直哉
+shun takazawa
