@@ -23,3 +23,4 @@ Things you may want to cover:
 
 * ...
 宮下 直哉
+遠藤 稔人
