@@ -22,9 +22,15 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+hamadatakurou
 宮下 直哉
 
+
 遠藤 稔人
+
+shun takazawa
 
 shun takazawa
 
