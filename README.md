@@ -23,4 +23,4 @@ Things you may want to cover:
 
 * ...
 宮下 直哉
-shuntakazawa
+shun takazawa
