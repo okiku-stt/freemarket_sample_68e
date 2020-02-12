@@ -2,7 +2,6 @@
 $(function(){
   $ ('.mypage__flex__left__list').mouseover(function(){
     var list = $(this).data('mypage');
-    console.log(list);
     $('.mypage-icon' + list).css('right', 10);
     $('.mypage-icon' + list).css('opacity', 1);
     $(this).css('background','whitesmoke');
@@ -13,7 +12,6 @@ $(function(){
 $(function(){
   $ ('.mypage__flex__left__list').mouseleave(function(){
     var list = $(this).data('mypage');
-    console.log(list);
     $('.mypage-icon' + list).animate({right: 20},{duration: '2000'});
     $('.mypage-icon' + list).css('opacity', 0.5);
     $(this).css('background','');
