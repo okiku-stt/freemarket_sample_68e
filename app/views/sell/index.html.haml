@@ -1,0 +1,106 @@
+.sell.wrapper
+  .sell.header
+    = image_tag src="/assets/logo.svg", size: "185x49"
+  .sell.body
+    .sell.main
+      <h2 class="main-head">商品の情報を入力</h2>
+      .sell-form
+        .sell-form__box
+          .sell-form__box__upload
+            .sell-form__box__upload__title
+              出品画像
+              <span class="require">必須</span>
+            .sell-form__box__upload__text
+              最大10枚までアップロードできます
+          .sell-form__box__dropbox
+            ドラッグアンドドロップ
+            またはクリックしてファイルをアップロード
+        .sell.content
+          .sell.name
+            .sell.name__head
+              .sell.name__head__text
+                商品名
+                <span class="require">必須</span>
+            -#.sell.name__form
+              -#= form_with model: @, local: true do |form|
+              -#= form.text_field :content
+              -#= form.submit '投稿する'
+
+          .sell.description
+            .sell.description__head
+              .sell.description__head__text
+                商品の説明
+                <span class="require">必須</span>
+            .sell.description__form
+        .sell.content
+          .sell.details
+            .sell.details__text
+              商品の詳細
+            .sell.details__box
+              .sell.details__box__category
+                カテゴリー
+                <span class="require">必須</span>
+                .sell.details__box__category__head
+              .sell.details__box__status
+                商品の状態
+                <span class="require">必須</span>
+                .sell.details__box__status__head
+        .sell.content
+          .sell.ship
+            .sell.ship__text
+              配送について
+            .sell.ship__box
+              .sell.ship__box__category
+                配送料の負担
+                <span class="require">必須</span>
+                .sell.ship__box__category__head
+              .sell.ship__box__status
+                発送元の地域
+                <span class="require">必須</span>
+                .sell.ship__box__status__head
+              .sell.ship__box__status
+                発送までの日数
+                <span class="require">必須</span>
+                .sell.ship__box__status__head
+        .sell.content
+          .sell.price
+            .sell.price__text
+              販売価格(300〜9,999,999)
+              = link_to '?', '/', class: "question"
+            .sell.price__box
+              .sell.price__box__category
+                カテゴリー
+                <span class="require">必須</span>
+                .sell.price__box__category__head
+              .sell.price__box__status
+                商品の状態
+                <span class="require">必須</span>
+                .sell.price__box__status__head
+        .sell.content
+          .sell.btns
+            .sell.btns__text
+              = link_to '禁止されている出品', '/', class: "link"
+              、
+              = link_to '行為', '/', class: "link"
+              を必ずご確認ください。
+              またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+              また、出品をもちまして
+              = link_to '加盟店規約', '/', class: "link"
+              に同意したことになります。
+            .sell.btns__btn
+              .sell.btns__btn__up
+                出品する
+              .sell.btns__btn__back
+                もどる
+  .sell-footer
+    .sell-footer__box
+      .sell-footer__box__text
+        プライバシーポリシー
+        メルカリ利用規約
+        特定商取引に関する表記
+    .sell-footer__image
+      = image_tag src="/assets/logo-gray.svg", size: "80x65"
+    .sell-footer__inc
+      © Mercari, Inc.
+
+ 
