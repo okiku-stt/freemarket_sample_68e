@@ -30,6 +30,8 @@
             }
             &__text {
               font-size: 15px;
+              margin-top: 8px;
+              font-size: 13px;
             }
           }
           &__dropbox {
@@ -38,7 +40,7 @@
             margin: auto;
             background-color: #f5f5f5;
             text-align: center;
-            padding: 30px;
+            padding: 40px;
             border: #ccc dashed 0.5px;
           }
         }
@@ -147,7 +149,7 @@
               &__up {
                 height: 50px;
                 margin-top: 40px;
-                background-color: #ea352d;
+                background-color: #3ccace;
                 line-height: 50px;
                 color: white;
               }
@@ -170,27 +172,31 @@
     
   }
   .sell-footer {
-    width: 456px;
-    height: 220px;
-    margin: 0 auto;
-    font-size: 12px;
-    padding: 40px 0;
-    &__box {
-      display: flex;
+    background-color: #272727;
+    color: #fff;
+    &__container {
+      width: 456px;
+      height: 220px;
+      margin: 0 auto;
+      font-size: 12px;
+      padding: 40px 0;
+      &__box {
+        display: flex;
 
-      &__text {
-        margin: auto;
+        &__text {
+          margin: auto;
+        }
       }
+      &__image {
+        margin: 40px auto 0;
+        text-align: center;
+      }
+      &__inc {
+        margin: auto;
+        text-align: center;
+        padding-top: 8px;
+      }    
     }
-    &__image {
-      margin: 40px auto 0;
-      text-align: center;
-    }
-    &__inc {
-      margin: auto;
-      text-align: center;
-      padding-top: 8px;
-    }    
   }
 }
 
@@ -211,7 +217,7 @@
 }
 
 .require {
-  background-color: #ea352d;
+  background-color: #3ccace;
   margin: 0 0 0 8px;
   padding: 2px 4px;
   border-radius: 2px;
