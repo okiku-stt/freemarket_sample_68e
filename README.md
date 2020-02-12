@@ -6,25 +6,24 @@
 |nickname|string|null: false, unique: true, add_index｜
 |email|string|null: false, unique: true, add_index|
 |password|string|null: false|
-|family_name|string|null: false|
-|last_name|string|null: false|
-|j_family_name|string|null: false|
-|j_last_name|string|null: false|
-|birthday_year|integer|null: false|
-|birthday_month|integer|null: false|
-|birthday_day|integer|null: false|
+|family_name|string||
+|last_name|string||
+|j_family_name|string||
+|j_last_name|string||
+|birthday_year|integer||
+|birthday_month|integer||
+|birthday_day|integer||
 ### Association
 - has_one :address
 - has_many :pays
 - has_many: exibitions
-- has_many: comments, through: :exhibitions_users
 - has_one: purchase
 
 ## paysテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|card_nimber|integer|null: false|
+|card_number|integer|null: false|
 |year|integer|null: false|
 |month|integer|null: false|
 ### Association
@@ -55,7 +54,6 @@
 ### Association
 - belongs_to :user
 - has_many :comments
-- has_many: users, through: :exhibitions_users
 - belongs_to :category
 - belongs_to :image
 - belongs_to :purchase
@@ -72,19 +70,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|text|null: false|
-|exhibitions_id|integer|null: false, foreign_key: true|
+|exhibitions_id|integer|null: false,foreign_key: true|
 ### Association
 - has_many :exhibitions
-
-## commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|exhibitions_id|integer|null: false, foreign_key: true|
-|body|text|null: fals|
-### Association
-- belongs_to :user
-- belongs_to :exhibition
 
 ## purchasesテーブル
 |Column|Type|Options|
