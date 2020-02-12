@@ -43,10 +43,14 @@
                 カテゴリー
                 <span class="require">必須</span>
                 .sell.details__box__category__head
+                  = form_with local: true do |form|
+                    = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
               .sell.details__box__status
                 商品の状態
                 <span class="require">必須</span>
                 .sell.details__box__status__head
+                  = form_with local: true do |form|
+                    = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
         .sell.content
           .sell.ship
             .sell.ship__text
@@ -56,14 +60,20 @@
                 配送料の負担
                 <span class="require">必須</span>
                 .sell.ship__box__category__head
+                  = form_with local: true do |form|
+                    = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
               .sell.ship__box__status
                 発送元の地域
                 <span class="require">必須</span>
                 .sell.ship__box__status__head
+                  = form_with local: true do |form|
+                    = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
               .sell.ship__box__status
                 発送までの日数
                 <span class="require">必須</span>
                 .sell.ship__box__status__head
+                  = form_with local: true do |form|
+                    = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
         .sell.content
           .sell.price
             .sell.price__text
