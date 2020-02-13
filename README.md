@@ -37,7 +37,8 @@
 |municipalities|string||
 |address|string||
 |building|string||
-|phone number|integer||
+|postal_code|integer||
+|phone_number|integer||
 ### Association
 - belongs_to :user
 
