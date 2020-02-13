@@ -1,9 +1,9 @@
-.sell.wrapper
-  .sell.header
+.sell-wrapper
+  .sell-header
     = image_tag src="/assets/logo.png", size: "185x49"
-  .sell.body
-    .sell.main
-      %h2.main-head
+  .sell-body
+    .sell-main
+      %h2.sell-main-head
         商品の情報を入力
       .sell-form
         .sell-form__box
@@ -19,107 +19,128 @@
               ドラッグアンドドロップ
               %br
                 またはクリックしてファイルをアップロード
-        .sell.content
-          .sell.name
-            .sell.name__head
-              .sell.name__head__text
+        .sell-content
+          .sell-name
+            .sell-name__head
+              .sell-name__head__text
                 商品名
                 %span.require
                   必須
-            .sell.name__form
+            .sell-name__form
               = form_with local: true do |form|
                 = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
 
-          .sell.description
-            .sell.description__head
-              .sell.description__head__text
+          .sell-description
+            .sell-description__head
+              .sell-description__head__text
                 商品の説明
                 %span.require
                   必須
-            .sell.description__form
+            .sell-description__form
               = form_with local: true do |form|
                 = form.text_area :content, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:'textarea-default'
-        .sell.content
-          .sell.details
-            .sell.details__text
+        .sell-content
+          .sell-details
+            .sell-details__text
               商品の詳細
-            .sell.details__box
-              .sell.details__box__category
+            .sell-details__box
+              .sell-details__box__category
                 カテゴリー
                 %span.require
                   必須
-                .sell.details__box__category__head
+                .sell-select-wrap
                   = form_with local: true do |form|
-                    = form.select :content, [["あああ"],["いいい"],["ううう"]], class:'select-default'
-              .sell.details__box__status
+                    .sell-select-icon
+                      = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                      = icon('fas', 'chevron-down select-icon__allow')
+              .sell-details__box__status
                 商品の状態
                 %span.require
                   必須
-                .sell.details__box__status__head
+                .sell-select-wrap
                   = form_with local: true do |form|
-                    = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
-        .sell.content
-          .sell.ship
-            .sell.ship__text
+                    .sell-select-icon
+                      = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                      = icon('fas', 'chevron-down select-icon__allow')
+        .sell-content
+          .sell-ship
+            .sell-ship__text
               配送について
-            .sell.ship__box
-              .sell.ship__box__category
+              = link_to '?', '/', class: "question"
+            .sell-ship__box
+              .sell-ship__box__category
                 配送料の負担
                 %span.require
                   必須
-                .sell.ship__box__category__head
+                .sell-select-wrap
                   = form_with local: true do |form|
-                    = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
-              .sell.ship__box__status
+                    .sell-select-icon
+                      = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                      = icon('fas', 'chevron-down select-icon__allow')
+              .sell-ship__box__status
                 発送元の地域
                 %span.require
                   必須
-                .sell.ship__box__status__head
+                .sell-select-wrap
                   = form_with local: true do |form|
-                    = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
-              .sell.ship__box__status
+                    .sell-select-icon
+                      = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                      = icon('fas', 'chevron-down select-icon__allow')
+              .sell-ship__box__status
                 発送までの日数
                 %span.require
                   必須
-                .sell.ship__box__status__head
+                .sell-select-wrap
                   = form_with local: true do |form|
-                    = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
-        .sell.content
-          .sell.price
-            .sell.price__text
+                    .sell-select-icon
+                      = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                      = icon('fas', 'chevron-down select-icon__allow')
+        .sell-content
+          .sell-price
+            .sell-price__left
               販売価格(300〜9,999,999)
               = link_to '?', '/', class: "question"
-            .sell.price__box
-              .sell.price__box__category
-                価格
-                %span.require
-                  必須
-                .sell.price__box__category__head
-                  = form_with local: true do |form|
-                    = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
-              .sell.price__box__fee
-                販売手数料 (10%)
-                %span.require
-                  必須
-              .sell.price__box__profit
-                販売利益
-                %span.require
-                  必須
-        .sell.content
-          .sell.btns
-            .sell.btns__text
+            .sell-price__box
+              .sell-price__box__container
+                .sell-price__box__container__text
+                  価格
+                  %span.require
+                    必須
+                .sell-price__box__container__right
+                  .sell-price__box__container__right__money
+                    ¥
+                  .sell-price__box__container__right__select
+                    .sell-select-wrap
+                      = form_with local: true do |form|
+                        .sell-select-icon
+                          = form.number_field :age, class: "form-number", placeholder: "0", min: 1, max: 9999999
+              .sell-price__box__fee
+                .sell-price__box__fee__text
+                  販売手数料 (10%)
+                .sell-price__box__fee__price -
+              .sell-price__box__profit
+                .sell-price__box__profit__text
+                  販売利益
+                  %span.require
+                    必須
+                .sell-price__box__profit__price -
+        .sell-content
+          .sell-btns
+            .sell-btns__text
               = link_to '禁止されている出品', '/', class: "link"
               、
               = link_to '行為', '/', class: "link"
               を必ずご確認ください。
+              %br
               またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+              %br
               また、出品をもちまして
               = link_to '加盟店規約', '/', class: "link"
               に同意したことになります。
-            .sell.btns__btn
-              .sell.btns__btn__up
+            .sell-btns__btn
+              .sell-btns__btn__up
                 出品する
-              .sell.btns__btn__back
+              .sell-btns__btn__back
                 もどる
   .sell-footer
     .sell-footer__container
