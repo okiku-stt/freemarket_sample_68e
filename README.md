@@ -19,7 +19,7 @@
 - has_many: exibitions
 - has_one: purchase
 
-## paysテーブル
+## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
