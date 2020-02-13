@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   root to: "top#index"
   resources :top ,only: :index
   resources :mypage ,only: :index
+  resources :logouts ,only: :index
+  resources :paymethods ,only: :index
+  resources :addresses ,only: :index
+  resources :editmails ,only: :index
   resources :sell ,only: :index
 end
