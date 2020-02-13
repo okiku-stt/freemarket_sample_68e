@@ -42,12 +42,20 @@
             text-align: center;
             padding: 40px;
             border: #ccc dashed 0.5px;
+            font-size: 14px;
+            font-weight: bold;
+            &__text {
+              line-height: 22px;
+              padding: 30px;
+            }
           }
         }
         .sell.content {
           padding: 40px;
           border-top: 1px solid #eee;
-          width: 90%;
+          width: 620px;
+          font-size: 14px;
+          font-weight: bold;
           .sell.name {
             width: 100%;
             margin: 8px 0 0;
@@ -62,6 +70,9 @@
             }
           }
           .sell.description {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 40px;
             &__head {
             display: flex;
             height: 30px;
@@ -76,6 +87,7 @@
             display: flex;
             justify-content: space-between;
             &__text {
+              color: #888;
             }
             &__box {
               width: 400px;
@@ -94,6 +106,7 @@
             display: flex;
             justify-content: space-between;
             &__text {
+              color: #888;
             }
             &__box {
               width: 400px;
@@ -112,17 +125,20 @@
             display: flex;
             justify-content: space-between;
             &__text {
+              color: #888;
             }
             &__box {
               width: 400px;
               &__category {
                 margin-bottom: 40px;
-                &__head {
-                }
               }
-              &__status {
-                &__head {
-                }
+              &__fee {
+                border-top: 1px solid #ccc;
+                padding: 25px 0;
+              }
+              &__profit {
+                border-top: 1px solid #ccc;
+                padding: 25px 0;
               }
             }
           }
@@ -158,11 +174,11 @@
     
   }
   .sell-footer {
-    background-color: #272727;
-    color: #fff;
+    // background-color: #272727;
+    // color: #fff;
     &__container {
       width: 456px;
-      height: 220px;
+      height: 100%;
       margin: 0 auto;
       font-size: 12px;
       padding: 40px 0;
@@ -225,13 +241,33 @@
 }
 
 .form-default {
-  width: 100%;
+  width: 586px;
   margin: 8px 0 0;
-  height: 48px;
+  height: 30px;
   padding: 10px 16px 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
   background: #fff;
   line-height: 1.5;
   font-size: 16px;
+}
+
+.textarea-default {
+  width: 586px;
+  margin: 8px 0 0;
+  height: 122px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.select-default {
+  text-transform: none;
+  width: 100%;
+  margin: 8px 0 0;
+  height: 48px;
+  color: green;
 }

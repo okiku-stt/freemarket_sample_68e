@@ -3,25 +3,29 @@
     = image_tag src="/assets/logo.png", size: "185x49"
   .sell.body
     .sell.main
-      <h2 class="main-head">商品の情報を入力</h2>
+      %h2.main-head
+        商品の情報を入力
       .sell-form
         .sell-form__box
           .sell-form__box__upload
             .sell-form__box__upload__title
               出品画像
-              <span class="require">必須</span>
+              %span.require
+                必須
             .sell-form__box__upload__text
               最大10枚までアップロードできます
           .sell-form__box__dropbox
-            ドラッグアンドドロップ
-            %br
-              またはクリックしてファイルをアップロード
+            .sell-form__box__dropbox__text
+              ドラッグアンドドロップ
+              %br
+                またはクリックしてファイルをアップロード
         .sell.content
           .sell.name
             .sell.name__head
               .sell.name__head__text
                 商品名
-                <span class="require">必須</span>
+                %span.require
+                  必須
             .sell.name__form
               = form_with local: true do |form|
                 = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
@@ -30,10 +34,11 @@
             .sell.description__head
               .sell.description__head__text
                 商品の説明
-                <span class="require">必須</span>
+                %span.require
+                  必須
             .sell.description__form
               = form_with local: true do |form|
-                = form.text_area :content, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:'form-default'
+                = form.text_area :content, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:'textarea-default'
         .sell.content
           .sell.details
             .sell.details__text
@@ -41,13 +46,15 @@
             .sell.details__box
               .sell.details__box__category
                 カテゴリー
-                <span class="require">必須</span>
+                %span.require
+                  必須
                 .sell.details__box__category__head
                   = form_with local: true do |form|
-                    = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
+                    = form.select :content, [["あああ"],["いいい"],["ううう"]], class:'select-default'
               .sell.details__box__status
                 商品の状態
-                <span class="require">必須</span>
+                %span.require
+                  必須
                 .sell.details__box__status__head
                   = form_with local: true do |form|
                     = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
@@ -58,19 +65,22 @@
             .sell.ship__box
               .sell.ship__box__category
                 配送料の負担
-                <span class="require">必須</span>
+                %span.require
+                  必須
                 .sell.ship__box__category__head
                   = form_with local: true do |form|
                     = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
               .sell.ship__box__status
                 発送元の地域
-                <span class="require">必須</span>
+                %span.require
+                  必須
                 .sell.ship__box__status__head
                   = form_with local: true do |form|
                     = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
               .sell.ship__box__status
                 発送までの日数
-                <span class="require">必須</span>
+                %span.require
+                  必須
                 .sell.ship__box__status__head
                   = form_with local: true do |form|
                     = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
@@ -81,13 +91,20 @@
               = link_to '?', '/', class: "question"
             .sell.price__box
               .sell.price__box__category
-                カテゴリー
-                <span class="require">必須</span>
+                価格
+                %span.require
+                  必須
                 .sell.price__box__category__head
-              .sell.price__box__status
-                商品の状態
-                <span class="require">必須</span>
-                .sell.price__box__status__head
+                  = form_with local: true do |form|
+                    = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
+              .sell.price__box__fee
+                販売手数料 (10%)
+                %span.require
+                  必須
+              .sell.price__box__profit
+                販売利益
+                %span.require
+                  必須
         .sell.content
           .sell.btns
             .sell.btns__text
