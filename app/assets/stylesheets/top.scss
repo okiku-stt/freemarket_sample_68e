@@ -1,3 +1,41 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+  top: 0;
+  margin: 0;
+  width: 100%;
+  height: 1000px;
+  background-color: #CCC;
+    .header {
+      height: 25vh;
+      width: 100%;
+      // font-size: 30px;
+      background-color: red;
+      // margin-left: auto;
+      // text-align: center;
+      // margin-right: 50%;
+      .main-header {
+        width: 95%;
+        height: 8vh;
+        background-color: blue;
+      }
+    }
+
+      &__imput{
+        font-family: inherit;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+      }
+
+
+
+
+
+
+
+
+
+
+}
