@@ -1,4 +1,4 @@
-# FreeMarket_sample_68_e  DB設計
+# FreeMarket_sample_68_e   DB設計
 
 ## usersテーブル
 |Column|Type|Options|
