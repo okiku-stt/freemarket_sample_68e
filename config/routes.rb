@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  
   get 'cards/index'
   get 'cards/new'
   get 'cards/show'
