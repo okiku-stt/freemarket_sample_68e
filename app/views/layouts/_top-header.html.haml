@@ -1,6 +1,7 @@
 .top-header
-  .main-header
-    = image_tag src= "http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg"
+  .top-header__left
+    .main-header__left__logo
+      = image_tag "logo.png",size:'140x40'
     = form_with class: "new-message" do |form|
       = form.text_field :text, placeholder: "キーワードから探す", class: "search-box" 
       %button{:type => "submit", class: "search-btn"}
@@ -11,7 +12,9 @@
     .bland-box
       = link_to "ブランド"
     .create-box
-      = link_to "ログイン"
+      = link_to "ログイン" ,user_session_path
     .modern-box
-      = link_to "新規会員登録"
+      = link_to "新規会員登録" ,new_user_registration_path
+    .my-page-link
+      = link_to "マイページ" ,mypage_index_path
   
