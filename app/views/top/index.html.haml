@@ -1,15 +1,46 @@
-.wrapper
-  .header
-    .main-header
-      = image_tag src="/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg" 
-  .main-header_box_input
-    キーワードから探す
-  .main-header_box_laft
-    ブランド
-  .main-header_box_laft-message
-    カテゴリー
-  .main-header_box_right
-    ログイン
-  .main-header_box_right-message
-    新規会員登録
+.top
+  = render "layouts/top-header"
+  .top-upper 
+    .upper-contents
+      
 
+  .top-footer
+    .footer-contents
+      .footer-box
+        FURIMAについて
+        .box-link
+          = link_to "#", class: "aaa" do
+            会社概要 （運営会社）
+        .box-link
+          = link_to "#", class: "aaa" do
+            プライバシー
+        .box-link
+          = link_to "#", class: "aaa" do
+            FURIMA利用規約
+        .box-link
+          = link_to "#", class: "aaa" do
+            ポイントに関する特約
+      .footer-box
+        FURIMAを観る
+        .box-link
+          = link_to "#", class: "aaa" do
+            カテゴリー一覧
+        .box-link
+          = link_to "#", class: "aaa" do
+            ブランド一覧
+      .footer-box
+        ヘルプ＆ガイド
+        .box-link
+          = link_to "#", class: "aaa" do
+            FURIMAガイド
+        .box-link
+          = link_to "#", class: "aaa" do
+            FURIMAロゴ利用ガイドライン
+        .box-link
+          = link_to "#", class: "aaa" do
+            お知らせ
+    .footer-icon-box
+      .footer-icon
+        = image_tag src ="http://furima.tokyo/assets/logo-white-f61961ed5170064c5f33dd4524bdceeb5a5df2c83eb76fba31143f63fbab2c5e.svg"
+      .footer-second-icon
+        &#169;FURIMA

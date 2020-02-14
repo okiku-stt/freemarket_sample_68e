@@ -1,0 +1,17 @@
+.top-header
+  .main-header
+    = image_tag src= "http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg"
+    = form_with class: "new-message" do |form|
+      = form.text_field :text, placeholder: "キーワードから探す", class: "search-box" 
+      %button{:type => "submit", class: "search-btn"}
+        %i.fas.fa-search
+  .item-header
+    .category-box
+      = link_to "カテゴリー"
+    .bland-box
+      = link_to "ブランド"
+    .create-box
+      = link_to "ログイン"
+    .modern-box
+      = link_to "新規会員登録"
+  
