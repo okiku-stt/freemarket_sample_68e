@@ -26,9 +26,9 @@ class User < ApplicationRecord
               with: /[^ -~｡-ﾟ]+/,
               message: "全角のみで入力して下さい"
             }
-  validates :birthday_year, presence: true
-  validates :birthday_month, presence: true
-  validates :birthday_day, presence: true
+  validates :birth_year, presence: true
+  validates :birth_month, presence: true
+  validates :birth_day, presence: true
   has_one :address
   accepts_nested_attributes_for :address
   has_many :pays

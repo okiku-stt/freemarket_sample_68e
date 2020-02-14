@@ -10,9 +10,9 @@
 |last_name|string|null: false|
 |j_family_name|string|null: false|
 |j_last_name|string|null: false|
-|birthday_year|integer|null: false|
-|birthday_month|integer|null: false|
-|birthday_day|integer|null: false|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
 ### Association
 - has_one :address
 - has_many :pays
