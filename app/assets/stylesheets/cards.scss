@@ -1,3 +1,269 @@
-// Place all the styles related to the cards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* { 
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  color: #333333;
+}
+.card-wrapper {
+  width: 100%;
+  background-color: #f5f5f5;
+  .card-header {
+    width: 100%;
+    height: 20vh;
+    background-color: chartreuse;
+    filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
+    margin-bottom: 50px;
+  }
+  .card-body {
+    padding: 0 200px;
+    display: flex;
+    justify-content: space-between;
+    .card-contents {
+      width: 700px;
+      height: 562px;
+      background-color: white;
+      .card-head {
+        height: 48px;
+        width: 700px;
+        background-color: #ffffff;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 50px;
+        border-bottom: 2px solid #eeeeee;
+      }
+      .card-details {
+        max-width: 343px;
+        margin: 20px auto;
+        width: 700px;
+        height: 492px;
+        background-color: #ffffff;
+        .form-group {
+          display: flex;
+          .card-details-document {
+            font-weight: bold;
+            font-size: 14px;
+          }
+          .priority {
+            color: #ffffff;
+            background-color: red;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 2px;
+          }
+          .card-blands {
+            margin: 8px 0 0;
+            display: flex;
+            height: 25px;
+            .card-image {
+              height: 25px;
+              margin-right: 18px;
+            }
+          }
+          .card-input {
+            #card_number {
+              width: 311px;
+              height: 48px;
+              margin: 8px 0 0;
+              padding: 0 16px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+            }
+            
+          }
+          .card-limit{
+            margin: 32px 0 0;
+          }
+          .input-card-date {
+            display: flex;
+            justify-content: flex-start;
+            &__month {
+              margin-top: 8px;
+              display: inline-block;
+              width: calc(50% - 2px);
+              height: 48px;
+              // background-color: forestgreen;
+              #exp_month {
+                width: 131.5px;
+                height: 48px;
+                border-radius: 4px;
+                border: 1px solid rgb(223, 221, 221);
+                background-color: #ffffff;
+                padding: 0 16px;
+                text-align: center;
+              }
+            }
+            &__year {
+              margin-top: 8px;
+              display: inline-block;
+              width: calc(50% - 2px);
+              height: 48px;
+              // background-color: hotpink;
+              #exp_year {
+                width: 131.5px;
+                height: 48px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background-color: #ffffff;
+                text-align: center;
+              }
+            }
+            .input-card-between {
+              margin-left: 10px;
+              font-size: 14px;
+            }
+          }
+          #cvc {
+            width: 311px;
+            height: 48px;
+            margin: 8px 0 0;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+          }
+          .security-box {
+            margin: 32px 0 0;
+          }
+          .why-card-backnumber{
+            width: 175px;
+            height: 21px;
+            float: right;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            &__text {
+              font-size: 12px;
+              color: #0099E8;
+              float: right;
+              margin-top: 3px;
+              display: flex;
+              justify-content: flex-end;
+              .question {
+                margin-top: 3px;
+                font-size: 12px;
+                line-height: 14px;
+                text-align: center;
+                color: #ffffff;
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+                background: #0099E8;
+                border-radius: 50%;
+              }
+              .question-body {
+                font-size: 14px;
+                color: #0099E8;
+                margin-right: 6px;
+              }
+            }
+            .card-description {
+              position: absolute;
+              top: 21px;
+              left: -182px;
+              background-color: #eeeeee;
+              width: 315px;
+              height: 150px;
+              border-radius: 6px;
+              padding: 16px;
+              text-align: center;
+              display: none;
+              z-index: 3;
+              &__text {
+                font-size: 14px;
+                padding-bottom: 15px;
+              }
+            }
+          }
+          #card_token {
+            margin: 55px 0 0;
+          }
+          #token_submit {
+            background-color: #EA352D;
+            color: #FFFFFF;
+            width: 343px;
+            height: 48px;
+            cursor: pointer;
+            user-select: none;
+          }
+        }
+      }
+      
+    }
+    // ここからindexページの装飾
+    .card-contents-registration{
+      width: 700px;
+      height: 380px;
+      // padding: 64px;
+      background-color: white;
+      .card-head-registration {
+        height: 48px;
+        width: 700px;
+        background-color: #ffffff;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 50px;
+        border-bottom: 2px solid #eeeeee;
+        margin-bottom: 64px;
+      }
+      .card-details-registration {
+        max-width: 343px;
+        margin: 0 64px;
+        &__section {
+          width: 572px;
+          height: 16px;
+          margin-left: 112px;
+          .card-font {
+            font-weight: bold;
+          }
+        }
+        &__submit-box {
+          width: 572px;
+          height: 107px;
+          border-bottom: 2px solid #eeeeee;
+          text-align: center;
+          #token_submit {
+            background-color: #EA352D;
+            color: #FFFFFF;
+            width: 343px;
+            height: 48px;
+            cursor: pointer;
+            user-select: none;
+            display: inline-block;
+            line-height: 48px;
+            margin-top: 30px;
+          }
+        }
+        
+      }
+      .card-pay-style {
+        margin: 45px 60px 0 0;
+        float: right;
+        color: #0099e8;
+        .pay-document {
+          color: #0099e8;
+          font-size: 14px;
+        }
+        #chevron-right {
+          color: #0099e8;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .card-footer {
+    padding-top: 40px;
+    width: 100%;
+    height: 520px;
+    .card-top-footer{
+      width: 100%;
+      height: 260px;
+      background-color: indianred;
+    }
+    .card-bottom-footer {
+      width: 100%;
+      height: 260px;
+      background-color: darkcyan;
+    }
+    
+  }
+}

@@ -1,2 +1,20 @@
-%h1 Cards#index
-%p Find me in app/views/cards/index.html.haml
+.card-wrapper
+  .card-header
+  .card-body
+    = render "shared/mypage_flex_left"
+    .card-contents-registration
+      .card-head-registration
+        支払い方法
+      .card-details-registration
+        .card-details-registration__section
+          %p.card-font クレジットカード一覧
+        .card-details-registration__submit-box
+          = link_to "クレジットカードを追加する", new_card_path, method: :get, id: "token_submit"
+      .card-pay-style
+        = link_to  root_path do
+          %span.pay-document 支払い方法について
+          = icon("fas", "chevron-right", id: "chevron-right")
+  .card-footer
+    .card-top-footer
+    .card-bottom-footer
+  

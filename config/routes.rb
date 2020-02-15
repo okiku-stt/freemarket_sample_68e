@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :top ,only: :index
   resources :mypage ,only: :index
   resources :sell ,only: :index
+  resources :cards ,only: [:index, :new, :create, :show]
 end
