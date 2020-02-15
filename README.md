@@ -6,13 +6,13 @@
 |nickname|string|null: false, unique: true, add_index｜
 |email|string|null: false, unique: true, add_index|
 |password|string|null: false|
-|family_name|string||
-|last_name|string||
-|j_family_name|string||
-|j_last_name|string||
-|birthday_year|integer||
-|birthday_month|integer||
-|birthday_day|integer||
+|family_name|string|null: false|
+|last_name|string|null: false|
+|j_family_name|string|null: false|
+|j_last_name|string|null: false|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
 ### Association
 - has_one :address
 - has_many :pays
@@ -34,11 +34,15 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|prefectures|string||
-|municipalities|string||
-|address|string||
+|ship_family_name|string|null: false|
+|ship_last_name|string|null: false|
+|ship_j_family_name|string|null: false|
+|ship_j_last_name|string|null: false|
+|postal_code|integer|null: false|
+|prefectures|string|null: false|
+|municipalities|string|null: false|
+|house_number|string|null: false|
 |building|string||
-|postal_code|integer||
 |phone_number|integer||
 ### Association
 - belongs_to :user
