@@ -18,6 +18,7 @@
         padding: 32px 16px;
         font-size: 22px;
         margin: 0;
+        font-weight: bold;
       }      
       .sell-form {
         background-color: #fff;
@@ -74,13 +75,12 @@
           }
           .sell-description {
             font-size: 14px;
-            font-weight: bold;
             margin-top: 40px;
             &__head {
             display: flex;
             height: 30px;
               &__text {
-                
+                font-weight: bold;                
               }
             }
             &__form {
@@ -197,34 +197,45 @@
       }
     }
   }
-  .sell-footer {
-    // background-color: #272727;
-    // color: #fff;
-    &__container {
+}   
+
+.sell-footer {
+  &__container {
+    width: 456px;
+    height: 100%;
+    margin: 0 auto;
+    font-size: 12px;
+    padding: 40px 0;
+    &__box {
+      // display: flex;
+      // justify-content: space-around;
       width: 456px;
-      height: 100%;
-      margin: 0 auto;
-      font-size: 12px;
-      padding: 40px 0;
-      &__box {
-        display: flex;
-        &__text {
-          margin: auto;
-        }
-      }
-      &__image {
-        margin: 40px auto 0;
-        text-align: center;
-      }
-      &__inc {
-        margin: auto;
-        text-align: center;
-        padding-top: 8px;
-      }    
+      // &__text {
+      //   margin: 0 auto;
+      //   width: 100%;
+      //   display: block;
+      // }
     }
+    &__image {
+      margin: 40px auto 0;
+      text-align: center;
+    }
+    &__inc {
+      margin: auto;
+      text-align: center;
+      padding-top: 8px;
+    }    
   }
 }
 
+ul.buy {
+  display: flex;
+  justify-content: space-evenly;
+  li.buy {
+    list-style: none;
+  }
+}
+ 
 .link {
   text-decoration: none;
   color: #0099e8;
@@ -306,15 +317,40 @@
       appearance: none;
       cursor: pointer;
     }
-    &__allow {
-      position: absolute;
-      right: 5px;
-      top: 50%;
-      z-index: 2;
-      color: #888;
-      font-size: 20px;
-      -webkit-transform: translate(0, -50%);
-      transform: translate(0, -50%);
-    }
+      &__allow {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        z-index: 2;
+        color: #888;
+        font-size: 20px;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+      }
   }
 }
+//   .icon-arrow-bottom {
+//     position: absolute;
+//     right: 16px;
+//     top: 50%;
+//     z-index: 2;
+//     color: #888;
+//     font-size: 8px;
+//   }
+//   .sell-select-default {
+//     position: relative;
+//     z-index: 2;
+//     height: 48px;
+//     padding: 0 16px;
+//     border-radius: 4px;
+//     border: 1px solid #ccc;
+//     background: 0;
+//     font-size: 16px;
+//     line-height: 1.5;
+//     cursor: pointer;
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//     appearance: none;
+//   }
+// }
+

@@ -62,6 +62,14 @@
                     .sell-select-icon
                       = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
                       = icon('fas', 'chevron-down select-icon__allow')
+
+                -# .sell-select-wrap
+                -#   %i.icon-arrow-bottom
+                -#   = form_with local: true do |form|
+                -#     = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                -#     = icon('fas', 'chevron-down select-icon__allow')
+
+
         .sell-content
           .sell-ship
             .sell-ship__text
@@ -145,13 +153,15 @@
   .sell-footer
     .sell-footer__container
       .sell-footer__container__box
-        .sell-footer__container__box__text
-          プライバシーポリシー
-          メルカリ利用規約
-          特定商取引に関する表記
+        %ul.buy
+          %li.buy
+            = link_to 'プライバシーポリシー', '/', class: "buy-link"
+          %li.buy
+            = link_to 'メルカリ利用規約', '/', class: "buy-link"
+          %li.buy
+            = link_to '特定商取引に関する表記', '/', class: "buy-link"
       .sell-footer__container__image
-        = image_tag src="/assets/logo-white.png", size: "160x46"
+        = image_tag src="http://furima.tokyo/assets/logo-white-f61961ed5170064c5f33dd4524bdceeb5a5df2c83eb76fba31143f63fbab2c5e.svg", size: "160x46"
       .sell-footer__container__inc
         © FURIMA
 
- 
