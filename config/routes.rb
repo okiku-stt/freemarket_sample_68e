@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :editmails ,only: :index
   resources :sell ,only: :index
   resources :cards ,only: [:index,:new,:show]
+  resources :buy ,only: :index
 end
