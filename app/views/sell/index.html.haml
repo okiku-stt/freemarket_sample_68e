@@ -1,6 +1,7 @@
 .sell-wrapper
   .sell-header
-    = image_tag src="/assets/logo.png", size: "185x49"
+    = link_to root_path do
+      = image_tag src="/assets/logo.png", size: "185x49"
   .sell-body
     .sell-main
       %h2.sell-main-head
@@ -52,7 +53,7 @@
                   = form_with local: true do |form|
                     .sell-select-icon
                       = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
-                      = icon('fas', 'chevron-down select-icon__allow')
+                      = icon('fas', 'chevron-down sell-select-icon__allow')
               .sell-details__box__status
                 商品の状態
                 %span.require
@@ -61,12 +62,11 @@
                   = form_with local: true do |form|
                     .sell-select-icon
                       = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
-                      = icon('fas', 'chevron-down select-icon__allow')
+                      = icon('fas', 'chevron-down sell-select-icon__allow')
         .sell-content
           .sell-ship
             .sell-ship__text
               配送について
-              = link_to '?', '/', class: "question"
             .sell-ship__box
               .sell-ship__box__category
                 配送料の負担
@@ -76,7 +76,7 @@
                   = form_with local: true do |form|
                     .sell-select-icon
                       = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
-                      = icon('fas', 'chevron-down select-icon__allow')
+                      = icon('fas', 'chevron-down sell-select-icon__allow')
               .sell-ship__box__status
                 発送元の地域
                 %span.require
@@ -85,7 +85,7 @@
                   = form_with local: true do |form|
                     .sell-select-icon
                       = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
-                      = icon('fas', 'chevron-down select-icon__allow')
+                      = icon('fas', 'chevron-down sell-select-icon__allow')
               .sell-ship__box__status
                 発送までの日数
                 %span.require
@@ -94,12 +94,11 @@
                   = form_with local: true do |form|
                     .sell-select-icon
                       = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
-                      = icon('fas', 'chevron-down select-icon__allow')
+                      = icon('fas', 'chevron-down sell-select-icon__allow')
         .sell-content
           .sell-price
             .sell-price__left
               販売価格(300〜9,999,999)
-              = link_to '?', '/', class: "question"
             .sell-price__box
               .sell-price__box__container
                 .sell-price__box__container__text
@@ -145,13 +144,15 @@
   .sell-footer
     .sell-footer__container
       .sell-footer__container__box
-        .sell-footer__container__box__text
-          プライバシーポリシー
-          メルカリ利用規約
-          特定商取引に関する表記
+        %ul.buy
+          %li.buy
+            = link_to 'プライバシーポリシー', '/', class: "buy-link"
+          %li.buy
+            = link_to 'FURIMA利用規約', '/', class: "buy-link"
+          %li.buy
+            = link_to '特定商取引に関する表記', '/', class: "buy-link"
       .sell-footer__container__image
-        = image_tag src="/assets/logo-white.png", size: "160x46"
+        = image_tag src="http://furima.tokyo/assets/logo-white-f61961ed5170064c5f33dd4524bdceeb5a5df2c83eb76fba31143f63fbab2c5e.svg", size: "160x46"
       .sell-footer__container__inc
         © FURIMA
 
- 
