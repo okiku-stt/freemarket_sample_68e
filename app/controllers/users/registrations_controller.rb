@@ -13,8 +13,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    user = User.new(configure_sign_up_params)
-    user.save
   end
 
   # GET /resource/edit
