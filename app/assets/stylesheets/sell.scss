@@ -251,19 +251,6 @@ ul.buy {
   vertical-align: top;
 }
 
-.question {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #0099e8;
-  color: #fff;
-  line-height: 14px;
-  font-size: 12px;
-  text-align: center;
-  text-decoration: none;
-}
-
 .form-default {
   width: 586px;
   margin: 8px 0 0;
@@ -316,41 +303,17 @@ ul.buy {
       -moz-appearance: none;
       appearance: none;
       cursor: pointer;
+      padding: 0 30px;
     }
-      &__allow {
-        position: absolute;
-        right: 5px;
-        top: 50%;
-        z-index: 2;
-        color: #888;
-        font-size: 20px;
-        -webkit-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-      }
+    &__allow {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      z-index: 2;
+      color: #888;
+      font-size: 20px;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+    }
   }
 }
-//   .icon-arrow-bottom {
-//     position: absolute;
-//     right: 16px;
-//     top: 50%;
-//     z-index: 2;
-//     color: #888;
-//     font-size: 8px;
-//   }
-//   .sell-select-default {
-//     position: relative;
-//     z-index: 2;
-//     height: 48px;
-//     padding: 0 16px;
-//     border-radius: 4px;
-//     border: 1px solid #ccc;
-//     background: 0;
-//     font-size: 16px;
-//     line-height: 1.5;
-//     cursor: pointer;
-//     -webkit-appearance: none;
-//     -moz-appearance: none;
-//     appearance: none;
-//   }
-// }
-
