@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :top ,only: :index
   resources :mypage ,only: :index
   resources :sell ,only: :index
-
+  resources :exhibitions ,only: :index
+  resources :images ,only: :index
 end
