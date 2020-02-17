@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :addresses ,only: :index
   resources :editmails ,only: :index
   resources :sell ,only: :index
+  resources :exhibitions ,only: :index
+  resources :images ,only: :index
   resources :cards ,only: [:index, :new, :create, :show]
 
 end
