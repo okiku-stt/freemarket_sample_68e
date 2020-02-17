@@ -18,6 +18,7 @@
         padding: 32px 16px;
         font-size: 22px;
         margin: 0;
+        font-weight: bold;
       }      
       .sell-form {
         background-color: #fff;
@@ -50,7 +51,7 @@
             font-weight: bold;
             &__text {
               line-height: 22px;
-              padding: 30px;
+              padding: 23px;
             }
           }
         }
@@ -74,13 +75,12 @@
           }
           .sell-description {
             font-size: 14px;
-            font-weight: bold;
             margin-top: 40px;
             &__head {
             display: flex;
             height: 30px;
               &__text {
-                
+                font-weight: bold;                
               }
             }
             &__form {
@@ -197,34 +197,38 @@
       }
     }
   }
-  .sell-footer {
-    // background-color: #272727;
-    // color: #fff;
-    &__container {
+}   
+
+.sell-footer {
+  &__container {
+    width: 456px;
+    height: 100%;
+    margin: 0 auto;
+    font-size: 12px;
+    padding: 40px 0;
+    &__box {
       width: 456px;
-      height: 100%;
-      margin: 0 auto;
-      font-size: 12px;
-      padding: 40px 0;
-      &__box {
-        display: flex;
-        &__text {
-          margin: auto;
-        }
-      }
-      &__image {
-        margin: 40px auto 0;
-        text-align: center;
-      }
-      &__inc {
-        margin: auto;
-        text-align: center;
-        padding-top: 8px;
-      }    
     }
+    &__image {
+      margin: 40px auto 0;
+      text-align: center;
+    }
+    &__inc {
+      margin: auto;
+      text-align: center;
+      padding-top: 8px;
+    }    
   }
 }
 
+ul.buy {
+  display: flex;
+  justify-content: space-evenly;
+  li.buy {
+    list-style: none;
+  }
+}
+ 
 .link {
   text-decoration: none;
   color: #0099e8;
@@ -238,19 +242,6 @@
   color: #fff;
   font-size: 12px;
   vertical-align: top;
-}
-
-.question {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #0099e8;
-  color: #fff;
-  line-height: 14px;
-  font-size: 12px;
-  text-align: center;
-  text-decoration: none;
 }
 
 .form-default {
@@ -305,10 +296,11 @@
       -moz-appearance: none;
       appearance: none;
       cursor: pointer;
+      padding: 0 30px;
     }
     &__allow {
       position: absolute;
-      right: 5px;
+      right: 14px;
       top: 50%;
       z-index: 2;
       color: #888;
