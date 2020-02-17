@@ -1,3 +1,312 @@
-// Place all the styles related to the sell controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.sell-wrapper {
+  background-color:rgb(245, 245, 245);
+  height: 100%;
+  width: 100%;
+  .sell-header {
+    text-align: center;
+    height: 90px;
+    line-height: 128px;
+  }
+  .sell-body {
+    .sell-main {
+      width: 700px;
+      height: 100%;
+      margin: 0 auto;
+      background-color: #fff;
+      .sell-main-head {
+        text-align: center;
+        padding: 32px 16px;
+        font-size: 22px;
+        margin: 0;
+        font-weight: bold;
+      }      
+      .sell-form {
+        background-color: #fff;
+        height: 100%;
+        border-top: solid 1px #eee;
+        .sell-img-box {
+          width: 620px;
+          padding: 40px;
+          &__upload {
+            width: 620px;
+            height: 60px;
+            &__title {
+              font-weight: bold;
+            }
+            &__text {
+              font-size: 15px;
+              margin-top: 8px;
+              font-size: 13px;
+            }
+          }
+          &__dropbox {
+            width: 540px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 40px;
+            border: #ccc dashed 0.5px;
+            font-size: 14px;
+            font-weight: bold;
+            &__text {
+              line-height: 22px;
+              padding: 23px;
+            }
+          }
+        }
+        .sell-content {
+          padding: 40px;
+          border-top: 1px solid #eee;
+          width: 620px;
+          font-size: 14px;
+          .sell-name {
+            width: 100%;
+            margin: 8px 0 0;
+            &__head {
+            display: flex;
+            height: 30px;
+              &__text {
+                font-weight: bold;                
+              }
+            }
+            &__form {
+            }
+          }
+          .sell-description {
+            font-size: 14px;
+            margin-top: 40px;
+            &__head {
+            display: flex;
+            height: 30px;
+              &__text {
+                font-weight: bold;                
+              }
+            }
+            &__form {
+            }
+          }
+          .sell-details {
+            display: flex;
+            justify-content: space-between;
+            &__text {
+              color: #888;
+            }
+            &__box {
+              width: 400px;
+              font-weight: bold;
+              &__category {
+                &__head {
+                  margin-bottom: 40px;
+                }
+              }
+              &__status {
+                margin-top: 40px;
+              }
+            }
+          }
+          .sell-ship {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            &__text {
+              color: #888;
+            }
+            &__box {
+              width: 400px;
+              &__category {
+                margin-bottom: 40px;
+              }
+              &__status {
+                margin-top: 40px;
+              }
+            }
+          }
+          .sell-price {
+            display: flex;
+            justify-content: space-between;
+            &__left {
+              color: #888;
+            }
+            &__box {
+              width: 400px;
+              &__container {
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 12px;
+                &__text {
+                  font-weight: bold;
+                  width: 96px;
+                  height: 19px;
+                }
+                &__right {
+                  display: flex;
+                  &__money {
+                    margin-right: 8px;
+                    line-height: 57px;
+                  }
+                  &__select {
+                    width: 200px;
+                  }
+                }
+              }
+              &__fee {
+                border-top: 1px solid #ccc;
+                padding: 25px 0;
+                display: flex;
+                justify-content: space-between;
+              }
+              &__profit {
+                border-top: 1px solid #ccc;
+                padding: 25px 0;
+                font-weight: bold;
+                font-size: 16px;
+                display: flex;
+                justify-content: space-between;
+                &__price {
+                  font-size: 34px;
+                }
+              }
+              
+            }
+          }
+          .sell-btns {
+            font-size: 14px;
+            &__text {
+            }
+            &__btn {
+              text-align: center;
+              &__up {
+                height: 50px;
+                margin-top: 40px;
+                background-color: #3ccace;
+                line-height: 50px;
+                color: white;
+              }
+              &__back {
+                height: 50px;
+                background-color: #aaaaaa;
+                line-height: 50px;
+                color: white;
+                width: 45%;
+                margin: 24px auto 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}   
+
+.sell-footer {
+  &__container {
+    width: 456px;
+    height: 100%;
+    margin: 0 auto;
+    font-size: 12px;
+    padding: 40px 0;
+    &__box {
+      width: 456px;
+    }
+    &__image {
+      margin: 40px auto 0;
+      text-align: center;
+    }
+    &__inc {
+      margin: auto;
+      text-align: center;
+      padding-top: 8px;
+    }    
+  }
+}
+
+ul.buy {
+  display: flex;
+  justify-content: space-evenly;
+  li.buy {
+    list-style: none;
+  }
+}
+ 
+.link {
+  text-decoration: none;
+  color: #0099e8;
+}
+
+.require {
+  background-color: #3ccace;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.form-default {
+  width: 586px;
+  margin: 8px 0 0;
+  height: 30px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.form-number {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  height: 48px;
+  margin: 0;
+  outline: none;
+  padding: 0 16px;
+  width: 200px;
+  text-align: right;
+}
+
+.textarea-default {
+  width: 586px;
+  margin: 8px 0 0;
+  height: 122px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.sell-select-wrap {
+  .sell-select-icon {
+    position: relative;
+    margin-top: 4px;
+    .sell-select-default {
+      height: 48px;
+      width: 100%;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      padding: 0 30px;
+    }
+    &__allow {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      z-index: 2;
+      color: #888;
+      font-size: 20px;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+    }
+  }
+}
