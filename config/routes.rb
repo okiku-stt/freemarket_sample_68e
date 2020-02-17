@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :paymethods ,only: :index
   resources :addresses ,only: :index
   resources :editmails ,only: :index
-  resources :sell ,only: :index
+  resources :sell, only: :index
   resources :buy ,only: :index
-  resources :exhibitions ,only: :index
+  resources :exhibitions ,only: [:index, :new, :create]
   resources :images ,only: :index
   resources :cards ,only: [:index, :new, :create, :show]
 
