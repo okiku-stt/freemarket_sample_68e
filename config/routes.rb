@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :editmails ,only: :index
   resources :sell ,only: :index
   resources :buy ,only: :index
+  resources :exhibitions ,only: :index
+  resources :images ,only: :index
   resources :cards ,only: [:index, :new, :create, :show]
 
 end
