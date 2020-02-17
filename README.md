@@ -26,6 +26,7 @@
 |card_number|integer|null: false|
 |year|integer|null: false|
 |month|integer|null: false|
+|
 ### Association
 - belongs_to :user
 
