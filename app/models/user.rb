@@ -29,7 +29,7 @@ class User < ApplicationRecord
   validates :birth_year, presence: true
   validates :birth_month, presence: true
   validates :birth_day, presence: true
-  has_one :address
+  has_one :address, inverse_of: :user
   accepts_nested_attributes_for :address
   has_many :pays
   has_many :exibitions
