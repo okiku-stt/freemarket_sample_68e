@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2020_02_13_085155) do
 ActiveRecord::Schema.define(version: 2020_02_13_042142) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -24,6 +25,15 @@ ActiveRecord::Schema.define(version: 2020_02_13_042142) do
     t.string "house_number", null: false
     t.string "building"
     t.integer "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "card_number", null: false
+    t.integer "year", null: false
+    t.integer "month", null: false
+    t.integer "security_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
