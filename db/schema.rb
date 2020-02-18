@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_02_13_042142) do
-ActiveRecord::Schema.define(version: 2020_02_13_085155) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -29,16 +28,6 @@ ActiveRecord::Schema.define(version: 2020_02_13_085155) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "card_number", null: false
-    t.integer "year", null: false
-    t.integer "month", null: false
-    t.integer "security_number", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-
   create_table "exhibitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "categorys_id", null: false
@@ -47,6 +36,8 @@ ActiveRecord::Schema.define(version: 2020_02_13_085155) do
     t.string "shipping_area", null: false
     t.string "shipping_date", null: false
     t.integer "price", null: false
+    t.string "item_name", null: false
+    t.string "item_status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -56,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_02_13_085155) do
     t.integer "exhibitions_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
@@ -75,7 +67,6 @@ ActiveRecord::Schema.define(version: 2020_02_13_085155) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
   end
 
 end
