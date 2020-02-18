@@ -8,6 +8,8 @@ class CreateExhibitions < ActiveRecord::Migration[5.2]
       t.string  :shipping_area,          null: false
       t.string  :shipping_date,         null: false
       t.integer :price,                 null: false
+      t.string  :item_name,             null: false
+      t.string  :item_status,           null: false
       t.timestamps
     end
   end
