@@ -91,9 +91,9 @@
                 %span.require
                   必須
                 .sell-select-wrap
-                  = form_with local: true do |form|
+                  = form_with(model:@exhibition,local: true) do |form|
                     .sell-select-icon
-                      = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                      = form.select :shipping_date, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
                       = icon('fas', 'chevron-down sell-select-icon__allow')
         .sell-content
           .sell-price
@@ -110,9 +110,10 @@
                     ¥
                   .sell-price__box__container__right__select
                     .sell-select-wrap
-                      = form_with(model: @exhibition, local: true) do |form|
-                        .sell-select-icon
-                          = form.number_field :price, class: "sell-form-number", placeholder: "0", min: 1, max: 9999999
+                      -# = form_with(model: @exhibition, local: true) do |form|
+                      -# .sell-select-icon
+                      = form.number_field :price, class: "sell-form-number", placeholder: "0", min: 1, max: 9999999
+                      = form.submit '出品する', class: 'sell-btns__btn__up'
               .sell-price__box__fee
                 .sell-price__box__fee__text
                   販売手数料 (10%)
@@ -139,7 +140,7 @@
             .sell-btns__btn
               = form_with(model: @exhibition, local: true) do |form|
                 .sell-select-icon
-                  = form.submit '出品する', class: 'sell-btns__btn__up'
+                  -# = form.submit '出品する', class: 'sell-btns__btn__up'
               .sell-btns__btn__back
                 = link_to 'もどる', exhibitions_path, class: "sell-link__back"
   .sell-footer
