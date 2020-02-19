@@ -8,9 +8,19 @@ class ExhibitionsController < ApplicationController
   end
   
   def create
-    @exhibition = Exhibition.create(exhibition_params)
-    redirect_to exhibitions_path
+    @exhibition = Exhibition.new(exhibition_params)
+    if @exhibition.save
+      redirect_to modal_exhibitions_path
+    else
+      render new_exhibition_path
+    end
+
   end
+
+  def modal
+    
+  end
+
 
   private
   def exhibition_params

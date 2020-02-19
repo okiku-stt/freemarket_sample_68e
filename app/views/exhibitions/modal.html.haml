@@ -1,0 +1,10 @@
+.modal.js-modal
+  .modal__bg.js-modal-close
+  .modal__content
+    .modal__content__border
+    %h2.modal__content__head
+      出品が完了しました。
+    .sell-select-icon
+      = link_to '続けて出品する', new_exhibition_path, class: "sell-link__continue"
+      = link_to 'トップページにもどる', root_path, class: "modal__content__link"
+

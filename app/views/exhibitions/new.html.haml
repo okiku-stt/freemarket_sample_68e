@@ -8,6 +8,8 @@
         商品の情報を入力
       
       = form_with(model:@exhibition,local: true,class: "sell-form") do |form|
+        -# = render 'layouts/error_messages'
+        -# = yield
         .sell-img-box
           .sell-img-box__upload
             .sell-img-box__upload__title
@@ -128,10 +130,9 @@
               また、出品をもちまして
               = link_to '加盟店規約', '/', class: "sell-link__note"
               に同意したことになります。
-          .sell-btns__btn
-            .sell-select-icon
-              = form.submit '出品する', class: 'sell-btns__btn__up'
-                
+            .sell-btns__btn
+              .sell-select-icon
+                = form.submit '出品する', class: 'sell-btns__btn__up'
               .sell-btns__btn__back
                 = link_to 'もどる', exhibitions_path, class: "sell-link__back"
   .sell-footer
