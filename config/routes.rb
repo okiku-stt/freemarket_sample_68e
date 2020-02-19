@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
   } 
   root to: "top#index"
+  resources :exhibitions ,only: [:index, :new, :create, :show, :destroy, :edit, :update]
   resources :mypage ,only: :index
   resources :logouts ,only: :index
   resources :paymethods ,only: :index
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
     end
   end
   resources :buy ,only: :index
-  resources :exhibitions ,only: :index
+  # resources :exhibitions ,only: [:index, :destroy, :edit, :update]
   resources :images ,only: :index
   resources :cards ,only: [:index, :new, :create, :show]
 
