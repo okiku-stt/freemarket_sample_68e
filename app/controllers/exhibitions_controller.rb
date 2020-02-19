@@ -1,4 +1,5 @@
 class ExhibitionsController < ApplicationController
+
   before_action :set_exhibition, only: [:show]
   def index
     # if user_signed_in?
@@ -20,6 +21,7 @@ class ExhibitionsController < ApplicationController
   def create
 
   end
+
 
   private
 

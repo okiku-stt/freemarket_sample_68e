@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: "users/sessions",
+
   }
   root to: "exhibitions#index"
   resources :exhibitions ,only: [:show]
+
+ 
   resources :mypage ,only: :index
   resources :logouts ,only: :index
   resources :paymethods ,only: :index
