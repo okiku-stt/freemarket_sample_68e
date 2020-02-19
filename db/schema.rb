@@ -38,6 +38,11 @@ ActiveRecord::Schema.define(version: 2020_02_13_085155) do
   end
 
   create_table "exhibitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "categorys_id", null: false
+    t.integer "bland_id", null: false
+    t.string "shipping_charges", null: false
+    t.string "shipping_area", null: false
     t.string "shipping_date", null: false
     t.integer "price", null: false
     t.datetime "created_at", null: false

@@ -24,6 +24,6 @@ class ExhibitionsController < ApplicationController
 
   private
   def exhibition_params
-    params.require(:exhibition).permit(:price,:shipping_date)
+    params.require(:exhibition).permit(:price,:shipping_date,:shipping_area,:shipping_charges,:bland_id,:categorys_id,:user_id)
   end
 end
