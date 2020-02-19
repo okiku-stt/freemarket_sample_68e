@@ -6,7 +6,8 @@
     .sell-main
       %h2.sell-main-head
         商品の情報を入力
-      .sell-form
+      
+      = form_with(model:@exhibition,local: true,class: "sell-form") do |form|
         .sell-img-box
           .sell-img-box__upload
             .sell-img-box__upload__title
@@ -28,18 +29,16 @@
                 %span.require
                   必須
             .sell-name__form
-              = form_with local: true do |form|
-                = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'form-default'
+              = form.text_field :content, placeholder: "商品名（必須40文字まで）", class:'sell-form-default'
 
-          .sell-description
-            .sell-description__head
-              .sell-description__head__text
-                商品の説明
-                %span.require
-                  必須
-            .sell-description__form
-              = form_with local: true do |form|
-                = form.text_area :content, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:'textarea-default'
+            .sell-description
+              .sell-description__head
+                .sell-description__head__text
+                  商品の説明
+                  %span.require
+                    必須
+              .sell-description__form
+                = form.text_area :content, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:'sell-textarea-default'
         .sell-content
           .sell-details
             .sell-details__text
@@ -50,19 +49,17 @@
                 %span.require
                   必須
                 .sell-select-wrap
-                  = form_with local: true do |form|
-                    .sell-select-icon
-                      = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
-                      = icon('fas', 'chevron-down sell-select-icon__allow')
+                  .sell-select-icon
+                    = form.select :categorys_id, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                    = icon('fas', 'chevron-down sell-select-icon__allow')
               .sell-details__box__status
                 商品の状態
                 %span.require
                   必須
                 .sell-select-wrap
-                  = form_with local: true do |form|
-                    .sell-select-icon
-                      = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
-                      = icon('fas', 'chevron-down sell-select-icon__allow')
+                  .sell-select-icon
+                    = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                    = icon('fas', 'chevron-down sell-select-icon__allow')
         .sell-content
           .sell-ship
             .sell-ship__text
@@ -73,28 +70,25 @@
                 %span.require
                   必須
                 .sell-select-wrap
-                  = form_with local: true do |form|
-                    .sell-select-icon
-                      = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
-                      = icon('fas', 'chevron-down sell-select-icon__allow')
+                  .sell-select-icon
+                    = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                    = icon('fas', 'chevron-down sell-select-icon__allow')
               .sell-ship__box__status
                 発送元の地域
                 %span.require
                   必須
                 .sell-select-wrap
-                  = form_with local: true do |form|
-                    .sell-select-icon
-                      = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
-                      = icon('fas', 'chevron-down sell-select-icon__allow')
+                  .sell-select-icon
+                    = form.select :shipping_area, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                    = icon('fas', 'chevron-down sell-select-icon__allow')
               .sell-ship__box__status
                 発送までの日数
                 %span.require
                   必須
                 .sell-select-wrap
-                  = form_with local: true do |form|
-                    .sell-select-icon
-                      = form.select :content, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
-                      = icon('fas', 'chevron-down sell-select-icon__allow')
+                  .sell-select-icon
+                    = form.select :shipping_date, [["---"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                    = icon('fas', 'chevron-down sell-select-icon__allow')
         .sell-content
           .sell-price
             .sell-price__left
@@ -110,9 +104,7 @@
                     ¥
                   .sell-price__box__container__right__select
                     .sell-select-wrap
-                      = form_with local: true do |form|
-                        .sell-select-icon
-                          = form.number_field :age, class: "form-number", placeholder: "0", min: 1, max: 9999999
+                      = form.number_field :price, class: "sell-form-number", placeholder: "0", min: 1, max: 9999999
               .sell-price__box__fee
                 .sell-price__box__fee__text
                   販売手数料 (10%)
@@ -126,21 +118,21 @@
         .sell-content
           .sell-btns
             .sell-btns__text
-              = link_to '禁止されている出品', '/', class: "link"
+              = link_to '禁止されている出品', '/', class: "sell-link__note"
               、
-              = link_to '行為', '/', class: "link"
+              = link_to '行為', '/', class: "sell-link__note"
               を必ずご確認ください。
               %br
               またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
               %br
               また、出品をもちまして
-              = link_to '加盟店規約', '/', class: "link"
+              = link_to '加盟店規約', '/', class: "sell-link__note"
               に同意したことになります。
             .sell-btns__btn
-              .sell-btns__btn__up
-                出品する
+              .sell-select-icon
+                = form.submit '出品する', class: 'sell-btns__btn__up'
               .sell-btns__btn__back
-                もどる
+                = link_to 'もどる', exhibitions_path, class: "sell-link__back"
   .sell-footer
     .sell-footer__container
       .sell-footer__container__box
@@ -152,7 +144,7 @@
           %li.buy
             = link_to '特定商取引に関する表記', '/', class: "buy-link"
       .sell-footer__container__image
-        = image_tag src="http://furima.tokyo/assets/logo-white-f61961ed5170064c5f33dd4524bdceeb5a5df2c83eb76fba31143f63fbab2c5e.svg", size: "160x46"
+        = image_tag src="/assets/logo.png", size: "120x34"
       .sell-footer__container__inc
         © FURIMA
-
+ 
