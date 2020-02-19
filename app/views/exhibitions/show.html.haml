@@ -1,0 +1,169 @@
+.exhead
+  %ul
+    %li
+      %a{:href => "/"} FURIMA
+    %li
+      %i.fa.fa-angle-right
+    %li
+      %a{:href => "#"} ベビー・キッズ
+    %li
+      %i.fa.fa-angle-right
+    %li
+      %a{:href => "#"} ベビー服(男女兼用)  ~95cm
+    %li
+      %i.fa.fa-angle-right
+    %li
+      %a{:href => "#"} アウター
+    %li
+      %i.fa.fa-angle-right
+    %li
+      %p product3
+
+.exmain
+  .exmain__top
+    .ex-content
+      .show-box
+        %h2.show-box__name product3
+        .show-box__body
+          %ul
+            %li 
+              = image_tag src ="/assets/a007.png"
+        .show-box__foot
+          %ul
+            %li 
+              = image_tag src ="/assets/a007.png", size: "140x75"
+            %li 
+              = image_tag src ="/assets/a007.png", size: "140x75"
+            %li 
+              = image_tag src ="/assets/a007.png", size: "140x75"
+        .show-price
+          .show-price__number
+            = @exhibition.price
+          .show-price__tax
+            %span (税込)
+          .show-price__shipping
+            %span 送料込み
+        .show-buy-btn
+          %a{:href => "#"} 購入画面に進む
+        .show-exbox product3
+        .show-table
+          %table
+            %tbody
+              %tr
+                %th 出品者
+                %td hoge
+              %tr
+                %th カテゴリー
+                %td
+                  %a{:href => "#"} ベビー・キッズ
+                  %br/
+                  %a{:href => "#"} ベビー服(男女兼用)  ~95cm
+                  %br/
+                  %a{:href => "#"} アウター
+              %tr
+                %th ブランド
+                %td 
+              %tr
+                %th 商品のサイズ
+                %td 
+              %tr
+                %th 商品の状態
+                %td 未使用に近い
+              %tr
+                %th 配送料の負担
+                %td 送料込み（出品者負担）
+              %tr
+                %th 発送元の地域
+                %td
+                  %a{:href => "#"} 岩手県
+              %tr
+                %th 発送日の目安
+                %td 4-7日で発送
+        .option-table
+          %ul
+            %li
+              #like-btn.option-btn.like-btn
+                %i.fa.fa-star
+                お気に入り 0
+          %ul.report-btn
+            %li.report-btn__box
+              %a{:href => "#"} 
+                %i.fa.fa-flag
+                不適切な商品の通報
+
+      .excomment-box
+        %textarea#comment_body{:name => "comment[body]", :required => "required"}
+        %p.message
+          相手のことを考え丁寧なコメントを心がけましょう。
+          %br/
+          不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %br/
+        %button.comment-btn{:name => "button", :type => "submit"}
+          %i.fa.fa-comment
+          コメントする
+
+      %ul.exlinks
+        %li
+          %a{:href => "#"}
+            %i.fa.fa-angle-left
+            %span
+            前の商品
+        %li
+          %a{:href => "#"}
+            %span 
+            後ろの商品
+            %i.fa.fa-angle-right
+      .exrelated
+        %a{:href => "#"}ベビーキッズをもっと見る
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      -#   .content-top__image
+      -#   %ul
+      -#     %li img src =""
+      -#       %ul
+      -#         %li img src =""
+      -#         %li img src =""
+      -#         %li img src =""
+      -#   .content-top__price
+      -#     %span ¥30000
+      -#     .content-top__price__data
+      -#       %span (税込)
+      -#       %span 送料込み
+      -#     .content-top__price
+      -#       product3
+      -#     .table-box
+      -#       %table-box
+      -#         %thead
+      -#           %tli
+      -#             %tr
+      -#             %tn
+      -#     .option
+      -#       %ul
+      -#         %li.option-btn#like-btn
+      -#           .icon
+
+
+
+
+
+
+  

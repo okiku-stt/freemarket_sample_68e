@@ -1,48 +1,20 @@
-#buy-overlay {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.3);
-  display: none;
-  z-index: 1;
-}
-
-#buy-modalWindow {
-  width: 500px;
-  height: 200px;
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  z-index: 2;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  .buy-modal-message-box {
-    width: 100%;
-    height: calc(100% - 60px);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-  #buy-modal-close-btn {
-    width: 50%;
-    height: 60px;
-  }
-  #purchase-comformation-btn {
-    width: 50%;
-    height: 60px;
-  }
-}
-
-#item-purchase-btn {
-  width: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
+.card-wrapper
+  .card-header
+  .card-body
+    = render "shared/mypage_flex_left"
+    .card-contents-registration
+      .card-head-registration
+        支払い方法
+      .card-details-registration
+        .card-details-registration__section
+          %p.card-font クレジットカード一覧
+        .card-details-registration__submit-box
+          = link_to "クレジットカードを追加する", new_card_path, method: :get, id: "token_submit"
+      .card-pay-style
+        = link_to root_path do
+          %span.pay-document 支払い方法について
+          = icon("fas", "chevron-right", id: "chevron-right")
+  .card-footer
+    .card-top-footer
+    .card-bottom-footer
+  
