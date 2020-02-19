@@ -1,26 +1,31 @@
-<h2>ログイン</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="user__registration__wrapper">
+  <div class="user__registration__header">
+    <div class="user__registration__header__logo">
+      <%= link_to image_tag("/assets/logo.png", size: "185x49"), root_path %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+  <div class="user__registration__main">
+    <div class="user__registration__main__link">
+      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <%= link_to "新規登録はこちら", new_registration_path(resource_name),class:"user__registration__main__link__btn" %>
+      <% end %>
+    </div>
+    <div class="user__registration__main__contents">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= render "users/shared/links" %>
+        <div class="user--field">
+            <%= f.email_field :email,class:"user__input__default", autofocus: true, placeholder: "メールアドレス" %>
+        </div>
+
+        <div class="user--field">
+            <%= f.password_field :password,class:"user__input__default", placeholder: "パスワード" %>
+        </div>
+
+        <div class="user--actions">
+          <%= f.submit "ログイン",class:"user--actions__btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
