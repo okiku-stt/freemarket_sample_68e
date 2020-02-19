@@ -15,12 +15,10 @@
   
     - if user_signed_in?
       .create-box
+        = link_to "マイページへ", mypage_index_path, method: :get
         = link_to "ログアウト", destroy_user_session_path, method: :delete
     - else
       .create-box
         = link_to "ログイン", new_user_session_path
         = link_to "新規登録", new_user_registration_path
-
-      .my-page-link
-        = link_to "マイページ" ,mypage_index_path
   

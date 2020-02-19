@@ -7,7 +7,7 @@
         クレジットカード情報入力
       .card-details
         .form-group
-          = form_tag(pay_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+          = form_tag(pay_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
             %label.card-details-document カード番号
             %label.priority 必須 
             .card-input
