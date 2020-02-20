@@ -38,20 +38,28 @@
               = image_tag src ="/assets/a007.png", size: "140x75"
         .show-price
           .show-price__number
-            = @exhibition.price
+            %i.fa.fa-yen-sign
+              = @exhibition.price
           .show-price__tax
             %span (税込)
           .show-price__shipping
             %span 送料込み
         .show-buy-btn
-          %a{:href => "#"} 購入画面に進む
+        - if @exhibition.id == @user.id
+          = link_to "編集画面に進む", edit_exhibition_path(params[:id]), class: "#"
+        - else
+          = link_to "購入画面に進む", new_user_session, class: "#"
+
+          -# = link_to "編集画面に進む", buy_index_path(params[:id]), class: "#"
         .show-exbox product3
         .show-table
           %table
             %tbody
               %tr
                 %th 出品者
-                %td hoge
+                %td 
+                  - if @exhibition.id == @user.id
+                    = @user.nickname
               %tr
                 %th カテゴリー
                 %td
@@ -66,19 +74,25 @@
               %tr
                 %th 商品のサイズ
                 %td 
+                  = @exhibition.item_name
               %tr
                 %th 商品の状態
-                %td 未使用に近い
+                %td 
+                  = @exhibition.item_status
               %tr
                 %th 配送料の負担
-                %td 送料込み（出品者負担）
+                %td 
+                  = @exhibition.shipping_charges
               %tr
                 %th 発送元の地域
                 %td
-                  %a{:href => "#"} 岩手県
+                  = @exhibition.shipping_area
+                  -# %a{:href => "#"} 岩手県
               %tr
                 %th 発送日の目安
-                %td 4-7日で発送
+                %td 
+                  = @exhibition.shipping_date
+        .item-table
         .option-table
           %ul
             %li

@@ -15,18 +15,29 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-   
+    # @exhibition = Exhibition.find(params[:id])
+    # @user = Userfind(params[:id])
   end
 
   def create
 
   end
 
+  def edit
+    @exhibition = Exhibition.find(params[:id])
+    @user = User.find(params[:id])
+  end
+
 
   private
 
+  # def exhibition_params
+  #   params.require(:exhibition).permit(:title, :content)
+  # end
+
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])
+    @user = User.find(params[:id])
   end
 
 end
