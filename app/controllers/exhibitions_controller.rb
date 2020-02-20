@@ -1,7 +1,7 @@
 class ExhibitionsController < ApplicationController
 
   before_action :set_exhibition, only: [:show, :edit]
-  before_action :set_uesr, only: [:show, :edit]
+  before_action :set_user, only: [:show, :edit]
 
 
 
@@ -27,7 +27,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def edit
-    
+
   end
 
 
@@ -37,7 +37,7 @@ class ExhibitionsController < ApplicationController
     @exhibition = Exhibition.find(params[:id])
   end
 
-  def set_uesr
+  def set_user
     @user = User.find(params[:id])
   end
 
