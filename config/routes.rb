@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   }
   root to: "exhibitions#index"
 
+  resources :exhibitions ,only: [:index, :show, :edit, :update]
+
  
   resources :mypage ,only: :index
   resources :logouts ,only: :index
