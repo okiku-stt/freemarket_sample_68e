@@ -43,12 +43,12 @@ set :unicorn_rack_env, "production"
 #
 # Global options
 # --------------
- set :ssh_options, {
-   port: 22,
-   keys: [File.expand_path('~/.ssh/id_rsa')],
-   forward_agent: true,
-   auth_methods: %w(publickey)
- }
+#  set :ssh_options, {
+#    port: 22,
+#    keys: [File.expand_path('~/.ssh/id_rsa')],
+#    forward_agent: true,
+#    auth_methods: %w(publickey)
+#  }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
