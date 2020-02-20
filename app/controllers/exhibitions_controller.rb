@@ -1,6 +1,10 @@
 class ExhibitionsController < ApplicationController
 
-  before_action :set_exhibition, only: [:show]
+  before_action :set_exhibition, only: [:show, :edit]
+  before_action :set_uesr, only: [:show, :edit]
+
+
+
   def index
     # if user_signed_in?
     #   @exhibition = Exhibition.find(params[:id])
@@ -15,8 +19,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-    # @exhibition = Exhibition.find(params[:id])
-    # @user = Userfind(params[:id])
+    
   end
 
   def create
@@ -24,8 +27,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def edit
-    @exhibition = Exhibition.find(params[:id])
-    @user = User.find(params[:id])
+    
   end
 
 
@@ -33,6 +35,9 @@ class ExhibitionsController < ApplicationController
 
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])
+  end
+
+  def set_uesr
     @user = User.find(params[:id])
   end
 
