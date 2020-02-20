@@ -44,7 +44,7 @@ Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 # Rake::Task[:production].invoke
 # invoke! :production
 
-Rake::Task[].reenable
+Rake::Task[:production].reenable
 namespace :deploy do
   task :restart_unicorn_twice? do
     invoke 'deploy:restart_unicorn'
