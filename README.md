@@ -50,8 +50,11 @@
 ## exhibitionsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|item_name|string|null: false|
+|item_status|string|null: false|
+|item_description|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|categorys_id|integer|null: false, foreign_key: true|
+|categorys_name|string|null: false|
 |bland_id|integer|null: false, foreign_key: true|
 |shipping_charges|string|null: false|
 |shipping_area|string|null: false|
