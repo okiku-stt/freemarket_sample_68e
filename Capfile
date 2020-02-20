@@ -42,3 +42,15 @@ install_plugin Capistrano::SCM::Git
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 Rake::Task[:production].invoke
 invoke :production
+namespace :deploy do
+  task :restart_unicorn_twice? do
+    invoke 'deploy:restart_unicorn'
+    invoke 'deploy:restart_unicorn'
+  end
+
+  task :restart_unicorn_twice! do
+    invoke 'deploy:restart_unicorn'
+    Rake::Task['deploy:restart_unicorn'].reenable
+    invoke 'deploy:restart_unicorn'
+  end
+end
