@@ -7,10 +7,10 @@
   .top-item-contents
     .top-item-contents__box
       .top-item-contents__box__array
-        - @exhibitions.each do |exhibition|
-          .top-item-contents__box__array__content
-            = link_to "ルート確保用商品詳細ページへ", exhibition_path(exhibition.id), method: :get
-            = exhibition.price
+        -# - @exhibitions.each do |exhibition|
+        -#   .top-item-contents__box__array__content
+        -#     = link_to "ルート確保用商品詳細ページへ", exhibition_path(exhibition.id), method: :get
+        -#     = exhibition.price
             
 
   .top-footer
