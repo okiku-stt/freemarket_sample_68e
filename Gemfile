@@ -83,4 +83,4 @@ end
 
 gem 'fog-aws'
 gem 'pry-rails'
-gem 'jquery-rails'
+gem 'active_hash'
