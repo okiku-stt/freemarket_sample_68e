@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   }
   root to: "exhibitions#index"
+
   resources :exhibitions ,only: [:show, :edit, :update]
 
  
@@ -14,7 +15,12 @@ Rails.application.routes.draw do
   resources :paymethods ,only: :index
   resources :addresses ,only: :index
   resources :editmails ,only: :index
-  resources :sell ,only: :index
+  
+  resources :exhibitions,only: [:index, :new, :create, :show] do
+    collection do
+      get 'modal'
+    end
+  end
 
   resources :cards, only: [:new, :index, :show] do
     collection do

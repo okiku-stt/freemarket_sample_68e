@@ -82,3 +82,5 @@ group :production do
 end
 
 gem 'fog-aws'
+gem 'pry-rails'
+gem 'jquery-rails'

@@ -31,10 +31,6 @@ class ExhibitionsController < ApplicationController
 
   private
 
-  # def exhibition_params
-  #   params.require(:exhibition).permit(:title, :content)
-  # end
-
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])
     @user = User.find(params[:id])
