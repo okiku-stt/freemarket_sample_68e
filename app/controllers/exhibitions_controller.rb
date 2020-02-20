@@ -6,11 +6,6 @@ class ExhibitionsController < ApplicationController
 
 
   def index
-    # if user_signed_in?
-    #   @exhibition = Exhibition.find(params[:id])
-    # else
-    #   redirect_to user_session_path
-    # end
     @exhibitions = Exhibition.all
   end
 
