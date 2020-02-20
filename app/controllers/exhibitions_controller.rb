@@ -31,18 +31,9 @@ class ExhibitionsController < ApplicationController
 
   private
   def exhibition_params
-   
     params.require(:exhibition).permit(:price,:shipping_date,:shipping_area,:shipping_charges,:categorys_name,:item_description,:item_status, :item_name).merge(user_id: current_user.id)
 
-    # if user_signed_in?
-    #   @exhibition = Exhibition.find(params[:id])
-    # else
-    #   redirect_to user_session_path
-    # end
-    # @exhibitions = Exhibition.all
-
   end
-
 
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])
