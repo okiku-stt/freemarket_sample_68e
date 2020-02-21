@@ -2,7 +2,7 @@ class ExhibitionsController < ApplicationController
 
   before_action :set_exhibition, only: [:show]
   def index
-    
+    @exhibitions = Exhibition.all
   end
   
   def new
@@ -27,6 +27,10 @@ class ExhibitionsController < ApplicationController
   
   end
 
+  def search
+    @exhibitions = Exhibition.search(params[:keyword])
+  end
+
   private
   def exhibition_params
     params.require(:exhibition).permit(:price,:shipping_date,:shipping_area,:shipping_charges,:bland_id,:categorys_id,:user_id)
@@ -37,10 +41,8 @@ class ExhibitionsController < ApplicationController
     #   redirect_to user_session_path
     # end
     @exhibitions = Exhibition.all
-
   end
 
-  private
 
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])

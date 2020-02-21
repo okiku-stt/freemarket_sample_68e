@@ -1,0 +1,6 @@
+.top
+  = render partial: "layouts/top-header", locals: { exhibitions: @exhibitions }
+  .top-upper 
+    .search-box
+      - @exhibitions.each do |exhibition|
+        = exhibition.item_name

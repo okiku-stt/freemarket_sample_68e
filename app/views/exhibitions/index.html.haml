@@ -1,5 +1,5 @@
 .top
-  = render "layouts/top-header"
+  = render partial: "layouts/top-header", locals: { exhibition: @exhibition }
  
   .top-upper 
     .upper-contents
@@ -11,6 +11,7 @@
           .top-item-contents__box__array__content
             = link_to "ルート確保用商品詳細ページへ", exhibition_path(exhibition.id), method: :get
             = exhibition.price
+            = exhibition.item_name
             
 
   .top-footer
@@ -18,7 +19,7 @@
       .footer-box
         FURIMAについて
         .box-link
-          = link_to sell_index_path, class: "aaa" do
+          = link_to "#", class: "aaa" do
             会社概要 （運営会社）
         .box-link
           = link_to "#", class: "aaa" do

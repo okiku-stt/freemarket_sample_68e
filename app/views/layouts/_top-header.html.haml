@@ -2,9 +2,10 @@
   .top-header__left
     .main-header__left__logo
       = image_tag "logo.png",size:'140x40'
-    = form_with class: "new-message" do |form|
-      = form.text_field :text, placeholder: "キーワードから探す", class: "search-box" 
-      %button{:type => "submit", class: "search-btn"}
+    = form_with  model: @exhibition, url: search_exhibitions_path, local: true, method: :get, class: "new-message" do |form|
+      = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-box" 
+      -# = form.submit "#", class: "#"
+      %button{type: "submit", placeholder: "キーワードから探す",class: "search-btn" } 
         %i.fas.fa-search
   .item-header
     .category-box

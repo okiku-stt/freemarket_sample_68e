@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   resources :exhibitions,only: [:index, :new, :create, :show] do
     collection do
       get 'modal'
+      get 'search'
     end
+    # member do
+    #   get 'search'
+    # end
   end
 
   resources :cards, only: [:new, :index, :show] do
