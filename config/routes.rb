@@ -14,13 +14,13 @@ Rails.application.routes.draw do
   resources :addresses ,only: :index
   resources :editmails ,only: :index
   
-  resources :exhibitions,only: [:index, :new, :create, :show] do
+  resources :exhibitions,only: [:index, :new, :create, :show, :edit, :update] do
     collection do
       get 'modal'
     end
   end
 
-  resources :cards, only: [:new, :index, :show] do
+  resources :cards, only: [:new, :index, :show, :edit, :update] do
     collection do
       # post 'index', to: 'cards#index'
       post 'show', to: 'cards#show'
