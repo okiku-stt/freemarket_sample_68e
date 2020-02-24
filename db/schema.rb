@@ -40,16 +40,13 @@ ActiveRecord::Schema.define(version: 2020_02_19_092046) do
     t.string "item", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ancestry"
-    t.index ["ancestry"], name: "index_categories_on_ancestry"
-    t.index ["item"], name: "index_categories_on_item"
   end
 
   create_table "exhibitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "categorys_name", null: false
     t.string "shipping_charges", null: false
-    t.string "shipping_area", null: false
+    t.integer "prefecture_id", null: false
     t.string "shipping_date", null: false
     t.integer "price", null: false
     t.string "item_name", null: false
