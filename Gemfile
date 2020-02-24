@@ -82,5 +82,6 @@ group :production do
 end
 
 gem 'active_hash'
+gem 'ancestry'
 gem 'fog-aws'
 gem 'pry-rails'

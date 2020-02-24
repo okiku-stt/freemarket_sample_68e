@@ -50,7 +50,8 @@
                   必須
                 .sell-select-wrap
                   .sell-select-icon
-                    = form.select :categorys_name, [["選択してください"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                    -# = form.select :category, @category_parent_array, {}, {class: 'sell-select-default', id: 'parent_category'}
+                    = form.collection_select :category_id, @parents, :id, :name, class:'sell-select-default', id: parent-form, name: 'item[category_ids][]'
                     = icon('fas', 'chevron-down sell-select-icon__allow')
               .sell-details__box__status
                 商品の状態
