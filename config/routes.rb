@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: "users/sessions",
+
   }
   root to: "exhibitions#index"
 
@@ -25,9 +26,8 @@ Rails.application.routes.draw do
   resources :addresses ,only: :index
   resources :editmails ,only: :index
 
-  resources :cards, only: [:new, :index, :show] do
+  resources :cards, only: [:new, :index, :show, :edit, :update] do
     collection do
-      # post 'index', to: 'cards#index'
       post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
@@ -35,5 +35,6 @@ Rails.application.routes.draw do
   end
   resources :buy ,only: :index
   resources :images ,only: :index
+
 
 end
