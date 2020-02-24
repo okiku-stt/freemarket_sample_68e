@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/stefankroes/ancestry.git
+  revision: 5f11226424701d73aab633241864d53ed360bbbe
+  specs:
+    ancestry (3.0.7)
+      activerecord (>= 3.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -89,6 +96,7 @@ GEM
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -206,6 +214,11 @@ GEM
     orm_adapter (0.5.0)
     payjp (0.0.7)
       rest-client (~> 2.0)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     public_suffix (4.0.3)
     puma (3.12.2)
     rack (2.2.2)
@@ -338,6 +351,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ancestry!
   bootsnap (>= 1.1.0)
   byebug
   capistrano
@@ -362,6 +376,7 @@ DEPENDENCIES
   mini_magick
   mysql2 (>= 0.4.4, < 0.6.0)
   payjp
+  pry-rails
   puma (~> 3.11)
   rails (~> 5.2.3)
   rails-controller-testing

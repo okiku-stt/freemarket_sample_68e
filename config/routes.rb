@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: "top#index"
+  resources :categories do
+    collection do
+      get 'search_children'
+      get 'search_grandchildren'
+    end
+  end
   resources :mypage ,only: :index
   resources :logouts ,only: :index
   resources :paymethods ,only: :index
