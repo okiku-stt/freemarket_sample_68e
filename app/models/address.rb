@@ -23,6 +23,6 @@ class Address < ApplicationRecord
   validates :prefectures, presence: true
   validates :municipalities, presence: true
   validates :house_number, presence: true
-  belongs_to :user
+  belongs_to :user, inverse_of: :address
 
 end

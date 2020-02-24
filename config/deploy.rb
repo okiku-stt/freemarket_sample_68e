@@ -29,6 +29,19 @@ set :keep_releases, 5
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
-    invoke 'unicorn:restart'
+    invoke  'unicorn:stop'
+    invoke! 'unicorn:start'
+  end
+end
+
+# ログの確認
+set :format_options, truncate: false
+
+namespace :log do
+  desc "tail log"
+  task :tail do
+    on roles(:app) do
+      execute "tail -f #{shared_path}/log/#{fetch(:rails_env)}.log"
+    end
   end
 end

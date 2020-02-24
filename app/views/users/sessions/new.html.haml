@@ -1,0 +1,18 @@
+.user__registration__wrapper--short
+  .user__registration__header
+    .user__registration__header__logo
+      = link_to image_tag("/assets/logo.png", size: "185x49"), root_path
+  .user__registration__main
+    .user__registration__main__link
+      - if devise_mapping.registerable? && controller_name != 'registrations'
+        = link_to "新規登録はこちら", new_registration_path(resource_name),class:"user__registration__main__link__btn"
+    .user__registration__main__contents
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .user--field
+          = f.email_field :email,class:"user__input__default", autofocus: true, placeholder: "メールアドレス"
+        .user--field
+          = f.password_field :password,class:"user__input__default", placeholder: "パスワード"
+        .user--actions
+          = f.submit "ログイン",class:"user--actions__btn"
+    .user__registration__main__footer

@@ -31,6 +31,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_hash (3.1.0)
+      activesupport (>= 5.0.0)
     activejob (5.2.4.1)
       activesupport (= 5.2.4.1)
       globalid (>= 0.3.6)
@@ -326,8 +328,6 @@ GEM
     tilt (2.0.10)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.6)
@@ -351,7 +351,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+
   ancestry!
+  active_hash
   bootsnap (>= 1.1.0)
   byebug
   capistrano
@@ -386,7 +388,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
-  uglifier (>= 1.3.0)
   unicorn (= 5.4.1)
   web-console (>= 3.3.0)
 
