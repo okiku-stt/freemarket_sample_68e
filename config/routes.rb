@@ -3,13 +3,17 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: "users/sessions",
-
   }
   root to: "exhibitions#index"
 
   resources :exhibitions ,only: [:index, :show, :edit, :update]
-
- 
+    resources :categories do
+      collection do
+        get 'search_children'
+        get 'search_grandchildren'
+      end
+    end
+  
   resources :mypage ,only: :index
   resources :logouts ,only: :index
   resources :paymethods ,only: :index
@@ -32,6 +36,5 @@ Rails.application.routes.draw do
   end
   resources :buy ,only: :index
   resources :images ,only: :index
-
 
 end
