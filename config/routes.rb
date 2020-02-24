@@ -5,14 +5,6 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
   }
   root to: "exhibitions#index"
-
-  resources :exhibitions ,only: [:index, :show, :edit, :update]
-    resources :categories do
-      collection do
-        get 'search_children'
-        get 'search_grandchildren'
-      end
-    end
   
   resources :mypage ,only: :index
   resources :logouts ,only: :index
@@ -20,10 +12,12 @@ Rails.application.routes.draw do
   resources :addresses ,only: :index
   resources :editmails ,only: :index
   
-  resources :exhibitions,only: [:index, :new, :create, :show] do
+  resources :exhibitions,only: [:index, :new, :create, :show, :update] do
     collection do
       get 'modal'
       get 'search'
+      get 'search_children'
+      get 'search_grandchildren'
     end
     # member do
     #   get 'search'

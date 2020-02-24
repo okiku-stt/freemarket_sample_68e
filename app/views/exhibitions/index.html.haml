@@ -3,8 +3,29 @@
  
   .top-upper 
     .upper-contents
-      %h2.topic-text
-  .content-text
+      .upper-contents__box
+        %h2.topic-first
+          人生を変えるフリマアプリ
+        %h3.topic-second
+          FURIMAはだれでもかんたんに出品・購入できる
+        %h4.topic-second
+          フリマアプリです
+        .topic-items
+          =link_to "#", class: "topic-items__App", size: '180x53' do
+            = image_tag "app-store"
+          =link_to "#",class: "topic-items__Google", size: '180x53' do
+            = image_tag "google-play"
+  .top-content-text
+    %h2.top-introduction
+      FURIMAが選ばれる3つの理由
+    .top-content-imageBox
+      %ul.lists-imageBox
+        %li.list-imageBox
+          .list-imageBox__image
+            = image_tag "pict-reason-01", size: "306x306"
+        %li.list-imageBox
+        %li.list-imageBox
+
 
   .top-item-contents
     .top-item-contents__box
