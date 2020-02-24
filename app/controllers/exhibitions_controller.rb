@@ -30,11 +30,6 @@ class ExhibitionsController < ApplicationController
     
   end
 
-  def create
-
-  end
-
-
   def edit
 
   end
