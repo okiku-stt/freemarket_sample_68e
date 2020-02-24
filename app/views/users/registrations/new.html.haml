@@ -7,7 +7,7 @@
       会員情報入力
     .user__registration__main__contents
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = render "devise/shared/error_messages", resource: resource
+        -# = render "devise/shared/error_messages", resource: resource
         .user--field
           .user--label
             = f.label :nickname,"ニックネーム"
@@ -90,12 +90,12 @@
             .user--label
               = a.label :building,"建物名"
               %span.user__optional-input 任意
-            = a.text_field :building,class:"user__input__default",placeholder: "フリマ神南ビル3-104"
+            = a.text_field :house_number,class:"user__input__default",placeholder: "フリマ神南ビル3-104"
           .user--field
             .user--label
               = a.label :phone_number,"電話番号(ハイフンなし半角)"
               %span.user__optional-input 任意
-            = a.text_field :phone_number,class:"user__input__default",placeholder: "09011223344"
+            = a.text_field :house_number,class:"user__input__default",placeholder: "09011223344"
         .user--actions
           = f.submit "新規登録",class:"user--actions__btn"
     .user__registration__main__footer
