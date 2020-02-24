@@ -5,7 +5,7 @@
   top: 0;
   margin: 0;
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
   background-color: #CCC;
   .top-header {
     height: 20vh;
@@ -57,9 +57,9 @@
     height: 40px;
     background-color: rgb(88, 230, 235);
     font-size: 20px;
-  .fa-search {
-    color: white;
-  }
+    .fa-search {
+      color: white;
+    }
   }
   .top-upper {
     
@@ -73,7 +73,6 @@
       background-repeat: no-repeat;
     }
   }
-  
   .top-footer {
     width: 100%;
     height: 40%;

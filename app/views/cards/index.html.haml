@@ -1,5 +1,6 @@
 .card-wrapper
   .card-header
+    = image_tag "logo.png",size:'185x49'
   .card-body
     = render "shared/mypage_flex_left"
     .card-contents-registration
@@ -14,6 +15,6 @@
         = link_to root_path do
           %span.pay-document 支払い方法について
           = icon("fas", "chevron-right", id: "chevron-right")
-  .card-footer
-    .card-top-footer
-    .card-bottom-footer
+.top           
+  .top-footer
+    = render "layouts/top-footer"

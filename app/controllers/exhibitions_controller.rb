@@ -23,26 +23,20 @@ class ExhibitionsController < ApplicationController
     else
       render new_exhibition_path
     end
-    
   end
-
-  def show
-    
-  end
-
-  def create
-
-  end
-
 
   def edit
 
   end
+    
+  def show
+    
+  end
 
 
- 
 
   private
+
   def exhibition_params
     params.require(:exhibition).permit(:price,:shipping_date,:shipping_area,:shipping_charges,:categorys_name,:item_description,:item_status, :item_name).merge(user_id: current_user.id)
 
