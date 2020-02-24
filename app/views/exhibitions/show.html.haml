@@ -38,20 +38,26 @@
               = image_tag src ="/assets/a007.png", size: "140x75"
         .show-price
           .show-price__number
-            = @exhibition.price
+            %i.fa.fa-yen-sign
+              = @exhibition.price
           .show-price__tax
             %span (税込)
           .show-price__shipping
             %span 送料込み
         .show-buy-btn
-          %a{:href => "#"} 購入画面に進む
+        - if @exhibition.id == @user.id
+          = link_to "編集画面に進む", edit_exhibition_path(@exhibition), class: "#"
+        - else
+          = link_to "購入画面に進む", root_path, class: "#"
         .show-exbox product3
         .show-table
           %table
             %tbody
               %tr
                 %th 出品者
-                %td hoge
+                %td 
+                  - if @exhibition.id == @user.id
+                    = @user.nickname
               %tr
                 %th カテゴリー
                 %td
@@ -66,19 +72,24 @@
               %tr
                 %th 商品のサイズ
                 %td 
+                  = @exhibition.item_name
               %tr
                 %th 商品の状態
-                %td 未使用に近い
+                %td 
+                  = @exhibition.item_status
               %tr
                 %th 配送料の負担
-                %td 送料込み（出品者負担）
+                %td 
+                  = @exhibition.shipping_charges
               %tr
                 %th 発送元の地域
                 %td
-                  %a{:href => "#"} 岩手県
+                  = @exhibition.shipping_area
               %tr
                 %th 発送日の目安
-                %td 4-7日で発送
+                %td 
+                  = @exhibition.shipping_date
+        .item-table
         .option-table
           %ul
             %li
@@ -114,56 +125,4 @@
             後ろの商品
             %i.fa.fa-angle-right
       .exrelated
-        %a{:href => "#"}ベビーキッズをもっと見る
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      -#   .content-top__image
-      -#   %ul
-      -#     %li img src =""
-      -#       %ul
-      -#         %li img src =""
-      -#         %li img src =""
-      -#         %li img src =""
-      -#   .content-top__price
-      -#     %span ¥30000
-      -#     .content-top__price__data
-      -#       %span (税込)
-      -#       %span 送料込み
-      -#     .content-top__price
-      -#       product3
-      -#     .table-box
-      -#       %table-box
-      -#         %thead
-      -#           %tli
-      -#             %tr
-      -#             %tn
-      -#     .option
-      -#       %ul
-      -#         %li.option-btn#like-btn
-      -#           .icon
-
-
-
-
-
-
-  
+        %a{:href => "#"}ベビーキッズをもっと見る  
