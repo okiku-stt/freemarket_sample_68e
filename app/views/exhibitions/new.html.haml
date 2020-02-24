@@ -78,14 +78,8 @@
                 %span.require
                   必須
                 .sell-select-wrap
-                  -# = form.fields_for :prefecture do |form|
                   .sell-select-icon
-                    -# = form.collection_select :shipping_area, Prefecture.all, :id, :name, {}, prompt: “---“, class:'sell-select-default'
-                    -# = form.collection_select :prefecture_id, Prefecture.all, :id, :name, {}, prompt: "---", class:'sell-select-default'
                     = form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: "sell-select-default"})
-                    -# = form.collection_select(:job_id, @jobs, :id, :name, {prompt: "表示するメッセージ"}, {class: "hoge"})
-                    -# = form.collection_select :prefecture_id, Prefecture.all, :id, :name
-                    -# = form.select :shipping_area, [["選択してください"],["北海道"],["青森"],["石川"],["宮城"]], {}, class:'sell-select-default'
                     = icon('fas', 'chevron-down sell-select-icon__allow')
               .sell-ship__box__status
                 発送までの日数
@@ -154,4 +148,3 @@
         = image_tag src="/assets/logo.png", size: "120x34"
       .sell-footer__container__inc
         © FURIMA
- 

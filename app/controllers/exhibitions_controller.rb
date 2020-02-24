@@ -36,7 +36,6 @@ class ExhibitionsController < ApplicationController
   private
   def exhibition_params
     params.require(:exhibition).permit(:price,:shipping_date,:shipping_charges,:categorys_name,:item_description,:item_status, :item_name, :prefecture_id).merge(user_id: current_user.id)
-    # params.require(:exhibition).permit(:price,:shipping_date,:shipping_area,:shipping_charges,:categorys_name,:item_description,:item_status, :item_name).merge(user_id: current_user.id)
   end
 
   def set_exhibition

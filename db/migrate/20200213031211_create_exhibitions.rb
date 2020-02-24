@@ -5,7 +5,6 @@ class CreateExhibitions < ActiveRecord::Migration[5.2]
       t.string :categorys_name,           null: false
       t.string  :shipping_charges,       null: false
       t.integer  :prefecture_id,       null: false
-      # t.string  :shipping_area,       null: false
       t.string  :shipping_date,         null: false
       t.integer :price,                 null: false
       t.string  :item_name,             null: false
