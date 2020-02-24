@@ -1,7 +1,7 @@
 .top-header
   .top-header__left
     .main-header__left__logo
-      = image_tag "logo.png",size:'140x40'
+      = image_tag asset_path("logo.png"),size:'140x40'
     = form_with class: "new-message" do |form|
       = form.text_field :text, placeholder: "キーワードから探す", class: "search-box" 
       %button{:type => "submit", class: "search-btn"}
