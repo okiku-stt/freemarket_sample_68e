@@ -29,6 +29,11 @@ class ExhibitionsController < ApplicationController
   
   end
 
+
+  def search
+    @exhibitions = Exhibition.search(params[:keyword])
+  end
+
   def edit
 
   end
