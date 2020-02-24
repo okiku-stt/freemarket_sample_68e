@@ -44,6 +44,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -82,5 +83,8 @@ group :production do
 end
 
 gem 'fog-aws'
+
+
+gem 'ancestry', git: "https://github.com/stefankroes/ancestry.git"
 gem 'pry-rails'
 gem 'active_hash'
