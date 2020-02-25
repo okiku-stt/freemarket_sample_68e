@@ -26,6 +26,14 @@ class ExhibitionsController < ApplicationController
     
   end
 
+  def modal
+
+  end
+
+  def search
+    @exhibitions = Exhibition.search(params[:keyword])
+  end
+
   def show
     
   end
@@ -42,12 +50,10 @@ class ExhibitionsController < ApplicationController
   def category_grandchildren
     @category_grandchildren = Category.find(params[:child]).children
     end
- 
 
   private
   def exhibition_params
-    params.require(:exhibition).permit(:price,:shipping_date,:shipping_area,:shipping_charges,:categorys_name,:item_description,:item_status, :item_name).merge(user_id: current_user.id)
-
+    params.require(:exhibition).permit(:price,:shipping_date,:shipping_charges,:categorys_name,:item_description,:item_status, :item_name, :prefecture_id).merge(user_id: current_user.id)
   end
 
 

@@ -56,8 +56,8 @@
 |user_id|integer|null: false, foreign_key: true|
 |categorys_name|string|null: false|
 |bland_id|integer|null: false, foreign_key: true|
+|prefecture_id|integer|null: false|
 |shipping_charges|string|null: false|
-|shipping_area|string|null: false|
 |shipping_date|string|null: false|
 |price|integer|null: false|
 ### Association

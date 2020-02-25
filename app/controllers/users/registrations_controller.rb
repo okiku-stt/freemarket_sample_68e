@@ -19,11 +19,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   end
   # end
 
-  # private
+  private
 
-  # def user_params
-  #   params.require(:user).permit(:nickname,:family_name,:last_name,:j_family_name,:j_last_name,:birth_year,:birth_month,:birth_day, address_attributes:[:id, :ship_family_name,:ship_last_name,:ship_j_family_name,:ship_j_last_name,:postal_code,:prefectures,:municipalities,:house_number,:building,:phone_number])
-  # end
+  def user_params
+    params.require(:user).permit(:nickname,:family_name,:last_name,:j_family_name,:j_last_name,:birth_year,:birth_month,:birth_day, address_attributes:[:id, :ship_family_name,:ship_last_name,:ship_j_family_name,:ship_j_last_name,:postal_code,:prefectures,:municipalities,:house_number,:building,:phone_number])
+  end
 
   # GET /resource/edit
   # def edit
