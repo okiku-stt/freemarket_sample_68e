@@ -1,6 +1,7 @@
 class ExhibitionsController < ApplicationController
 
   before_action :set_exhibition, only: [:show]
+  
   def index
     @exhibitions = Exhibition.all
   end

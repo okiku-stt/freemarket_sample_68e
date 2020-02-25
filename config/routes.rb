@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :mypage ,only: :index
   resources :logouts ,only: :index
-  resources :paymethods ,only: :index
+  resources :paymethods ,only: :indexz1
   resources :addresses ,only: :index
   resources :editmails ,only: :index
   
