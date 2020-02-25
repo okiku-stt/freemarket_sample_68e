@@ -1,4 +1,4 @@
-#レディース
+#レディース 
 lady = Category.create(item: "レディース")
 lady_1 = lady.children.create(item: "トップス")
 lady_1.children.create([{item: "Tシャツ/カットソー(半袖/袖なし)"},{item: "Tシャツ/カットソー(七分/長袖)"},{item: "シャツ/ブラウス(半袖/袖なし)"},{item: "シャツ/ブラウス(七分/長袖)"},{item: "ポロシャツ"},{item: "キャミソール"},{item: "タンクトップ"},{item: "ホルターネック"},{item: "ニット/セーター"},{item: "チュニック"},{item: "カーディガン/ボレロ"},{item: "アンサンブル"},{item: "ベスト/ジレ"},{item: "パーカー"},{item: "トレーナー/スウェット"},{item: "ベアトップ/チューブトップ"},{item: "ジャージ"},{item: "その他"}])
