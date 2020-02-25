@@ -19,6 +19,19 @@ $(function(){
   });
 });
 
+// ナビリストで、現在ページの色を変える記述
+$(function(){
+  $('.mypage__flex__left__list a').each(function(){
+    var $href = $(this).attr('href');
+    if(location.href.match($href)) {
+      $(this).parent().addClass('current-page');
+    } else {
+      $(this).parent().removeClass('current-page');
+    }
+  });
+});
+
+
 // タブに関する記述
 $(function(){
   $ ('#mypage-tab-2').click(function(){

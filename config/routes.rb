@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :exhibitions ,only: [:index, :show, :new, :create, :edit, :update] do
     collection do
       get 'modal'
+      get 'category_children' 
+      get 'category_grandchildren'
     end
   end
 
