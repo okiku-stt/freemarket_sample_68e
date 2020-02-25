@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
   }
   root to: "exhibitions#index"
-
   
   resources :categories do
     collection do

@@ -26,11 +26,15 @@
       padding-top: 10px;
       display: flex;
       margin: 0 100px 0 250px;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 0 100px;
       &__logo{
       }
       .new-message {
         width: 100%;
         height: 36px;
+        background-color: cadetblue;
         .search-box {
           height: 40px;
         }
@@ -131,8 +135,6 @@
         .bland-box {
           width: 20%;
         }
-      }
-      
       .create-box {
         width: 100%;
         display: flex;
@@ -146,6 +148,7 @@
   }
   .new-message {
     width:100%;
+
     height: 40px;
     .search-box{
       width:65%;
@@ -165,6 +168,8 @@
   }
   .top-upper {
     .upper-contents {
+    
+      .upper-contents {
       padding: 0 60px;
       height: 560px;
       width: 100%;
@@ -460,6 +465,7 @@
           &:hover {
             opacity: 0.5; 
           }
+        &__image {
         }
       }
     }

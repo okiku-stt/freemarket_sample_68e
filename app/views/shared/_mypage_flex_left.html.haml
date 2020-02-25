@@ -1,7 +1,7 @@
 -# = render "shared/mypage_flex_left"で呼び出せます
 .mypage__flex__left
   .mypage__flex__left__list{"data-mypage" => "-1"}
-    = link_to "#", class: "mypage__flex__left__list__current" do
+    = link_to mypage_index_path, class: "mypage__flex__left__list__link" do
       %p マイページ
       .mypage-icon-1
         = icon('fas', 'chevron-right' )
@@ -16,7 +16,7 @@
       .mypage-icon-3
         = icon('fas', 'chevron-right' )
   .mypage__flex__left__list{"data-mypage" => "-4"}
-    = link_to "#", class: "mypage__flex__left__list__link" do
+    = link_to new_exhibition_path, class: "mypage__flex__left__list__link" do
       %p 出品する
       .mypage-icon-4
         = icon('fas', 'chevron-right' )
@@ -65,6 +65,7 @@
       %p お問い合わせ
       .mypage-icon-13
         = icon('fas', 'chevron-right' )
+        
   %h3.mypage-left-list-title メルペイ
   .mypage__flex__left__list{"data-mypage" => "-14"}
     = link_to "#", class: "mypage__flex__left__list__link" do
@@ -76,9 +77,10 @@
       %p ポイント
       .mypage-icon-15
         = icon('fas', 'chevron-right' )
+
   %h3.mypage-left-list-title  設定
   .mypage__flex__left__list{"data-mypage" => "-16"}
-    = link_to "#", class: "mypage__flex__left__list__link" do
+    = link_to edit_user_registration_path, class: "mypage__flex__left__list__link" do
       %p プロフィール
       .mypage-icon-16
         = icon('fas', 'chevron-right' )
@@ -108,7 +110,7 @@
       .mypage-icon-21
         = icon('fas', 'chevron-right' )
   .mypage__flex__left__list{"data-mypage" => "-22"}
-    = link_to "#", class: "mypage__flex__left__list__link" do
+    = link_to destroy_user_session_path, method: :delete, class: "mypage__flex__left__list__link" do
       %p ログアウト
       .mypage-icon-22
         = icon('fas', 'chevron-right' )
