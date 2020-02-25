@@ -23,7 +23,8 @@
   .exmain__top
     .ex-content
       .show-box
-        %h2.show-box__name product3
+        %h2.show-box__name
+          = @exhibition.item_name
         .show-box__body
           %ul
             %li 
@@ -48,8 +49,10 @@
         - if @exhibition.id == @user.id
           = link_to "編集画面に進む", edit_exhibition_path(@exhibition), class: "#"
         - else
-          = link_to "購入画面に進む", root_path, class: "#"
-        .show-exbox product3
+
+          = link_to "購入画面に進む", new_user_session, class: "#"
+        .show-exbox
+          = @exhibition.item_name
         .show-table
           %table
             %tbody
@@ -72,7 +75,6 @@
               %tr
                 %th 商品のサイズ
                 %td 
-                  = @exhibition.item_name
               %tr
                 %th 商品の状態
                 %td 

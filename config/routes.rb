@@ -7,6 +7,15 @@ Rails.application.routes.draw do
   root to: "exhibitions#index"
 
 
+
+  resources :exhibitions ,only: [:index, :show, :edit, :new, :create, :update]
+    resources :categories do
+      collection do
+        get 'modal'
+        get 'search_children'
+        get 'search_grandchildren'
+      end
+
   resources :exhibitions ,only: [:index, :show, :new, :create, :edit, :update] do
     collection do
       get 'modal'
@@ -19,9 +28,11 @@ Rails.application.routes.draw do
     collection do
       get 'search_children'
       get 'search_grandchildren'
+
     end
   end
   
+
   resources :mypage ,only: :index
   resources :logouts ,only: :index
   resources :paymethods ,only: :index

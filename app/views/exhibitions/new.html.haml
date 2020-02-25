@@ -20,7 +20,9 @@
             .sell-img-box__dropbox__text
               ドラッグアンドドロップ
               %br
-                またはクリックしてファイルをアップロード
+              またはクリックしてファイルをアップロード
+              = form.fields_for :image do |i|
+                = i.file_field :image, class: "sell-img-box__dropbox__text", type: "file"
         .sell-content
           .sell-name
             .sell-name__head
