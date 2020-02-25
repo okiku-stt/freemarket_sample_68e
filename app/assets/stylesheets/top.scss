@@ -412,23 +412,25 @@
     }
   }
   &__sell-page{
-    position: fixed;
-    right:32px;
-    bottom:32px;
-    width: 150px;
-    //作業完了後修正
-    background-color: blue;
+    width: 120px;
+    background: #3CCACE;
     text-align: center;
-
-    &__icon{
-    //作業完了後修正
-    color: white;
-  }
+    border-radius: 4%;
+    bottom: 32px;
+    right: 32px;
+    position: fixed;
+    padding: 15px;
     &__link{
-    //作業完了後修正
+      //作業完了後修正
       text-decoration: none;
       color: white;
-      
+      .camera-content {
+        &__icon {
+        }
+        .purchase-text {
+          color: #ffffff;
+        }
+      }
     }
   }
 }
