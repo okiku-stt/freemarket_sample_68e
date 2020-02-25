@@ -6,14 +6,21 @@ Rails.application.routes.draw do
   }
   root to: "exhibitions#index"
 
-  resources :exhibitions ,only: [:index, :show, :edit, :new, :create, :update]
-    resources :categories do
-      collection do
-        get 'modal'
-        get 'search_children'
-        get 'search_grandchildren'
-      end
+
+  resources :exhibitions ,only: [:index, :show, :new, :create, :edit, :update] do
+    collection do
+      get 'modal'
+      get 'category_children' 
+      get 'category_grandchildren'
     end
+  end
+
+  resources :categories do
+    collection do
+      get 'search_children'
+      get 'search_grandchildren'
+    end
+  end
   
   resources :mypage ,only: :index
   resources :logouts ,only: :index
@@ -22,6 +29,7 @@ Rails.application.routes.draw do
   resources :editmails ,only: :index
   
   resources :cards, only: [:new, :index, :show, :edit, :update] do
+
     collection do
       # post 'index', to: 'cards#index'
       post 'show', to: 'cards#show'
