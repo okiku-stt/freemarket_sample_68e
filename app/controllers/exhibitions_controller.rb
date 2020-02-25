@@ -11,7 +11,6 @@ class ExhibitionsController < ApplicationController
 
   def new
     @exhibition = Exhibition.new
-    @exhibition.images.new
     @categories = Category.roots
   end
   
