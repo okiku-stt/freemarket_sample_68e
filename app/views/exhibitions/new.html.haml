@@ -41,6 +41,7 @@
                     必須
               .sell-description__form
                 = form.text_area :item_description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:'sell-textarea-default'
+                
         .sell-content
           .sell-details
             .sell-details__text
@@ -52,8 +53,10 @@
                   必須
                 .sell-select-wrap
                   .sell-select-icon
-                    = form.select :categorys_name, [["選択してください"],["レディース"],["メンズ"]], {}, class:'sell-select-default'
+                    = form.collection_select :categorys_id, @categories, :id, :item, { prompt: "---" }, { class: "sell-select-default", id: "category_select" }
                     = icon('fas', 'chevron-down sell-select-icon__allow')
+                .sell-select-children
+
               .sell-details__box__status
                 商品の状態
                 %span.require
