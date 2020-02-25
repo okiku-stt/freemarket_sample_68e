@@ -83,6 +83,7 @@
         justify-content: center;
         line-height: 37px;
         &__number {
+          font-size: 46px;
           span {
             font-size: 32px;
             font-weight: bold;
@@ -162,6 +163,11 @@
             }
           }
         }
+      .item-table {
+        padding: 10px 0 10px;
+        margin-bottom: 10px;
+
+      }
       .option-table {
         display: flex;
         justify-content: space-between;
