@@ -49,6 +49,7 @@
         - if @exhibition.id == @user.id
           = link_to "編集画面に進む", edit_exhibition_path(@exhibition), class: "#"
         - else
+
           = link_to "購入画面に進む", new_user_session, class: "#"
         .show-exbox
           = @exhibition.item_name

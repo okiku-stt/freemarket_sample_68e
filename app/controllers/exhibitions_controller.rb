@@ -26,6 +26,14 @@ class ExhibitionsController < ApplicationController
     
   end
 
+  def modal
+
+  end
+
+  def search
+    @exhibitions = Exhibition.search(params[:keyword])
+  end
+
   def show
     
   end
@@ -34,6 +42,7 @@ class ExhibitionsController < ApplicationController
   def edit
    
   end
+
 
   def update
     if @exhibition.update(exhibition_params)
@@ -47,6 +56,7 @@ class ExhibitionsController < ApplicationController
   private
   def exhibition_params
     params.require(:exhibition).permit(:price,:shipping_date,:shipping_area,:shipping_charges,:item_description,:item_status, :item_name, images_attributes: [:image, :id]).merge(user_id: current_user.id)
+
 
 
   end

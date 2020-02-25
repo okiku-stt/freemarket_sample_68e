@@ -34,7 +34,7 @@ namespace :deploy do
   end
 end
 
-
+# ログの確認
 set :format_options, truncate: false
 
 namespace :log do
