@@ -68,9 +68,9 @@
             = a.text_field :ship_j_last_name, class:"user__input__default__half",placeholder:"サキコ"
           .user--field
             .user--label
-              = a.label :postal_code,"郵便番号(ハイフンなし半角)"
+              = a.label :postal_code,"郵便番号(ハイフンあり半角)"
               %span.user__must-input 必須
-            = a.text_field :postal_code,class:"user__input__default", placeholder: "1239876"
+            = a.text_field :postal_code,class:"user__input__default", placeholder: "123-9876"
           .user--field
             .user--label
               = a.label :prefectures,"都道府県"
@@ -83,7 +83,7 @@
             = a.text_field :municipalities, class:"user__input__default" ,placeholder: "渋谷区神南"
           .user--field
             .user--label
-              = a.label :house_number,"番地"
+              = a.label :house_number,"番地(半角可)"
               %span.user__must-input 必須
             = a.text_field :house_number, class:"user__input__default" ,placeholder: "1-99-44"
           .user--field
@@ -93,9 +93,9 @@
             = a.text_field :building,class:"user__input__default",placeholder: "フリマ神南ビル3-104"
           .user--field
             .user--label
-              = a.label :phone_number,"電話番号(ハイフンなし半角)"
+              = a.label :phone_number,"電話番号(ハイフンあり半角)"
               %span.user__optional-input 任意
-            = a.text_field :phone_number,class:"user__input__default",placeholder: "09011223344"
+            = a.text_field :phone_number,class:"user__input__default",placeholder: "090-1122-3344"
         .user--actions
           = f.submit "新規登録",class:"user--actions__btn"
     .user__registration__main__footer
