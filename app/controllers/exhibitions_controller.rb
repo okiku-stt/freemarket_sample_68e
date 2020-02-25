@@ -26,6 +26,14 @@ class ExhibitionsController < ApplicationController
     
   end
 
+  def modal
+
+  end
+
+  def search
+    @exhibitions = Exhibition.search(params[:keyword])
+  end
+
   def show
     
   end
