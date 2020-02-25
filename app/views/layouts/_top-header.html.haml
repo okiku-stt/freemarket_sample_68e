@@ -1,26 +1,22 @@
 .top-header
   .top-header__left
     .main-header__left__logo
-      = image_tag asset_path("logo.png"),size:'140x40'
-    = form_with  model: @exhibition, url: search_exhibitions_path, local: true, method: :get, class: "new-message" do |form|
-      = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-box" 
-      -# = form.submit "#", class: "#"
-      %button{type: "submit", placeholder: "キーワードから探す",class: "search-btn" } 
+      = image_tag "logo.png",size:'140x40'
+    = form_with class: "new-message" do |form|
+      = form.text_field :text, placeholder: "キーワードから探す", class: "search-box" 
+      %button{:type => "submit", class: "search-btn"}
         %i.fas.fa-search
   .item-header
-    .item-header__box
-      .category-box
-        = link_to "カテゴリー"
-      .bland-box
-        = link_to "ブランド"
+    .category-box
+      = link_to "カテゴリー"
+    .bland-box
+      = link_to "ブランド"
 
   
     - if user_signed_in?
       .create-box
-        .mypage-index
-          = link_to "マイページへ", mypage_index_path, method: :get
-        .mypage-index
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
+        = link_to "マイページへ", mypage_index_path, method: :get
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
     - else
       .create-box
         = link_to "ログイン", new_user_session_path
