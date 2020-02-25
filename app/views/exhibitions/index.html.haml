@@ -12,9 +12,9 @@
           フリマアプリです
         .topic-items
           =link_to "#", class: "topic-items__App", size: '180x53' do
-            = image_tag "app-store"
+            = image_tag asset_path("logo.png"),size: '180x53'
           =link_to "#",class: "topic-items__Google", size: '180x53' do
-            = image_tag "google-play"
+            = image_tag asset_path("logo.png"),size: '180x53'
   .top-content-text
     %h2.top-introduction
       FURIMAが選ばれる3つの理由
@@ -22,7 +22,7 @@
       %ul.lists-imageBox
         %li.list-imageBox
           .list-imageBox__image
-            = image_tag "pict-reason-01", size: "306x306"
+            = image_tag asset_path("logo.png"), size: "180x53"
         %li.list-imageBox
         %li.list-imageBox
 
@@ -30,7 +30,7 @@
   .top-item-contents
     .top-item-contents__box
       .top-item-contents__box__array
-        @exhibitions.each do |exhibition|
+        - @exhibitions.each do |exhibition|
           .top-item-contents__box__array__content
             = link_to "ルート確保用商品詳細ページへ", exhibition_path(exhibition.id), method: :get
             = exhibition.price
