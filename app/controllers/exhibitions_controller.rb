@@ -1,8 +1,8 @@
 class ExhibitionsController < ApplicationController
 
-  before_action :set_exhibition, only: [:show, :edit]
-  before_action :set_user, only: [:show, :edit]
-
+  before_action :set_exhibition, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
+ 
 
 
   def index
@@ -10,8 +10,8 @@ class ExhibitionsController < ApplicationController
   end
 
   def new
-
     @exhibition = Exhibition.new
+    @exhibition.images.new
   end
   
   def create
@@ -30,24 +30,26 @@ class ExhibitionsController < ApplicationController
     
   end
 
-  def create
-
-  end
-
 
   def edit
-
+   
   end
 
-
- 
+  def update
+    if @exhibition.update(exhibition_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+    
+  end
 
   private
   def exhibition_params
-    params.require(:exhibition).permit(:price,:shipping_date,:shipping_area,:shipping_charges,:categorys_name,:item_description,:item_status, :item_name).merge(user_id: current_user.id)
+    params.require(:exhibition).permit(:price,:shipping_date,:shipping_area,:shipping_charges,:item_description,:item_status, :item_name, images_attributes: [:image, :id]).merge(user_id: current_user.id)
+
 
   end
-
 
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])
@@ -55,6 +57,8 @@ class ExhibitionsController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
-  end
+  end 
+
+
 
 end

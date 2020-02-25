@@ -38,7 +38,8 @@ ActiveRecord::Schema.define(version: 2020_02_19_092046) do
 
   create_table "exhibitions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "categorys_name", null: false
+    t.integer "categorys_id", null: false
+    t.integer "bland_id", null: false
     t.string "shipping_charges", null: false
     t.string "shipping_area", null: false
     t.string "shipping_date", null: false
@@ -51,10 +52,11 @@ ActiveRecord::Schema.define(version: 2020_02_19_092046) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "image", null: false
-    t.integer "exhibitions_id", null: false
+    t.string "image", null: false
+    t.bigint "exhibition_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["exhibition_id"], name: "index_images_on_exhibition_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -77,4 +79,5 @@ ActiveRecord::Schema.define(version: 2020_02_19_092046) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "exhibitions"
 end

@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+.error_body {
+  background-color: mintcream;
+  width: 100%;
+  height: 100vh;
+  h1 {
+    font-size: 40px;
+    padding: 10px;
+    p {
+      font-size: 20px;
+    }
+  }
+}
