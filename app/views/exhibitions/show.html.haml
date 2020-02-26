@@ -30,7 +30,10 @@
             %li.show-box__body__item
               = image_tag src ="/assets/a007.png"
               .soldOut
-                = @exhibition.deal
+                = image_tag  asset_path("pop_sold_out.png"), class: "soldOut__sold", size: "40x10px" do
+                  - if @exhibition.deal == 0
+                    .soldOut__sell
+                  - else @exhibition.deal == 1
               
         .show-box__foot 
           %ul

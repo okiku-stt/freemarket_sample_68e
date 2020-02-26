@@ -63,13 +63,18 @@
           }
           &__item {
             position: relative;
-            .soldOut {
-              position: absolute;
-              width: 200px;
-              height: 30px;
-              background-color: red;
+          }
+          .soldOut {
+            &__sell {
+              display: none;
+            }
+            &__sold {
+            position: absolute;
+            transform: rotate3d(1, 1, 1, 45deg);
+            // height: auto;
             }
           }
+
         }
       }
       &__foot {
