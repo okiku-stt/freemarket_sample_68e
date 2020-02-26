@@ -10,11 +10,22 @@
   .item-header
     .item-header__box
       .category-box
-        = link_to "カテゴリー"
+        .category
+          .category__wrapper
+            -# %i.fas.fa-list-ul.category__wrapper__icon
+            %p.category__wrapper__target カテゴリ
+            .category__wrapper__flex
+              .category__wrapper__flex__parents
+                - @categories.each do |category|
+                  = link_to "#", class: "category__wrapper__flex__parents__item" do
+                    .category__wrapper__flex__parents__item__text{"data-item-id": category.id}
+                      #{category.item}
+              .category__wrapper__flex__children
+              .category__wrapper__flex__grandchildren
       .bland-box
         = link_to "ブランド"
 
-  
+
     - if user_signed_in?
       .create-box
         .mypage-index
