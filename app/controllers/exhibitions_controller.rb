@@ -10,7 +10,6 @@ class ExhibitionsController < ApplicationController
   end
 
   def new
-
     @exhibition = Exhibition.new
     @exhibition.images.new
     @categories = Category.roots
@@ -18,9 +17,7 @@ class ExhibitionsController < ApplicationController
   
   def create
     @exhibition = Exhibition.new(exhibition_params)
-    
     if @exhibition.save
-      
       redirect_to modal_exhibitions_path
     else
       render new_exhibition_path
@@ -29,7 +26,6 @@ class ExhibitionsController < ApplicationController
   end
 
   def modal
-
   end
 
   def search
@@ -37,12 +33,10 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-    
   end
 
 
   def edit
-   
   end
 
 
@@ -52,7 +46,6 @@ class ExhibitionsController < ApplicationController
     else
       render :edit
     end
-    
   end
 
   def search_children
@@ -78,7 +71,6 @@ class ExhibitionsController < ApplicationController
 
   def exhibition_params
     params.require(:exhibition).permit(:price,:shipping_date,:shipping_area,:shipping_charges,:item_description,:item_status, :item_name, images_attributes: [:image, :id]).merge(user_id: current_user.id)
-
   end
 
 

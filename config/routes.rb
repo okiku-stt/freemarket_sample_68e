@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
   
 
-  resources :exhibitions ,only: [:index, :show, :edit, :new, :create, :update] do
+  resources :exhibitions ,except: :destroy do
     collection do
       get 'search'
       get 'search_children'
@@ -26,13 +26,12 @@ Rails.application.routes.draw do
   
   resources :mypage ,only: :index
   resources :logouts ,only: :index
-  resources :paymethods ,only: :indexz1
+  resources :paymethods ,only: :index
   resources :addresses ,only: :index
   resources :editmails ,only: :index
   
   resources :cards, only: [:new, :index, :show, :edit, :update] do
     collection do
-      # post 'index', to: 'cards#index'
       post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
