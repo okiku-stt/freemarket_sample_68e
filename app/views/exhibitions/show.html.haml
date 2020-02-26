@@ -27,9 +27,12 @@
           = @exhibition.item_name
         .show-box__body
           %ul
-            %li 
+            %li.show-box__body__item
               = image_tag src ="/assets/a007.png"
-        .show-box__foot
+              .soldOut
+                = @exhibition.deal
+              
+        .show-box__foot 
           %ul
             %li 
               = image_tag src ="/assets/a007.png", size: "140x75"
@@ -59,7 +62,7 @@
               %tr
                 %th 出品者
                 %td 
-                  - if @exhibition.id == @user.id
+                  - if @exhibition.id && @user.id
                     = @user.nickname
               %tr
                 %th カテゴリー
@@ -86,7 +89,7 @@
               %tr
                 %th 発送元の地域
                 %td
-                  = @exhibition.shipping_area
+                  = @exhibition.prefecture.name
               %tr
                 %th 発送日の目安
                 %td 

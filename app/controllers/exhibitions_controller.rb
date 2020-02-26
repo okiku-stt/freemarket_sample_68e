@@ -12,6 +12,7 @@ class ExhibitionsController < ApplicationController
   def new
     @exhibition = Exhibition.new
     @categories = Category.roots
+    # @category_children = Category.find(params[:parent]).children 
   end
   
   def create
@@ -35,7 +36,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-    
+    @deal = Exhibition.find_by(deal: params[:deal])
   end
 
 
@@ -65,7 +66,7 @@ class ExhibitionsController < ApplicationController
 
   private
   def exhibition_params
-    params.require(:exhibition).permit(:price,:shipping_date,:shipping_area,:shipping_charges,:item_description,:item_status, :item_name, images_attributes: [:image, :id]).merge(user_id: current_user.id)
+    params.require(:exhibition).permit(:price,:shipping_date,:categorys_name,:prefecture_id,:shipping_charges,:item_description,:item_status, :item_name, images_attributes: [:image, :id]).merge(user_id: current_user.id)
 
 
 

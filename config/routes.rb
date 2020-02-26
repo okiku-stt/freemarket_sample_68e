@@ -6,15 +6,15 @@ Rails.application.routes.draw do
   }
   root to: "exhibitions#index"
 
-  resources :exhibitions ,only: [:index, :show, :edit, :new, :create, :update] do
-    resources :categories do
-      collection do
-        get 'modal'
-        get 'search_children'
-        get 'search_grandchildren'
-      end
+  
+  resources :categories do
+    collection do
+      get 'modal'
+      get 'search_children'
+      get 'search_grandchildren'
     end
   end
+  
 
   resources :exhibitions ,only: [:index, :show, :new, :create, :edit, :update] do
     collection do
