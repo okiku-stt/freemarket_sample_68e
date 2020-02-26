@@ -32,7 +32,7 @@ $(function(){
     $('.category__wrapper__flex__grandchildren').css('box-shadow', '');
     var id = $(this).data('item-id');
     $.ajax({
-      url: "/exhibitions/search_children",
+      url: "/categories/search_children",
       type: "GET",
       data: {
         parent_id: id
@@ -69,7 +69,7 @@ $(function(){
     $(this).css('background', 'whitesmoke');
     var id_child = $(this).data('item-id');
     $.ajax({
-      url: "/exhibitions/search_grandchildren",
+      url: "/categories/search_grandchildren",
       type: "GET",
       data: {
         child_id: id_child

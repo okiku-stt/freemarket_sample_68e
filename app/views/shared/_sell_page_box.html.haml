@@ -1,7 +1,5 @@
 -# = render "shared/sell_page_box"で呼び出し
 .top__sell-page
-  = link_to new_exhibition_path, class:' top__sell-page__link' do
-    .camera-content
-      %p.purchase-text
-        出品する
-      = image_tag "icon_camera.png",size:"54x54",class:'camera-content__icon'     
+  .top__sell-page__icon
+  = link_to "出品する", new_exhibition_path,class:'top__sell-page__link'
+
