@@ -32,11 +32,22 @@
       &__logo{
       }
       .new-message {
-        width: 100%;
-        height: 36px;
-        background-color: cadetblue;
-        .search-box {
+        width:100%;
+        height: 40px;
+        .search-box{
+          width:65%;
+          margin-left: 50px;
           height: 40px;
+          padding: 0 10px;
+        }
+        .search-btn {
+          width: 40px;
+          height: 40px;
+          background-color: rgb(88, 230, 235);
+          font-size: 20px;
+          .fa-search {
+            color: white;
+          }
         }
       }
     }
@@ -135,39 +146,15 @@
         .bland-box {
           width: 20%;
         }
-      .create-box {
-        width: 100%;
-        display: flex;
         .mypage-index {
           margin-left: 60px;
         }
       }
     }
   }
-  .new-message {
-    width:100%;
-
-    height: 40px;
-    .search-box{
-      width:65%;
-      margin-left: 50px;
-      height: 40px;
-      padding: 0 10px;
-    }
-    .search-btn {
-      width: 40px;
-      height: 40px;
-      background-color: rgb(88, 230, 235);
-      font-size: 20px;
-      .fa-search {
-        color: white;
-      }
-    }
-  }
-  .top-upper {
+  
+  .top-upper {  
     .upper-contents {
-    
-      .upper-contents {
       padding: 0 60px;
       height: 560px;
       width: 100%;
@@ -422,8 +409,7 @@
           }
         }
       }
-    }
-    
+    } 
   }
   .span-box-second {
     height: 60px;
@@ -463,7 +449,6 @@
           &:hover {
             opacity: 0.5; 
           }
-        &__image {
         }
       }
     }
