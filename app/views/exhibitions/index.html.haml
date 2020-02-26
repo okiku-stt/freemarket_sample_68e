@@ -137,8 +137,7 @@
             .categoryList__exhibition
               = link_to exhibition_path(exhibition.id), class: 'link-showpage', method: :get do
                 .categoryList__exhibition__image
-                  = image_tag asset_path("a007.png"), size: "220x150" do
-                    -# = image_tag exhibition.image.to_s, class: "categoryFirstImage"
+                  = image_tag asset_path("a007.png"), size: "220x150"
                 .categoryList__exhibition__body
                   .exhibition-item-name
                     = exhibition.item_name

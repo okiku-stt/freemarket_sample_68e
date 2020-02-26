@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'search_grandchildren'
     end
   end
+  # resources :categories doに7つのアクションがないと指摘を受けました。対応をお願いします
   
 
   resources :exhibitions ,except: :destroy do
