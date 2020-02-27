@@ -381,5 +381,31 @@ ul.buy {
       margin: 0 auto;
     }
   }
+}
 
+.must-message {
+  &__item-name {
+    color: red;
+  }
+  &__item-description {
+    color: red;
+  }
+  &__category {
+    color: red;
+  }
+  &__status {
+    color: red;
+  }
+  &__shipping-charge {
+    color: red;
+  }
+  &__shipping-area {
+    color: red;
+  }
+  &__shipping-date {
+    color: red;
+  }
+  &__price {
+    color: red;
+  }
 }
