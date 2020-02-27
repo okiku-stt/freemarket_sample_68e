@@ -1,125 +1,12 @@
 .mypage
   .mypage__flex
-    .mypage__flex__left
-      .mypage__flex__left__list{"data-mypage" => "-1"}
-        = link_to "#", class: "mypage__flex__left__list__current" do
-          %p マイページ
-          .mypage-icon-1
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-2"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p やることリスト
-          .mypage-icon-2
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-3"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p いいね！一覧
-          .mypage-icon-3
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-4"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p 出品する
-          .mypage-icon-4
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-5"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p 出品した商品-出品中
-          .mypage-icon-5
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-6"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p 出品した商品-取引中
-          .mypage-icon-6
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-7"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p 出品した商品-売却済
-          .mypage-icon-7
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-8"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p 購入した商品-取引中
-          .mypage-icon-8
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-9"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p 購入した商品-過去の取引
-          .mypage-icon-9
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-10"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p ニュース一覧
-          .mypage-icon-10
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-11"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p 評価一覧
-          .mypage-icon-11
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-12"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p ガイド
-          .mypage-icon-12
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-13"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p お問い合わせ
-          .mypage-icon-13
-            = icon('fas', 'chevron-right' )
-      %h3.mypage-left-list-title メルペイ
-      .mypage__flex__left__list{"data-mypage" => "-14"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p 売上・振込申請
-          .mypage-icon-14
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-15"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p ポイント
-          .mypage-icon-15
-            = icon('fas', 'chevron-right' )
-      %h3.mypage-left-list-title  設定
-      .mypage__flex__left__list{"data-mypage" => "-16"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p プロフィール
-          .mypage-icon-16
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-17"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p 発送元・お届け先住所変更
-          .mypage-icon-17
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-18"}
-        = link_to "/cards", method: :get, class: "mypage__flex__left__list__link" do
-          %p 支払い方法
-          .mypage-icon-18
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-19"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p メール/パスワード
-          .mypage-icon-19
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-20"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p 本人情報
-          .mypage-icon-20
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-21"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p 電話番号の確認
-          .mypage-icon-21
-            = icon('fas', 'chevron-right' )
-      .mypage__flex__left__list{"data-mypage" => "-22"}
-        = link_to "#", class: "mypage__flex__left__list__link" do
-          %p ログアウト
-          .mypage-icon-22
-            = icon('fas', 'chevron-right' )
-
+    = render "shared/mypage_flex_left"
     .mypage__flex__right
       .mypage__flex__right__user
         =link_to "#", class: "mypage__flex__right__user__wrapper" do
           .mypage__flex__right__user__wrapper__img
           .mypage__flex__right__user__wrapper__name
-            高橋駿介
+            = @user.nickname
           .mypage__flex__right__user__wrapper__info
             .mypage__flex__right__user__wrapper__info__assess
               評価　

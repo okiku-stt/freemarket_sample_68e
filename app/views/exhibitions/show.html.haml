@@ -23,12 +23,16 @@
   .exmain__top
     .ex-content
       .show-box
-        %h2.show-box__name product3
+        %h2.show-box__name
+          = @exhibition.item_name
         .show-box__body
           %ul
-            %li 
+            %li.show-box__body__item
               = image_tag src ="/assets/a007.png"
-        .show-box__foot
+              .soldOut
+                -# = @exhibition.deal
+              
+        .show-box__foot 
           %ul
             %li 
               = image_tag src ="/assets/a007.png", size: "140x75"
@@ -48,15 +52,17 @@
         - if @exhibition.id == @user.id
           = link_to "編集画面に進む", edit_exhibition_path(@exhibition), class: "#"
         - else
-          = link_to "購入画面に進む", root_path, class: "#"
-        .show-exbox product3
+
+          = link_to "購入画面に進む", new_user_session, class: "#"
+        .show-exbox
+          = @exhibition.item_name
         .show-table
           %table
             %tbody
               %tr
                 %th 出品者
                 %td 
-                  - if @exhibition.id == @user.id
+                  - if @exhibition.id && @user.id
                     = @user.nickname
               %tr
                 %th カテゴリー
@@ -72,7 +78,6 @@
               %tr
                 %th 商品のサイズ
                 %td 
-                  = @exhibition.item_name
               %tr
                 %th 商品の状態
                 %td 
@@ -84,7 +89,7 @@
               %tr
                 %th 発送元の地域
                 %td
-                  = @exhibition.shipping_area
+                  = @exhibition.prefecture.name
               %tr
                 %th 発送日の目安
                 %td 

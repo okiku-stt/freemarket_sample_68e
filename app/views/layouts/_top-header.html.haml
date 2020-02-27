@@ -1,24 +1,38 @@
 .top-header
   .top-header__left
     .main-header__left__logo
-      = image_tag "logo.png",size:'140x40'
-    = form_with class: "new-message" do |form|
-      = form.text_field :text, placeholder: "キーワードから探す", class: "search-box" 
-      %button{:type => "submit", class: "search-btn"}
+      = image_tag asset_path("logo.png"),size:'140x40'
+    = form_with  model: @exhibition, url: "#", local: true, method: :get, class: "new-message" do |form|
+      = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-box" 
+      -# = form.submit "#", class: "#"
+      %button{type: "submit", placeholder: "キーワードから探す",class: "search-btn" } 
         %i.fas.fa-search
   .item-header
-    .category-box
-      = link_to "カテゴリー"
-    .bland-box
-      = link_to "ブランド"
+    .item-header__box
+      .category-box
+        .category
+          .category__wrapper
+            -# %i.fas.fa-list-ul.category__wrapper__icon
+            %p.category__wrapper__target カテゴリ
+            .category__wrapper__flex
+              .category__wrapper__flex__parents
+                - @categories.each do |category|
+                  = link_to "#", class: "category__wrapper__flex__parents__item" do
+                    .category__wrapper__flex__parents__item__text{"data-item-id": category.id}
+                      #{category.item}
+              .category__wrapper__flex__children
+              .category__wrapper__flex__grandchildren
+      .bland-box
+        = link_to "ブランド"
 
-  
+
     - if user_signed_in?
-      .create-box
+      .mypage-index
         = link_to "マイページへ", mypage_index_path, method: :get
+      .mypage-index
         = link_to "ログアウト", destroy_user_session_path, method: :delete
     - else
-      .create-box
+      .mypage-index
         = link_to "ログイン", new_user_session_path
+      .mypage-index
         = link_to "新規登録", new_user_registration_path
-  

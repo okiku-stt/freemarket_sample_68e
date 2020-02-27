@@ -3,6 +3,15 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
 
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue404 #エラーハンドリング処理（始まり）
+
+  private
+    def rescue404(e)
+      @exception = e
+      render template: 'errors/not_exhibition', status: 404
+    end #エラーハンドリング処理（終わり）
+
+
   def after_sign_in_path_for(resource)
     root_path # ログイン後に遷移するpathを設定
   end

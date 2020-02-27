@@ -1,13 +1,11 @@
 .buy-wrapper
   .buy-header
     = link_to root_path do
-      = image_tag src="/assets/logo.png", size: "185x49"
-
+      = image_tag asset_path("logo.png"), size: "185x49"
   .buy-body
     .buy-main
       %h2.buy-main-head
         購入内容の確認
-        
       .buy-container
         .buy-content
           .buy-item-container
@@ -81,4 +79,4 @@
       .sell-footer__container__image
         = image_tag src="http://furima.tokyo/assets/logo-white-f61961ed5170064c5f33dd4524bdceeb5a5df2c83eb76fba31143f63fbab2c5e.svg", size: "160x46"
       .sell-footer__container__inc
-        © FURIMA
+        © FURIMA 
