@@ -84,5 +84,6 @@ end
 
 gem 'fog-aws'
 gem 'ancestry', git: "https://github.com/stefankroes/ancestry.git"
+gem 'enum_help'
 gem 'pry-rails'
 gem 'active_hash'

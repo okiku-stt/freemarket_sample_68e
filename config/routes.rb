@@ -8,16 +8,15 @@ Rails.application.routes.draw do
   
   resources :categories do
     collection do
-      get 'modal'
       get 'search_children'
       get 'search_grandchildren'
     end
   end
-  # resources :categories doに7つのアクションがないと指摘を受けました。対応をお願いします
-  
+  # resources :categories doに7つのアクションがないと指摘を受けました。対応をお願いします  
 
   resources :exhibitions ,except: :destroy do
     collection do
+      get 'modal'
       get 'search'
       get 'search_children'
       get 'search_grandchildren'

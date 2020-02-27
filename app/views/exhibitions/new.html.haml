@@ -1,11 +1,12 @@
 .sell-wrapper
   .sell-header
     = link_to root_path do
-      = image_tag src="/assets/logo.png", size: "185x49"
+      = image_tag src=asset_path("logo.png"), size: "185x49"
   .sell-body
     .sell-main
       %h2.sell-main-head
         商品の情報を入力
+
       
       = form_with(model:@exhibition, url: exhibitions_path, method: :post, local: true,class: "sell-form") do |form|
         .sell-img-box
@@ -53,7 +54,9 @@
                   必須
                 .sell-select-wrap
                   .sell-select-icon
-                    = form.collection_select :categorys_id, @categories, :id, :item, { prompt: "---" }, { class: "sell-select-default", id: "category_select" }
+                    -# = form.collection_select :categorys_id, @categories, :id, :item, { prompt: "---" }, { class: "sell-select-default", id: "category_select" }
+                    = form.select :categorys_name, [["選択してください"],["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"]], {}, class:'sell-select-default'
+                      
                     = icon('fas', 'chevron-down sell-select-icon__allow')
                 .sell-select-children
 
@@ -150,6 +153,6 @@
           %li.buy
             = link_to '特定商取引に関する表記', '/', class: "buy-link"
       .sell-footer__container__image
-        = image_tag src="/assets/logo.png", size: "120x34"
+        = image_tag src=asset_path("logo.png"), size: "120x34"
       .sell-footer__container__inc
         © FURIMA
