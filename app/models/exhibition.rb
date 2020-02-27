@@ -8,8 +8,16 @@ class Exhibition < ApplicationRecord
   # belongs_to :purchase
 
   belongs_to_active_hash :prefecture
-  validates :price, presence: true
-  validates :shipping_date, presence: true
+  validates :price,                      presence: true
+  validates :shipping_date,              presence: true
+
+  validates :item_name,                  presence: true
+  validates :item_description,           presence: true
+  validates :categorys_name,             presence: true
+  validates :item_status,                presence: true
+  validates :shipping_charges,           presence: true
+  validates :prefecture_id,              presence: true
+
   enum deal: { sell: 0, SOLDOUT: 1 }  
   def self.search(search)
     if search
