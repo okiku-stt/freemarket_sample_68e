@@ -28,7 +28,7 @@
       margin: 0 100px 0 250px;
       align-items: center;
       justify-content: flex-start;
-      margin: 0 100px;
+      // margin: 0 100px;
       &__logo{
       }
       .new-message {
@@ -54,10 +54,10 @@
     .item-header {
       display: flex;
       justify-content: space-between;
-      margin: 0 100px 0 250px;
+      margin: 0 350px 0 250px;
       &__box {
         display: flex;
-        width: 50%;
+        width: 100%;
         .category-box{
           width: 20%;
           .category {
@@ -148,12 +148,13 @@
         }
         .mypage-index {
           margin-left: 60px;
+          width: 30%;
         }
       }
     }
   }
   
-  .top-upper {  
+  .top-upper {
     .upper-contents {
       padding: 0 60px;
       height: 560px;
@@ -191,7 +192,7 @@
             }
           }
         }
-      }
+      }     
     }
   }
   .main-imageBox {

@@ -194,8 +194,12 @@
               background-color: #aaaaaa;
               line-height: 50px;
               color: white;
-              width: 45%;
+              width: 245px;
               margin: 24px auto 0;
+              &__link {
+                width: 245px;
+                height: 100%;
+              }
             }
           }
           

@@ -27,13 +27,12 @@
 
 
     - if user_signed_in?
-      .create-box
-        .mypage-index
-          = link_to "マイページへ", mypage_index_path, method: :get
-        .mypage-index
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
+      .mypage-index
+        = link_to "マイページへ", mypage_index_path, method: :get
+      .mypage-index
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
     - else
-      .create-box
+      .mypage-index
         = link_to "ログイン", new_user_session_path
+      .mypage-index
         = link_to "新規登録", new_user_registration_path
-  

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   
   resources :categories do
     collection do
-      get 'modal'
       get 'search_children'
       get 'search_grandchildren'
     end
@@ -17,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :exhibitions ,except: :destroy do
     collection do
+      get 'modal'
       get 'search'
       get 'search_children'
       get 'search_grandchildren'
