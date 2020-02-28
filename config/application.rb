@@ -22,4 +22,3 @@ module FreemarketSample68e
   end
 end
 
-
