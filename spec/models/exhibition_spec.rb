@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Exhibition do
   describe '#create' do
     # 1. price,shipping_date,categorys_name,prefecture_id,shipping_charges,item_description,item_status, item_name, images_attributesが存在すれば登録できること
-    it "is valid with a price,shipping_date,categorys_name,prefecture_id,shipping_charges,item_description,item_status,item_name" do
+    it "is valid with a price,shipping_date,category_id,prefecture_id,shipping_charges,item_description,item_status,item_name" do
       user = create(:user)
       exhibition = build(:exhibition, user_id: user.id)
       expect(exhibition).to be_valid
