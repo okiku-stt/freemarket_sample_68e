@@ -11,8 +11,10 @@
         = render "devise/shared/error_messages", resource: resource
         .user--field
           = f.email_field :email,class:"user__input__default", autofocus: true, placeholder: "メールアドレス"
+          .must__message__email
         .user--field
           = f.password_field :password,class:"user__input__default", placeholder: "パスワード"
+          .must__message__password
         .user--actions
           = f.submit "ログイン",class:"user--actions__btn"
     .user__registration__main__footer
