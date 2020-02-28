@@ -22,18 +22,14 @@ class ExhibitionsController < ApplicationController
           params[:exhibition_images][:image].each do |image|
             @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
           end
-        format.html{redirect_to root_path}
+        format.html{redirect_to modal_exhibitions_path}
       else
         @exhibition.images.build
         format.html{render action: 'new'}
       end
     end
-      
-    if @exhibition.save
       redirect_to modal_exhibitions_path
-    else
       render new_exhibition_path
-    end
   end
 
   def modal
