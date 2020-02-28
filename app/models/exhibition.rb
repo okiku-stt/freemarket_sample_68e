@@ -32,3 +32,4 @@ class Exhibition < ApplicationRecord
     end
   end
 end
+end

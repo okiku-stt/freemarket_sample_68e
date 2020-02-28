@@ -66,7 +66,7 @@
                 .sell-select-wrap
                   .sell-select-icon
                     = form.collection_select :category_id, @categories, :id, :item, { prompt: "---" }, { class: "sell-select-default", id: "category_select" }
-                    = form.select :categorys_name, [["選択してください"],["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"]], {}, class:'sell-select-default error-category'
+                    -# = form.select :categorys_name, [["選択してください"],["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"]], {}, class:'sell-select-default error-category'
                     = icon('fas', 'chevron-down sell-select-icon__allow')
                   .must-message__category.error
                 .sell-select-children
