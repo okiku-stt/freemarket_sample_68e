@@ -27,6 +27,7 @@ class ExhibitionsController < ApplicationController
         @exhibition.images.build
         format.html{render action: 'new'}
       end
+    end
       
     if @exhibition.save
       redirect_to modal_exhibitions_path
@@ -65,6 +66,7 @@ class ExhibitionsController < ApplicationController
         @children = Category.find(params[:parent_id]).children
       }
     end
+  end
 
   def category_grandchildren
     @category_grandchildren = Category.find(params[:child]).children
