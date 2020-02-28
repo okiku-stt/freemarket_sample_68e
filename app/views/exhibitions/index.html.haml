@@ -108,9 +108,9 @@
         .categoryList
           - @exhibitions.each do |exhibition|
             .categoryList__exhibition
-              = link_to exhibition_path(exhibition.id), class: 'link-showpage', method: :get do
+              = link_to exhibition_path(exhibition), class: 'link-showpage', method: :get do
                 .categoryList__exhibition__image
-                  = image_tag asset_path("a007.png"), size: "220x150" do
+                  = image_tag asset_path("nanase.png"), size: "220x130",class:"nanase" do  
                     -# = image_tag exhibition.image.to_s, class: "categoryFirstImage"
                 .categoryList__exhibition__body
                   .exhibition-item-name
@@ -131,13 +131,13 @@
       .categoryBox
         .categoryHead
           = link_to "#" do
-            %h3.category-text アーカイバ
+            %h3.category-text アーカイブ
         .categoryList
           - @exhibitions.each do |exhibition|
             .categoryList__exhibition
               = link_to exhibition_path(exhibition.id), class: 'link-showpage', method: :get do
                 .categoryList__exhibition__image
-                  = image_tag asset_path("a007.png"), size: "220x150"
+                  = image_tag asset_path("ikuta.jpg"), size: "220x150",class:"ikuta"
                 .categoryList__exhibition__body
                   .exhibition-item-name
                     = exhibition.item_name
