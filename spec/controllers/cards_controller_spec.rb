@@ -5,7 +5,7 @@ require 'rails_helper'
 #   # userをcreateし、let内に格納
 #   describe "GET #index" do
 #     # controller_macros.rb内のlogin_userメソッドを呼び出し
-  
+
 #     it "returns http success" do
 #       get :index
 #       expect(response).to have_http_status(:success)
@@ -16,7 +16,6 @@ require 'rails_helper'
 #   before do
 #     login_user user
 #     # controller_macros.rb内のlogin_userメソッドを呼び出し
-  
 #     it "returns http success" do
 #       get :new
 #       expect(response).to have_http_status(:success)
@@ -30,5 +29,4 @@ require 'rails_helper'
 #       expect(response).to have_http_status(:success)
 #     end
 #   end
-
 # end
