@@ -1,12 +1,14 @@
-.top-header
-  .top-header__left
-    .main-header__left__logo
-      = image_tag asset_path("logo.png"),size:'140x40'
-    = form_with  model: @exhibition, url: "#", local: true, method: :get, class: "new-message" do |form|
-      = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-box" 
-      -# = form.submit "#", class: "#"
-      %button{type: "submit", placeholder: "キーワードから探す",class: "search-btn" } 
-        %i.fas.fa-search
+.top__header
+  .top__header__left
+    .top__header__left__logo
+      .top__header__left__logo__side
+        = image_tag asset_path("logo.png"),size:'140x40'
+      .top__header__right
+        = form_with  model: @exhibition, url: "#", local: true, method: :get, class: "new-message" do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-box" 
+          -# = form.submit "#", class: "#"
+          %button{type: "submit", placeholder: "キーワードから探す",class: "search-btn" } 
+            %i.fas.fa-search
   .item-header
     .item-header__box
       .category-box
@@ -26,13 +28,13 @@
         = link_to "ブランド"
 
 
-    - if user_signed_in?
-      .mypage-index
-        = link_to "マイページへ", mypage_index_path, method: :get
-      .mypage-index
-        = link_to "ログアウト", destroy_user_session_path, method: :delete
-    - else
-      .mypage-index
-        = link_to "ログイン", new_user_session_path
-      .mypage-index
-        = link_to "新規登録", new_user_registration_path
+      - if user_signed_in?
+        .mypage-index.adjustment
+          = link_to "マイページへ", mypage_index_path, method: :get
+        .mypage-index
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
+      - else
+        .mypage-index.adjustment
+          = link_to "ログイン", new_user_session_path
+        .mypage-index
+          = link_to "新規登録", new_user_registration_path
