@@ -1,24 +1,3 @@
-// $(function(){
-//   $(".sell-img-box__dropbox__text").on("dragenter", function(e){
-//     console.log("dragenter");
-//     e.preventDefault();
-//   });
-//   $(".sell-img-box__dropbox__text").on("dragover", function(e){
-//     console.log("dragover");
-//     e.preventDefault();
-//   });
-//   $(".sell-img-box__dropbox__text").on("drop", function(e){
-//     console.log("drop");
-//     e.preventDefault();
-//     var f = e.originalEvent.dataTransfer.files;
-//     console.log(f);
-//     document.getElementById("upload-form-fileselect").files = e.originalEvent.dataTransfer.files;
-//   });
-//   return false;
-// });
-
-/////////////////////////////////////////////////////////////////////////////////////
-
 $(document).ready(function(){
   var images = [];
   var inputs  =[];
@@ -77,7 +56,7 @@ $(document).ready(function(){
       preview2.empty();
     } else if (images.length >= 6) {
       // １〜５枚目の画像を抽出（配列番号０から５未満を選択）
-      var pickup_images1 = images.slice(0, 5);
+      var pickup_images1 = images.slice(0,5);
       // １〜５枚目を１段目に表示
       $('#preview').empty();
       $.each(pickup_images1, function(index, image) {
