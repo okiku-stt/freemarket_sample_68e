@@ -18,3 +18,7 @@ module FreemarketSample68e
     # the framework and any gems in your application.
   end
 end
+
+config.action_view.field_error_proc = Proc.new do |html_tag, instance| 
+  html_tag
+end
