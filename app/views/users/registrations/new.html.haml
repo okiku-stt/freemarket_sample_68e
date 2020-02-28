@@ -12,39 +12,39 @@
             = f.label :nickname,"ニックネーム"
             %span.user__must-input 必須
           = f.text_field :nickname,class:"user__input__default", autofocus: true, placeholder: "例)フリマ太郎"
-          .must__nickname
+          .must__nickname.error
         .user--field
           .user--label
             = f.label :email,"メールアドレス"
             %span.user__must-input 必須
           = f.email_field :email,class:"user__input__default", autofocus: true, placeholder: "PC・携帯どちらでも可"
-          .must__email
+          .must__email.error
         .user--field
           .user--label
             = f.label :password,"パスワード"
             %span.user__must-input 必須
           = f.password_field :password,class:"user__input__default", placeholder: "7文字以上の半角英数字"
-          .must__password
+          .must__password.error
         .user--field
           .user--label
             = f.label :password_confirmation,"パスワード確認用"
             %span.user__must-input 必須
           = f.password_field :password_confirmation,class:"user__input__default",placeholder: "もう一度入力してください"
-          .must__confirmation
+          .must__confirmation.error
         .user--field
           .user--label
             = f.label :name,"お名前(全角)"
             %span.user__must-input 必須
           = f.text_field :family_name, class:"user__input__default__half",placeholder: "例)山田"
           = f.text_field :last_name, class:"user__input__default__half",placeholder:"太郎"
-          .must__name
+          .must__name.error
         .user--field
           .user--label
             = f.label :name,"お名前カナ(全角)"
             %span.user__must-input 必須
           = f.text_field :j_family_name, class:"user__input__default__half",placeholder: "例)ヤマダ"
           = f.text_field :j_last_name, class:"user__input__default__half",placeholder:"タロウ"
-          .must__kana
+          .must__kana.error
         .user--field
           .user--label
             = f.label :birthday,"生年月日"
@@ -65,38 +65,38 @@
               %span.user__must-input 必須
             = a.text_field :ship_family_name, class:"user__input__default__half",placeholder: "例)渋谷"
             = a.text_field :ship_last_name, class:"user__input__default__half",placeholder:"咲子"
-            .must__send
+            .must__send.error
           .user--field
             .user--label
               = a.label :name,"送付先 お名前カナ(全角)"
               %span.user__must-input 必須
             = a.text_field :ship_j_family_name, class:"user__input__default__half",placeholder: "例)シブヤ"
             = a.text_field :ship_j_last_name, class:"user__input__default__half",placeholder:"サキコ"
-            .must__send__kana
+            .must__send__kana.error
           .user--field
             .user--label
               = a.label :postal_code,"郵便番号(ハイフンなし半角)"
               %span.user__must-input 必須
             = a.text_field :postal_code,class:"user__input__default", placeholder: "1239876"
-            .must__postal__code
+            .must__postal__code.error
           .user--field
             .user--label
               = a.label :prefectures,"都道府県"
               %span.user__must-input 必須
             = a.text_field :prefectures, class:"user__input__default",placeholder: "例)東京都"
-            .must__prefectures
+            .must__prefectures.error
           .user--field
             .user--label
               = a.label :municipalities,"市区町村"
               %span.user__must-input 必須
             = a.text_field :municipalities, class:"user__input__default" ,placeholder: "渋谷区神南"
-            .must__municipalities
+            .must__municipalities.error
           .user--field
             .user--label
               = a.label :house_number,"番地"
               %span.user__must-input 必須
             = a.text_field :house_number, class:"user__input__default" ,placeholder: "1-99-44"
-            .must__house_number
+            .must__house__number.error
           .user--field
             .user--label
               = a.label :building,"建物名"
