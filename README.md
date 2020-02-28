@@ -54,7 +54,7 @@
 |item_status|string|null: false|
 |item_description|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
-|categorys_name|string|null: false|
+|category_id|string|null: false, foreign_key: true|
 |bland_id|integer|null: false, foreign_key: true|
 |prefecture_id|integer|null: false|
 |shipping_charges|string|null: false|

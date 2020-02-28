@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
   }
   root to: "exhibitions#index"
-  
+
   resources :categories do
     collection do
       get 'search_children'
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
   end
   # resources :categories doに7つのアクションがないと指摘を受けました。対応をお願いします  
+
 
   resources :exhibitions ,except: :destroy do
     collection do
@@ -23,7 +24,6 @@ Rails.application.routes.draw do
     end
   end
 
-  
   resources :mypage ,only: :index
   resources :logouts ,only: :index
   resources :paymethods ,only: :index
