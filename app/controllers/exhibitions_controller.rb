@@ -28,8 +28,6 @@ class ExhibitionsController < ApplicationController
         format.html{render action: 'new'}
       end
     end
-      redirect_to modal_exhibitions_path
-      render new_exhibition_path
   end
 
   def modal
