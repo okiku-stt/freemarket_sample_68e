@@ -16,6 +16,7 @@ end
 
   validates :price, presence: true
   validates :shipping_date, presence: true
+  enum deal: { sell: 0, SOLDOUT: 1 }  
   def self.search(search)
     if search
       Exhibition.where('item_name  LIKE(?)',"%#{search}%")

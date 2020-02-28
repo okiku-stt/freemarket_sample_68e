@@ -6,21 +6,21 @@ Rails.application.routes.draw do
   }
   root to: "exhibitions#index"
 
-  # resources :exhibitions ,only: [:index, :show, :edit, :new, :create, :update] do
-  #   resources :categories do
-  #     collection do
-  #       get 'modal'
-  #       get 'search_children'
-  #       get 'search_grandchildren'
-  #     end
-  #   end
-  # end
+  resources :categories do
+    collection do
+      get 'search_children'
+      get 'search_grandchildren'
+    end
+  end
+  # resources :categories doに7つのアクションがないと指摘を受けました。対応をお願いします  
 
-  resources :exhibitions ,only: [:index, :show, :new, :create, :edit, :update] do
+
+  resources :exhibitions ,except: :destroy do
     collection do
       get 'modal'
-      get 'category_children' 
-      get 'category_grandchildren'
+      get 'search'
+      get 'search_children'
+      get 'search_grandchildren'
     end
   end
 

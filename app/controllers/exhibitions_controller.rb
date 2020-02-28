@@ -5,6 +5,7 @@ class ExhibitionsController < ApplicationController
 
   def index
     @exhibitions = Exhibition.all
+    @categories = Category.roots
   end
 
   def new
@@ -26,9 +27,13 @@ class ExhibitionsController < ApplicationController
         @exhibition.images.build
         format.html{render action: 'new'}
       end
+      
+    if @exhibition.save
+      redirect_to modal_exhibitions_path
+    else
+      render new_exhibition_path
     end
   end
-
 
   def modal
   end
@@ -37,10 +42,11 @@ class ExhibitionsController < ApplicationController
     @exhibitions = Exhibition.search(params[:keyword])
   end
 
-  def show    
+  def show
+    @deal = Exhibition.find_by(deal: params[:deal])
   end
 
-  def edit   
+  def edit
   end
 
   def update
@@ -51,17 +57,33 @@ class ExhibitionsController < ApplicationController
     end
   end
 
-  def category_children  
-    @category_children = Category.find(params[:parent]).children 
+  def search_children
+    @categories = Category.roots
+    respond_to do |format|
+      format.html
+      format.json {
+        @children = Category.find(params[:parent_id]).children
+      }
     end
+
   def category_grandchildren
     @category_grandchildren = Category.find(params[:child]).children
+  end
+
+  def search_grandchildren
+    respond_to do |format|
+      format.html
+      format.json {
+        @grandchildren = Category.find(params[:child_id]).children
+      }
     end
+  end
 
   private
   def exhibition_params
     params.require(:exhibition).permit(:category_id, :shipping_charges, :prefecture_id, :shipping_date, :price, :item_name, :item_status, :prefecture, :item_description, images_attributes: [:image]).merge(user_id: current_user.id)
   end
+
 
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])
@@ -69,5 +91,5 @@ class ExhibitionsController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
-  end 
+  end
 end
