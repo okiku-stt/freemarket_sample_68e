@@ -17,6 +17,24 @@
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 @import "cards";
-.nanase ,.ikuta{
+.nanase {
   object-fit: contain;
 }
+
+// .link-showpage {
+//   overflow: hidden;
+// }
+// .link-showpage img {
+//   // -moz-transition: -moz-transform 0.5s linear;
+//   // -webkit-transition: -webkit-transform 0.5s linear;
+//   // -o-transition: -o-transform 0.5s linear;
+//   // -ms-transition: -ms-transform 0.5s linear;
+//   transition: transform 0.5s linear;
+// }
+// .link-showpage img:hover {
+//   // -webkit-transform: scale(3);
+//   // -moz-transform: scale(3);
+//   // -o-transform: scale(3);
+//   // -ms-transform: scale(3);
+//   transform: scale(3);
+// }
