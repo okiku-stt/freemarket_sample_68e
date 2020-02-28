@@ -108,10 +108,11 @@
         .categoryList
           - @exhibitions.each do |exhibition|
             .categoryList__exhibition
-              = link_to exhibition_path(exhibition), class: 'link-showpage', method: :get do
-                .categoryList__exhibition__image
-                  = image_tag asset_path("nanase.png"), size: "220x130",class:"nanase" do  
-                    -# = image_tag exhibition.image.to_s, class: "categoryFirstImage"
+              - if user_signed_in?
+                = link_to exhibition_path(exhibition), class: 'link-showpage', method: :get do
+                  .categoryList__exhibition__image
+                  = image_tag asset_path("nanase.png"), size: "220x130",class:"nanase" do
+                    -# = image_tag @exhibition.image, class: "categoryFirstImage" do
                 .categoryList__exhibition__body
                   .exhibition-item-name
                     = exhibition.item_name
@@ -124,32 +125,49 @@
                       %p.star-count 0
                   %h3.tax-include
                     (税込)
-  .top-item-contents
-    .top-item-contents__infomation
-      %h2.picup-category
-        ピックアップブランド
-      .categoryBox
-        .categoryHead
-          = link_to "#" do
-            %h3.category-text アーカイブ
-        .categoryList
-          - @exhibitions.each do |exhibition|
-            .categoryList__exhibition
-              = link_to exhibition_path(exhibition.id), class: 'link-showpage', method: :get do
-                .categoryList__exhibition__image
-                  = image_tag asset_path("ikuta.jpg"), size: "220x150",class:"ikuta"
-                .categoryList__exhibition__body
-                  .exhibition-item-name
-                    = exhibition.item_name
-                  .exhibition-price
-                    .exhibition-price__box
-                      = exhibition.price 
-                      %span 円
-                    .exhibition-icon
-                      %i.fas.fa-star
-                      %p.star-count 0
-                  %h3.tax-include
-                    (税込)
+              - else
+                = link_to new_user_session_path, class: 'link-showpage', method: :get do
+                  .categoryList__exhibition__image
+                    = image_tag asset_path("nanase.png"), size: "220x130",class:"nanase" do
+                      -# = image_tag @exhibition.image, class: "categoryFirstImage"
+                  .categoryList__exhibition__body
+                    .exhibition-item-name
+                      = exhibition.item_name
+                    .exhibition-price
+                      .exhibition-price__box
+                        = exhibition.price 
+                        %span 円
+                      .exhibition-icon
+                        %i.fas.fa-star
+                        %p.star-count 0
+                    %h3.tax-include
+                      (税込)
+  -# .top-item-contents
+  -#   .top-item-contents__infomation
+  -#     %h2.picup-category
+  -#       ピックアップブランド
+  -#     .categoryBox
+  -#       .categoryHead
+  -#         = link_to "#" do
+  -#           %h3.category-text アーカイブ
+  -#       .categoryList
+  -#         - @exhibitions.each do |exhibition|
+  -#           .categoryList__exhibition
+  -#             = link_to exhibition_path(exhibition.id), class: 'link-showpage', method: :get do
+  -#               .categoryList__exhibition__image
+  -#                 = image_tag asset_path("nanase.jpg"), size: "220x150",class:"nanase"
+  -#               .categoryList__exhibition__body
+  -#                 .exhibition-item-name
+  -#                   = exhibition.item_name
+  -#                 .exhibition-price
+  -#                   .exhibition-price__box
+  -#                     = exhibition.price 
+  -#                     %span 円
+  -#                   .exhibition-icon
+  -#                     %i.fas.fa-star
+  -#                     %p.star-count 0
+  -#                 %h3.tax-include
+  -#                   (税込)
   .span-box-second
   .appFooter
     .appFooter__box
