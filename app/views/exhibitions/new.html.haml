@@ -22,9 +22,9 @@
             #preview
             .dropzone-area
               -# forとはラベル付け対象要素のid属性値
-              = image.label :image, class: "dropzone-box", for: "upload-image" do
-                .input_area
-                  = image.file_field :image, multiple: true, name: 'exhibition_images[image][]', class: "upload-image", 'data-image': 0, type: "file", id: "upload-image"
+        = image.label :image, class: "dropzone-box", for: "upload-image" do
+          .input_area
+            = image.file_field :image, multiple: true, name: 'exhibition_images[image][]', class: "upload-image", 'data-image': 0, type: "file", id: "upload-image"
                 %p ここをクリックしてください
                 %i.fa.fa-camera
           .dropzone-container
