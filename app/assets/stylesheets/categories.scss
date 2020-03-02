@@ -12,16 +12,15 @@
 }
 .category {
   &__wrapper {
-    z-index: 2;
-    &__icon {
-      color: #ea352d;
+    &__icon::before {
+      color: #3CCACE;
     }
     &__target {
       flex: none;
       display: inline;
     }
     &__target:hover {
-      color: #0095ee;
+      color: #3CCACE;
       cursor: pointer;
     }
     &__flex {
@@ -68,15 +67,17 @@
   &__brand {
     position: absolute;
     left: 220px;
+    z-index: 2;
+    margin-left: 45px;
     &__icon {
-      color: #ea352d;
+      color: #3CCACE;
       padding-left: 10px;
     }
     &__target {
       display: inline;
     }
     &__target:hover {
-      color: #0095ee;
+      color: #3CCACE;
       cursor: pointer;
     }
     &__navi {
