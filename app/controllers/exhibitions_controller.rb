@@ -1,5 +1,4 @@
 class ExhibitionsController < ApplicationController
-
   before_action :set_exhibition, only: [:show, :edit, :update]
   before_action :set_user, only: [:edit, :update]
 
@@ -18,7 +17,7 @@ class ExhibitionsController < ApplicationController
     @categories = Category.roots
     @exhibition = Exhibition.new(exhibition_params)
     respond_to do |format|
-      if @exhibition.save!
+      if @exhibition.save
           params[:exhibition_images][:image].each do |image|
             @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
           end
@@ -39,6 +38,8 @@ class ExhibitionsController < ApplicationController
 
   def show
     @deal = Exhibition.find_by(deal: params[:deal])
+    @exhibition = Exhibition.find(params[:id])
+    # @images = Image.where(exhibition_id: 3)
   end
 
   def edit
@@ -79,11 +80,16 @@ class ExhibitionsController < ApplicationController
     end
   end
 
-  private
-  def exhibition_params
-    params.require(:exhibition).permit(:price, :shipping_date, :categorys_id, :prefecture_id, :shipping_charges, :item_description, :item_status, :item_name, images_attributes: [:image, :id]).merge(user_id: current_user.id)
+  def destroy
+    @exhibition = Exhibition.find(params[:id])
+    @exhibition.destroy
+    redirect_to root_path
   end
 
+  private
+  def exhibition_params
+    params.require(:exhibition).permit(:price,:shipping_date,:category_id,:prefecture_id,:shipping_charges,:item_description,:item_status, :item_name, :brand, images_attributes: [:image, :id]).merge(user_id: current_user.id)
+  end
 
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])

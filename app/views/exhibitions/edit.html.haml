@@ -6,7 +6,7 @@
     .sell-main
       %h2.sell-main-head
         商品の情報を入力
-      
+
       = form_with model:@exhibition, url: exhibition_path(@exhibition), method: :put, local: true, class: "sell-form" do |form|
         .sell-img-box
           .sell-img-box__upload
