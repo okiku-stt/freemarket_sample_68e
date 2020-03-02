@@ -40,7 +40,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-    
+    # @images = Image.where(exhibition_id: 3)
     if user_signed_in?
       @deal = Exhibition.find_by(deal: params[:deal])
       @exhibition = Exhibition.find(params[:id])

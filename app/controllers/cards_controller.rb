@@ -5,7 +5,6 @@ class CardsController < ApplicationController
   
 
   def index
-    # card = Card.find_by(user_id: current_user.id)
     if @card.blank?
       redirect_to action: "new" 
     else
@@ -16,7 +15,6 @@ class CardsController < ApplicationController
   end
 
   def new
-    # card = Card.find_by(user_id: current_user.id)
     # ここはクレジットカード入力情報のところ
     # redirect_to action: "show" if card.exists?
     # showはindexに統合されたため記入したコードを残しておきたいため
@@ -45,7 +43,6 @@ class CardsController < ApplicationController
   end
 
   def delete #PayjpとCardデータベースを削除します
-    # card = Card.find_by(user_id: current_user.id)
     if @card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -59,7 +56,6 @@ class CardsController < ApplicationController
   private
 
   def set_card
-    # binding.pry
     @card = Card.find_by(user_id: current_user.id)
   end
   # def show #Cardのデータpayjpに送り情報を取り出します
