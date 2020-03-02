@@ -14,13 +14,12 @@ Rails.application.routes.draw do
   end
   # resources :categories doに7つのアクションがないと指摘を受けました。対応をお願いします  
 
-
   resources :exhibitions ,except: :destroy do
     collection do
       get 'modal'
       get 'search'
-      get 'search_children'
-      get 'search_grandchildren'
+      get 'category_children'
+      get 'category_grandchildren'
     end
   end
 

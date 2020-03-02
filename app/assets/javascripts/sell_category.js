@@ -36,7 +36,8 @@ $(function(){
   }
   // 親を選んで発火
   $(document).on('change', '#category_select', function(){
-    var parent = document.getElementById('category_select').value; 
+    var parent = document.getElementById('category_select').value;
+    console.log(parent)
     if (parent != ''){
       $.ajax({
         url: '/exhibitions/category_children',
@@ -47,10 +48,10 @@ $(function(){
         dataType: 'json'
       })
       .done(function(data){
+        console.log('apple')
         var insertHTML = '';
         data.forEach(function(child){  
           insertHTML += append_option(child); 
-          console.log(insertHTML)
         });
         append_children_box(insertHTML); 
         $(document).on('change', '#category_select', function(){
