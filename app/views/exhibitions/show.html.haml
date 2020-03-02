@@ -28,18 +28,18 @@
         .show-box__body
           %ul
             %li.show-box__body__item
-              = image_tag src ="/assets/a007.png"
+              = image_tag asset_path("nanase.png"),class:"nanase"
               .soldOut
                 -# = @exhibition.deal
               
         .show-box__foot 
           %ul
             %li 
-              = image_tag src ="/assets/a007.png", size: "140x75"
+              = image_tag asset_path("asuka.jpg"), size: "140x75",class:"nanase"
             %li 
-              = image_tag src ="/assets/a007.png", size: "140x75"
+              = image_tag asset_path("ikuta.jpg"), size: "140x75",class:"nanase"
             %li 
-              = image_tag src ="/assets/a007.png", size: "140x75"
+              = image_tag asset_path("nanamin.jpg"), size: "140x75",class:"nanase"
         .show-price
           .show-price__number
             %i.fa.fa-yen-sign
@@ -49,9 +49,11 @@
           .show-price__shipping
             %span 送料込み
         .show-buy-btn
-        - if  user_signed_in? && @exhibition.user_id == current_user.id
+
+        - if user_signed_in? && @exhibition.user_id == current_user.id
           = link_to "編集画面に進む", edit_exhibition_path(@exhibition), class: "#"
-        - else  
+          = link_to "商品削除", exhibition_path(@exhibition), method: :delete, class: "#"
+        - else
           = link_to "購入画面に進む", buy_exhibition_path(@exhibition), class: "#"
         .show-exbox
           = @exhibition.item_name
@@ -61,7 +63,6 @@
               %tr
                 %th 出品者
                 %td 
-                  -# - if @exhibition.id && @user.id
                   = @exhibition.user.nickname
               %tr
                 %th カテゴリー

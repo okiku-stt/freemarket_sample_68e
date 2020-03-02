@@ -1,8 +1,8 @@
 class ExhibitionsController < ApplicationController
+
   require 'payjp'
   before_action :set_exhibition, only: [:show, :edit, :update, :buy]
   before_action :set_user, only: [:edit, :update]
-
 
   def index
     @exhibitions = Exhibition.all.includes(:user).order("created_at DESC")
@@ -10,19 +10,25 @@ class ExhibitionsController < ApplicationController
   end
 
   def new
-    @exhibition = Exhibition.new
     @categories = Category.roots
-    # @category_children = Category.find(params[:parent]).children 
+    @exhibition = Exhibition.new
+    @exhibition.images.build()
   end
-  
+
   def create
+    @categories = Category.roots
     @exhibition = Exhibition.new(exhibition_params)
-    if @exhibition.save
-      redirect_to modal_exhibitions_path
-    else
-      render new_exhibition_path
+    respond_to do |format|
+      if @exhibition.save
+          params[:exhibition_images][:image].each do |image|
+            @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
+          end
+        format.html{redirect_to modal_exhibitions_path}
+      else
+        @exhibition.images.build
+        format.html{render action: 'new'}
+      end
     end
-    
   end
 
   def modal
@@ -35,6 +41,8 @@ class ExhibitionsController < ApplicationController
   def show
     # @deal = Exhibition.find_by(deal: params[:deal])
     if user_signed_in?
+      @deal = Exhibition.find_by(deal: params[:deal])
+      @exhibition = Exhibition.find(params[:id])
       render :show
     else
       redirect_to user_session_path method: :post
@@ -68,13 +76,20 @@ class ExhibitionsController < ApplicationController
   end
   # ---pay.jpの処理ここまで---
 
-
   def update
     if @exhibition.update(exhibition_params)
       redirect_to root_path
     else
       render :edit
     end
+  end
+
+  def category_children  
+    @category_children = Category.find(params[:parent]).children 
+  end
+
+  def category_grandchildren
+    @category_grandchildren = Category.find(params[:child]).children
   end
 
   def search_children
@@ -96,12 +111,16 @@ class ExhibitionsController < ApplicationController
     end
   end
 
-  private
-
-  def exhibition_params
-    params.require(:exhibition).permit(:price,:shipping_date,:categorys_name,:prefecture_id,:shipping_charges,:item_description,:item_status, :item_name, images_attributes: [:image, :id]).merge(user_id: current_user.id)
+  def destroy
+    @exhibition = Exhibition.find(params[:id])
+    @exhibition.destroy
+    redirect_to root_path
   end
 
+  private
+  def exhibition_params
+    params.require(:exhibition).permit(:price,:shipping_date,:category_id,:prefecture_id,:shipping_charges,:item_description,:item_status, :item_name, :brand, images_attributes: [:image, :id]).merge(user_id: current_user.id)
+  end
 
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])
@@ -110,5 +129,4 @@ class ExhibitionsController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-
 end

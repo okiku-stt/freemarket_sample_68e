@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
   }
   root to: "exhibitions#index"
-  
+
   resources :categories do
     collection do
       get 'search_children'
@@ -28,7 +28,6 @@ Rails.application.routes.draw do
     end
   end
 
-  
   resources :mypage ,only: :index
   resources :logouts ,only: :index
   resources :paymethods ,only: :index

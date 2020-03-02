@@ -1,29 +1,38 @@
 .sell-wrapper
   .sell-header
     = link_to root_path do
-      = image_tag src=asset_path("logo.png"), size: "185x49"
+      = image_tag asset_path("logo.png"), size: "185x49"
   .sell-body
     .sell-main
       %h2.sell-main-head
         商品の情報を入力
 
       
-      = form_with(model:@exhibition, url: exhibitions_path, method: :post, local: true,class: "sell-form") do |form|
-        .sell-img-box
-          .sell-img-box__upload
-            .sell-img-box__upload__title
+      = form_with(model:@exhibition, url: exhibitions_path, method: :post, local: true, class: "sell-form", id: "item-dropzone") do |form|
+        .sell__image
+          .sell__image__flex
+            .sell__image__flex__title
               出品画像
-              %span.require
-                必須
-            .sell-img-box__upload__text
-              最大10枚までアップロードできます
-          .sell-img-box__dropbox
-            .sell-img-box__dropbox__text
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
-              = form.fields_for :image do |i|
-                = i.file_field :image, class: "sell-img-box__dropbox__text", type: "file"
+            .sell__image__flex__require
+              必須
+          .sell__image__attention 最大10枚までアップロードできます
+
+        = form.fields_for :images do |image|
+          .dropzone-container
+            #preview
+            .dropzone-area
+              -# forとはラベル付け対象要素のid属性値
+        = image.label :image, class: "dropzone-box", for: "upload-image" do
+          .input_area
+            = image.file_field :image, multiple: true, name: 'exhibition_images[image][]', class: "upload-image", 'data-image': 0, type: "file", id: "upload-image"
+                %p ここをクリックしてください
+                %i.fa.fa-camera
+          .dropzone-container
+            #preview2
+            .dropzone-area2
+              = image.label :image, class: "dropzone-box", for: "upload-image" do
+                %i.fa.fa-camera
+
         .sell-content
           .sell-name
             .sell-name__head
@@ -32,7 +41,8 @@
                 %span.require
                   必須
             .sell-name__form
-              = form.text_field :item_name, placeholder: "商品名（必須40文字まで）", class:'sell-form-default'
+              = form.text_field :item_name, placeholder: "商品名（必須40文字まで）", class:'sell-form-default error-item-name'
+              .must-message__item-name
 
             .sell-description
               .sell-description__head
@@ -41,7 +51,8 @@
                   %span.require
                     必須
               .sell-description__form
-                = form.text_area :item_description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:'sell-textarea-default'
+                = form.text_area :item_description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:'sell-textarea-default error-item-description'
+                .must-message__item-description
                 
         .sell-content
           .sell-details
@@ -54,10 +65,9 @@
                   必須
                 .sell-select-wrap
                   .sell-select-icon
-                    -# = form.collection_select :categorys_id, @categories, :id, :item, { prompt: "---" }, { class: "sell-select-default", id: "category_select" }
-                    = form.select :categorys_name, [["選択してください"],["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"]], {}, class:'sell-select-default'
-                      
+                    = form.collection_select :category_id, @categories, :id, :item, { prompt: "---" }, { class: "sell-select-default", id: "category_select" }
                     = icon('fas', 'chevron-down sell-select-icon__allow')
+                  .must-message__category
                 .sell-select-children
 
               .sell-details__box__status
@@ -66,8 +76,9 @@
                   必須
                 .sell-select-wrap
                   .sell-select-icon
-                    = form.select :item_status, [["選択してください"],["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"]], {}, class:'sell-select-default'
+                    = form.select :item_status, [["選択してください"],["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"]], {}, class:'sell-select-default error-status'
                     = icon('fas', 'chevron-down sell-select-icon__allow')
+                  .must-message__status
         .sell-content
           .sell-ship
             .sell-ship__text
@@ -79,24 +90,27 @@
                   必須
                 .sell-select-wrap
                   .sell-select-icon
-                    = form.select :shipping_charges, [["選択してください"],["送料込み（出品者負担）"],["着払い（購入者負担）"]], {}, class:'sell-select-default'
+                    = form.select :shipping_charges, [["選択してください"],["送料込み（出品者負担）"],["着払い（購入者負担）"]], {}, class:'sell-select-default error-shipping-charge'
                     = icon('fas', 'chevron-down sell-select-icon__allow')
+                  .must-message__shipping-charge
               .sell-ship__box__status
                 発送元の地域
                 %span.require
                   必須
                 .sell-select-wrap
                   .sell-select-icon
-                    = form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: "sell-select-default"})
+                    = form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: "sell-select-default error-shipping-area"})
                     = icon('fas', 'chevron-down sell-select-icon__allow')
+                  .must-message__shipping-area
               .sell-ship__box__status
                 発送までの日数
                 %span.require
                   必須
                 .sell-select-wrap
                   .sell-select-icon
-                    = form.select :shipping_date, [["選択してください"],["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]], {}, class:'sell-select-default'
+                    = form.select :shipping_date, [["選択してください"],["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]], {}, class:'sell-select-default error-shipping-date'
                     = icon('fas', 'chevron-down sell-select-icon__allow')
+                  .must-message__shipping-date
         .sell-content
           .sell-price
             .sell-price__left
@@ -112,7 +126,8 @@
                     ¥
                   .sell-price__box__container__right__select
                     .sell-select-wrap
-                      = form.number_field :price, class: "sell-form-number", placeholder: "0", min: 1, max: 9999999
+                      = form.number_field :price, class: "sell-form-number error-price", placeholder: "0", min: 300, max: 9999999
+                    .must-message__price
               .sell-price__box__fee
                 .sell-price__box__fee__text
                   販売手数料 (10%)
@@ -153,6 +168,6 @@
           %li.buy
             = link_to '特定商取引に関する表記', '/', class: "buy-link"
       .sell-footer__container__image
-        = image_tag src=asset_path("logo.png"), size: "120x34"
+        = image_tag asset_path("logo.png"), size: "120x34"
       .sell-footer__container__inc
         © FURIMA
