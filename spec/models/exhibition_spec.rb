@@ -2,10 +2,11 @@ require 'rails_helper'
 
 describe Exhibition do
   describe '#create' do
-    # 1. price,shipping_date,categorys_name,prefecture_id,shipping_charges,item_description,item_status, item_name, images_attributesが存在すれば登録できること
+    # 1. price,shipping_date,category_id,prefecture_id,shipping_charges,item_description,item_status, item_name, images_attributesが存在すれば登録できること
     it "is valid with a price,shipping_date,category_id,prefecture_id,shipping_charges,item_description,item_status,item_name" do
       user = create(:user)
-      exhibition = build(:exhibition, user_id: user.id)
+      category = create(:category)
+      exhibition = build(:exhibition, user_id: user.id, category_id: category.id)
       expect(exhibition).to be_valid
     end
     # 2. item_nameが空では登録できないこと
@@ -50,11 +51,17 @@ describe Exhibition do
       exhibition.valid?
       expect(exhibition.errors[:price]).to include("can't be blank")
     end
-    # # 9. images_attributesが空では登録できないこと
+    # 9. images_attributesが空では登録できないこと
     # it "is invalid without a images_attributes do
     #   exhibition = build(:exhibition, images_attributes: nil)
     #   exhibition.valid?
     #   expect(exhibition.errors[:images_attributes]).to include("can't be blank")
     # end
+    # 10. category_idが空では登録できないこと
+    it "is invalid without a category_id" do
+      exhibition = build(:exhibition, category_id: nil)
+      exhibition.valid?
+      expect(exhibition.errors[:category_id]).to include("can't be blank")
+    end
   end
 end

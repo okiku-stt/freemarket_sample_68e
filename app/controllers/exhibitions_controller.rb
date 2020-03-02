@@ -41,7 +41,7 @@ class ExhibitionsController < ApplicationController
     @deal = Exhibition.find_by(deal: params[:deal])
     @exhibition = Exhibition.find(params[:id])
 
-    # @images = Image.where(exhibition_id: 3)
+    @images = Image.where(exhibition_id: params[:id])
   end
 
   def edit

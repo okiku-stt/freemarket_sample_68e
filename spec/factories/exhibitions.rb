@@ -3,7 +3,7 @@ FactoryBot.define do
     # images_attributes                 {"kkk@gmail.com"} 
     item_name                 {"アンパンマンぐみ"}   
     item_description          {"高知県限定バージョンです"}
-    category_id               {"その他"}
+    category_id               {"1270"}
     item_status               {"未使用"}
     shipping_charges          {"送料込み（出品者負担）"}
     prefecture_id             {"37"}

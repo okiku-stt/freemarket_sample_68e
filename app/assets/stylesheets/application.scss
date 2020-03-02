@@ -20,3 +20,14 @@
 .nanase ,.ikuta{
   object-fit: contain;
 }
+.main__show__content__top__itemInfo__image__ul__li{
+  // object-fit: contain;
+  // width: 100px;
+  // height: 50px;
+  &__top{
+    object-fit: contain;
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+  }
+}

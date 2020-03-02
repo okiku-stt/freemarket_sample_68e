@@ -20,7 +20,7 @@ class Exhibition < ApplicationRecord
   def self.search(search)
     if search
       Exhibition.where('item_name  LIKE(?)',"%#{search}%")
-    # これがExhibitionテーブルにある該当するカラム名を引っ張ってこれる！
+                              # これがExhibitionテーブルにある該当するカラム名を引っ張ってこれる！
     else
       Exhibition.all
     end
