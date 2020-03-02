@@ -102,7 +102,6 @@
               display: inline-block;
               width: calc(50% - 2px);
               height: 48px;
-              // background-color: hotpink;
               #exp_year {
                 width: 131.5px;
                 height: 48px;
@@ -196,9 +195,7 @@
     .card-contents-registration{
       width: 700px;
       height: 380px;
-      // padding: 64px;
       background-color: white;
-      
       .card-head-registration {
         height: 48px;
         width: 700px;
@@ -216,7 +213,6 @@
         &__infomation {
           
         }
-        
       }
       .card-submit-box {
         width: 572px;
@@ -236,18 +232,6 @@
           margin-top: 30px;
         }
       }
-      // .card-details-registration {
-      //   max-width: 343px;
-      //   margin: 0 64px;
-        // &__section {
-        //   width: 572px;
-        //   height: 16px;
-        //   margin-left: 112px;
-        //   .card-font {
-        //     font-weight: bold;
-        //   }
-        }
-      }
       .card-pay-style {
         margin: 45px 60px 0 0;
         float: right;
@@ -261,21 +245,6 @@
           font-size: 14px;
         }
       }
-    // }
-  // }
-  .card-footer {
-    padding-top: 40px;
-    width: 100%;
-    height: 520px;
-    .card-top-footer{
-      width: 100%;
-      height: 260px;
-      background-color: indianred;
-    }
-    .card-bottom-footer {
-      width: 100%;
-      height: 260px;
-      background-color: darkcyan;
     }
   }
 }
