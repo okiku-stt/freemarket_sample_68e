@@ -412,11 +412,12 @@
             margin: 0px auto;
             padding: 26px 0;
             display: flex;
-            justify-content: space-around;
+            overflow: scroll;
+            justify-content: space-between;
             &__exhibition {
               width: 220px;
               display: inline-block;
-              float: left;
+              margin-right: 30px;
               background-color: #ffffff;
               &__image {
                 .exhibition-item-name {
