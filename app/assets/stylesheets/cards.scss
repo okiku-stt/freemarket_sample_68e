@@ -198,6 +198,7 @@
       height: 380px;
       // padding: 64px;
       background-color: white;
+      
       .card-head-registration {
         height: 48px;
         width: 700px;
@@ -209,35 +210,43 @@
         border-bottom: 2px solid #eeeeee;
         margin-bottom: 64px;
       }
-      .card-details-registration {
-        max-width: 343px;
-        margin: 0 64px;
-        &__section {
-          width: 572px;
-          height: 16px;
-          margin-left: 112px;
-          .card-font {
-            font-weight: bold;
-          }
-        }
-        &__submit-box {
-          width: 572px;
-          height: 107px;
-          border-bottom: 2px solid #eeeeee;
-          text-align: center;
-          #token_submit {
-            background-color: #EA352D;
-            color: #FFFFFF;
-            width: 343px;
-            height: 48px;
-            cursor: pointer;
-            user-select: none;
-            display: inline-block;
-            line-height: 48px;
-            margin-top: 30px;
-          }
+      .card-registration {
+        margin-left: 9%;
+        width: 572px;
+        &__infomation {
+          
         }
         
+      }
+      .card-submit-box {
+        width: 572px;
+        height: 107px;
+        border-bottom: 2px solid #eeeeee;
+        text-align: center;
+        margin-left: 9%;
+        #token_submit {
+          background-color: #EA352D;
+          color: #FFFFFF;
+          width: 343px;
+          height: 48px;
+          cursor: pointer;
+          user-select: none;
+          display: inline-block;
+          line-height: 48px;
+          margin-top: 30px;
+        }
+      }
+      // .card-details-registration {
+      //   max-width: 343px;
+      //   margin: 0 64px;
+        // &__section {
+        //   width: 572px;
+        //   height: 16px;
+        //   margin-left: 112px;
+        //   .card-font {
+        //     font-weight: bold;
+        //   }
+        }
       }
       .card-pay-style {
         margin: 45px 60px 0 0;
@@ -252,8 +261,8 @@
           font-size: 14px;
         }
       }
-    }
-  }
+    // }
+  // }
   .card-footer {
     padding-top: 40px;
     width: 100%;

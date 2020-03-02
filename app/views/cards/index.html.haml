@@ -1,20 +1,31 @@
 .card-wrapper
-  .card-header
-    = image_tag "logo.png",size:'185x49'
+  .card-header 
+    = link_to root_path do
+      = image_tag "logo.png",size:'185x49'
   .card-body
-    = render "shared/mypage_flex_left"
+    .mypage__flex__left
+      = render "shared/mypage_flex_left"
     .card-contents-registration
       .card-head-registration
-        支払い方法
-      .card-details-registration
-        .card-details-registration__section
-          %p.card-font クレジットカード一覧
-        .card-details-registration__submit-box
-          = link_to "クレジットカードを追加する", new_card_path, method: :get, id: "token_submit"
-      .card-pay-style
-        = link_to root_path do
-          %span.pay-document 支払い方法について
-          = icon("fas", "chevron-right", id: "chevron-right")
-.top           
+        登録クレジットカード情報
+      .card-registration
+        .card-registration__infomation
+          .card-registration__infomation__card-number
+            = "**** **** **** " + @default_card_information.last4
+          .card-details-registration__infomation__limit-day
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+        = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm", class: "card-delete") do
+          %input{ type: "hidden", name: "card_id", value: "",class: "card-delete__button" }
+          %button.card-delete__button 削除する
+      - if @default_card_information
+        .card-submit-box
+          登録は一枚のみです。削除後 再登録ページへ移行します。
+      - else
+        .card-submit-box
+          = link_to "クレジットカードを登録する", new_card_path, method: :get, id: "token_submit"
+          -# = link_to "ホムページへいつか消す", root_path
+.top
   .top-footer
     = render "layouts/top-footer"

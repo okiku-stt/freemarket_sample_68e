@@ -3,11 +3,22 @@ class CardsController < ApplicationController
   require "payjp"
 
   def index
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      redirect_to action: "new" 
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 
   def new
     card = Card.where(user_id: current_user.id)
+    # ここはクレジットカード入力情報のところ
     # redirect_to action: "show" if card.exists?
+    # showはindexに統合されたため記入したコードを残しておきたいため
+    # 残しておく
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
@@ -23,7 +34,8 @@ class CardsController < ApplicationController
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        # ここにdealの０と１うんぬんの記述を書く
+        redirect_to action: "index"
       else
         redirect_to action: "pay"
       end
@@ -42,15 +54,16 @@ class CardsController < ApplicationController
       redirect_to action: "new"
   end
 
-  def show #Cardのデータpayjpに送り情報を取り出します
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
-      redirect_to action: "new" 
-    else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
-    end
-  end
+  # def show #Cardのデータpayjpに送り情報を取り出します
+  # 現在showページはindexに統合チームの把握のため一応残しておく
+  #   card = Card.where(user_id: current_user.id).first
+  #   if card.blank?
+  #     redirect_to action: "new" 
+  #   else
+  #     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+  #     customer = Payjp::Customer.retrieve(card.customer_id)
+  #     @default_card_information = customer.cards.retrieve(card.card_id)
+  #   end
+  # end
 
 end
