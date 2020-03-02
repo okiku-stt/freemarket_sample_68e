@@ -12,6 +12,7 @@
 }
 .category {
   &__wrapper {
+    z-index: 2;
     &__icon {
       color: #ea352d;
     }
@@ -31,6 +32,7 @@
         font-size: 14px;
         font-weight: 600;
         line-height: 36px;
+        z-index: 1;
         &__item {
           display: none;
           background-color: white;
@@ -40,16 +42,19 @@
         }
       }
       &__children {
+        z-index: 2;
         @include for_children_grandchildren;
         &__item {
+          
           &__text {
             @include for_children_grandchildren_text;
           }
         }
       }
       &__grandchildren {
+        z-index: 2;
         @include for_children_grandchildren;
-        &__item {
+        &__item {    
           &__text {
             @include for_children_grandchildren_text;
           }
