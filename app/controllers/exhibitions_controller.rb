@@ -52,6 +52,14 @@ class ExhibitionsController < ApplicationController
     end
   end
 
+  def category_children  
+    @category_children = Category.find(params[:parent]).children 
+  end
+
+  def category_grandchildren
+    @category_grandchildren = Category.find(params[:child]).children
+  end
+
   def search_children
     @categories = Category.roots
     respond_to do |format|
@@ -60,10 +68,6 @@ class ExhibitionsController < ApplicationController
         @children = Category.find(params[:parent_id]).children
       }
     end
-  end
-
-  def category_grandchildren
-    @category_grandchildren = Category.find(params[:child]).children
   end
 
   def search_grandchildren
