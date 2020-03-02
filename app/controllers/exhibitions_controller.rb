@@ -10,7 +10,7 @@ class ExhibitionsController < ApplicationController
   def new
     @categories = Category.roots
     @exhibition = Exhibition.new
-    @exhibition.images.build()
+    # @exhibition.images.build()
   end
 
   def create
@@ -18,9 +18,9 @@ class ExhibitionsController < ApplicationController
     @exhibition = Exhibition.new(exhibition_params)
     respond_to do |format|
       if @exhibition.save
-          params[:exhibition_images][:image].each do |image|
-            @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
-          end
+          # params[:exhibition_images][:image].each do |image|
+          #   @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
+          # end
         format.html{redirect_to modal_exhibitions_path}
       else
         @exhibition.images.build
@@ -38,7 +38,6 @@ class ExhibitionsController < ApplicationController
 
   def show
     @deal = Exhibition.find_by(deal: params[:deal])
-    @exhibition = Exhibition.find(params[:id])
     # @images = Image.where(exhibition_id: 3)
   end
 
@@ -96,6 +95,6 @@ class ExhibitionsController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = Exhibition.find_by(user_id: params[:user_id])
   end
 end
