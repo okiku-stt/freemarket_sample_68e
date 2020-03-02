@@ -3,6 +3,7 @@ class ExhibitionsController < ApplicationController
   require 'payjp'
   before_action :set_exhibition, only: [:show, :edit, :update, :buy]
   before_action :set_user, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:show, :edit, :update]
 
   def index
     @exhibitions = Exhibition.all.includes(:user).order("created_at DESC")
@@ -12,7 +13,7 @@ class ExhibitionsController < ApplicationController
   def new
     @categories = Category.roots
     @exhibition = Exhibition.new
-    @exhibition.images.build()
+    # @exhibition.images.build()
   end
 
   def create
@@ -20,9 +21,9 @@ class ExhibitionsController < ApplicationController
     @exhibition = Exhibition.new(exhibition_params)
     respond_to do |format|
       if @exhibition.save
-          params[:exhibition_images][:image].each do |image|
-            @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
-          end
+          # params[:exhibition_images][:image].each do |image|
+          #   @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
+          # end
         format.html{redirect_to modal_exhibitions_path}
       else
         @exhibition.images.build
@@ -39,7 +40,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-    # @deal = Exhibition.find_by(deal: params[:deal])
+    
     if user_signed_in?
       @deal = Exhibition.find_by(deal: params[:deal])
       @exhibition = Exhibition.find(params[:id])
@@ -47,6 +48,7 @@ class ExhibitionsController < ApplicationController
     else
       redirect_to user_session_path method: :post
     end
+
   end
 
   def edit
@@ -127,6 +129,6 @@ class ExhibitionsController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = Exhibition.find_by(user_id: params[:user_id])
   end
 end
