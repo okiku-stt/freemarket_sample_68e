@@ -1,7 +1,7 @@
 class ExhibitionsController < ApplicationController
 
   before_action :set_exhibition, only: [:show, :edit, :update]
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:edit, :update]
 
   def index
     @exhibitions = Exhibition.all
@@ -81,7 +81,7 @@ class ExhibitionsController < ApplicationController
 
   private
   def exhibition_params
-    params.require(:exhibition).permit(:category_id, :shipping_charges, :prefecture_id, :shipping_date, :price, :item_name, :item_status, :prefecture, :item_description, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:exhibition).permit(:price, :shipping_date, :categorys_id, :prefecture_id, :shipping_charges, :item_description, :item_status, :item_name, images_attributes: [:image, :id]).merge(user_id: current_user.id)
   end
 
 

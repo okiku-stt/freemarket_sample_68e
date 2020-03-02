@@ -1,207 +1,225 @@
 .top
   = render partial: "layouts/top-header", locals: { exhibition: @exhibition }
- 
-  .top-upper 
-    .upper-contents
-      .upper-contents__box
-        %h2.topic-first
-          人生を変えるフリマアプリ
-        %h3.topic-second
-          FURIMAはだれでもかんたんに出品・購入できる
-        %h4.topic-second
-          フリマアプリです
-        .topic-items
-          =link_to "#", class: "topic-items__App", size: '180x53' do
-            = image_tag asset_path("app-store.svg"),size: '180x53'
-          =link_to "#",class: "topic-items__Google", size: '180x53' do
-            = image_tag asset_path("google-play.svg"),size: '180x53'
-  .top-content-text
-    %h2.top-introduction
-      FURIMAが選ばれる3つの理由
-    .top-content-imageBox
-      %ul.lists-imageBox
-        %li.listOnly-imageBox
-          .listOnly-imageBox__image
-            %span.number-one 1
-            = image_tag asset_path("pict-reason-01"), size: "306x306"
-          %h3.listOnly-imageBox__body
-            %span 3分
-            ですぐに出品
-          %p.picUp-text
-            スマホで入力するだけで簡単に出品できる！
-        %li.listOnly-imageBox
-          .listOnly-imageBox__image
-            %span.number-one 2
-            = image_tag asset_path("pict-reason-02"), size: "306x306"
-          %h3.listOnly-imageBox__body
-            %span シンプル
-            で使いやすい
-          %p.picUp-text
-            めんどくさい入力は必要なく、検索も購入もスムーズ！
-        %li.listOnly-imageBox
-          .listOnly-imageBox__image
-            %span.number-one 3
-            = image_tag asset_path("pict-reason-03"), size: "306x306"
-          %h3.listOnly-imageBox__body
-            手数料
-            %span 業界最安
-          %p.picUp-text
-            最大3%でお得に出品&購入！
-  .main-imageBox
-    .main-imageBox__backgroundImage
-      .backgroundImage-contents
-        .backgroundImage-contents__box
-          %h2.topic-first-2
-            会員数日本一位
-          %h3.topic-second-2
-            FURIMAは、フリマアプリで最も人気。
-          %h4.topic-second-2
-            出品・購入回数も業界最多です！
-          %h5.topic-second-2
-            ほしかったあの商品に出会えるかもしれません。
-          .topic-items-2
-            =link_to "#", class: "topic-items-2__App", size: '180x53' do
-              = image_tag asset_path("app-store")
-            =link_to "#",class: "topic-items-2__Google", size: '180x53' do
-              = image_tag asset_path("google-play")
-  .top-content-text
-    %h2.introduction-head
-      FURIMAの特徴
-    .top-content-imageBox
-      %ul.lists-imageBox
-        %li.listOnly-imageBox
-          .listOnly-imageBox__image
-            %span.number-one 1
-            = image_tag asset_path("icon-01.png"), size: "219x337"
-          %h3.listOnly-imageBox__bodySecond
-            %span 
-            簡単に売り買いできる
-          %p.picUp-text
-            スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
-        %li.listOnly-imageBox
-          .listOnly-imageBox__image
-            %span.number-one 2
-            = image_tag asset_path("icon-03.png"), size: "219x337"
-          %h3.listOnly-imageBox__bodySecond
-            %span
-            売上金は即日振込みに対応
-          %p.picUp-text
-            午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
-        %li.listOnly-imageBox
-          .listOnly-imageBox__image
-            %span.number-one 3
-            = image_tag asset_path("icon-04.png"), size: "219x337"
-          %h3.listOnly-imageBox__bodySecond
-            様々な支払いに対応
-            %span 
-          %p.picUp-text
-            お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-  .span-box
-  .top-item-contents
-    .top-item-contents__infomation
-      %h2.picup-category
-        ピックアップカテゴリー
-      .categoryBox
-        .categoryHead
-          = link_to "#" do
-            %h3.category-text 新規投稿商品
-        .categoryList
-          - @exhibitions.each do |exhibition|
-            .categoryList__exhibition
-              = link_to exhibition_path(exhibition.id), class: 'link-showpage', method: :get do
-                .categoryList__exhibition__image
-                  = image_tag asset_path("a007.png"), size: "220x150" do
-                    -# = image_tag exhibition.image.to_s, class: "categoryFirstImage"
-                .categoryList__exhibition__body
-                  .exhibition-item-name
-                    = exhibition.item_name
-                  .exhibition-price
-                    .exhibition-price__box
-                      = exhibition.price 
-                      %span 円
-                    .exhibition-icon
-                      %i.fas.fa-star
-                      %p.star-count 0
-                  %h3.tax-include
-                    (税込)
-  .top-item-contents
-    .top-item-contents__infomation
-      %h2.picup-category
-        ピックアップブランド
-      .categoryBox
-        .categoryHead
-          = link_to "#" do
-            %h3.category-text アーカイバ
-        .categoryList
-          - @exhibitions.each do |exhibition|
-            .categoryList__exhibition
-              = link_to exhibition_path(exhibition.id), class: 'link-showpage', method: :get do
-                .categoryList__exhibition__image
-                  = image_tag asset_path("a007.png"), size: "220x150"
-                .categoryList__exhibition__body
-                  .exhibition-item-name
-                    = exhibition.item_name
-                  .exhibition-price
-                    .exhibition-price__box
-                      = exhibition.price 
-                      %span 円
-                    .exhibition-icon
-                      %i.fas.fa-star
-                      %p.star-count 0
-                  %h3.tax-include
-                    (税込)
-  .span-box-second
-  .appFooter
-    .appFooter__box
-      %h2.banner-text
-        だれでもかんたん、人生を変えるフリマアプリ
-      %p.banner-body
-        今すぐ無料ダウンロード！
-      .appFooter-icon
-        =link_to "#", class: "appFooter-icon__App", size: '180x53' do
-          = image_tag asset_path("app-store")
-        =link_to "#",class: "appFooter-icon__Google", size: '180x53' do
-          = image_tag asset_path("google-play")
-  .top-footer
-    .footer-top-content
-    .footer-contents
-      .footer-box
-        FURIMAについて
-        .box-link
-          = link_to "#", class: "aaa" do
-            会社概要 （運営会社）
-        .box-link
-          = link_to "#", class: "aaa" do
-            プライバシー
-        .box-link
-          = link_to "#", class: "aaa" do
-            FURIMA利用規約
-        .box-link
-          = link_to "#", class: "aaa" do
-            ポイントに関する特約
-      .footer-box
-        FURIMAを観る
-        .box-link
-          = link_to "#", class: "aaa" do
-            カテゴリー一覧
-        .box-link
-          = link_to "#", class: "aaa" do
-            ブランド一覧
-      .footer-box
-        ヘルプ＆ガイド
-        .box-link
-          = link_to "#", class: "aaa" do
-            FURIMAガイド
-        .box-link
-          = link_to "#", class: "aaa" do
-            FURIMAロゴ利用ガイドライン
-        .box-link
-          = link_to "#", class: "aaa" do
-            お知らせ
-  
-    .footer-icon-box
-      .footer-icon
-        = image_tag src ="http://furima.tokyo/assets/logo-white-f61961ed5170064c5f33dd4524bdceeb5a5df2c83eb76fba31143f63fbab2c5e.svg"
-      .footer-second-icon
-        &#169;FURIMA
+  .top-main
+    .top-upper 
+      .upper-contents
+        .upper-contents__box
+          %h2.topic-first
+            人生を変えるフリマアプリ
+          %h3.topic-second
+            FURIMAはだれでもかんたんに出品・購入できる
+          %h4.topic-second
+            フリマアプリです
+          .topic-items
+            =link_to "#", class: "topic-items__App", size: '180x53' do
+              = image_tag asset_path("app-store.svg"),size: '180x53'
+            =link_to "#",class: "topic-items__Google", size: '180x53' do
+              = image_tag asset_path("google-play.svg"),size: '180x53'
+    .top-content-text
+      %h2.top-introduction
+        FURIMAが選ばれる3つの理由
+      .top-content-imageBox
+        %ul.lists-imageBox
+          %li.listOnly-imageBox
+            .listOnly-imageBox__image
+              %span.number-one 1
+              = image_tag asset_path("pict-reason-01"), size: "306x306"
+            %h3.listOnly-imageBox__body
+              %span 3分
+              ですぐに出品
+            %p.picUp-text
+              スマホで入力するだけで簡単に出品できる！
+          %li.listOnly-imageBox
+            .listOnly-imageBox__image
+              %span.number-one 2
+              = image_tag asset_path("pict-reason-02"), size: "306x306"
+            %h3.listOnly-imageBox__body
+              %span シンプル
+              で使いやすい
+            %p.picUp-text
+              めんどくさい入力は必要なく、検索も購入もスムーズ！
+          %li.listOnly-imageBox
+            .listOnly-imageBox__image
+              %span.number-one 3
+              = image_tag asset_path("pict-reason-03"), size: "306x306"
+            %h3.listOnly-imageBox__body
+              手数料
+              %span 業界最安
+            %p.picUp-text
+              最大3%でお得に出品&購入！
+    .main-imageBox
+      .main-imageBox__backgroundImage
+        .backgroundImage-contents
+          .backgroundImage-contents__box
+            %h2.topic-first-2
+              会員数日本一位
+            %h3.topic-second-2
+              FURIMAは、フリマアプリで最も人気。
+            %h4.topic-second-2
+              出品・購入回数も業界最多です！
+            %h5.topic-second-2
+              ほしかったあの商品に出会えるかもしれません。
+            .topic-items-2
+              =link_to "#", class: "topic-items-2__App", size: '180x53' do
+                = image_tag asset_path("app-store")
+              =link_to "#",class: "topic-items-2__Google", size: '180x53' do
+                = image_tag asset_path("google-play")
+    .top-content-text
+      %h2.introduction-head
+        FURIMAの特徴
+      .top-content-imageBox
+        %ul.lists-imageBox
+          %li.listOnly-imageBox
+            .listOnly-imageBox__image
+              %span.number-one 1
+              = image_tag asset_path("icon-01.png"), size: "219x337"
+            %h3.listOnly-imageBox__bodySecond
+              %span 
+              簡単に売り買いできる
+            %p.picUp-text
+              スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+          %li.listOnly-imageBox
+            .listOnly-imageBox__image
+              %span.number-one 2
+              = image_tag asset_path("icon-03.png"), size: "219x337"
+            %h3.listOnly-imageBox__bodySecond
+              %span
+              売上金は即日振込みに対応
+            %p.picUp-text
+              午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+          %li.listOnly-imageBox
+            .listOnly-imageBox__image
+              %span.number-one 3
+              = image_tag asset_path("icon-04.png"), size: "219x337"
+            %h3.listOnly-imageBox__bodySecond
+              様々な支払いに対応
+              %span 
+            %p.picUp-text
+              お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+    .span-box
+    .top-item-contents
+      .top-item-contents__infomation
+        %h2.picup-category
+          ピックアップカテゴリー
+        .categoryBox
+          .categoryHead
+            = link_to "#" do
+              %h3.category-text 新規投稿商品
+          .categoryList
+            - @exhibitions.each do |exhibition|
+              .categoryList__exhibition
+                - if user_signed_in?
+                  = link_to exhibition_path(exhibition), class: 'link-showpage', method: :get do
+                    .categoryList__exhibition__image
+                    = image_tag asset_path("nanase.png"), size: "220x130",class:"nanase" do
+                      -# = image_tag @exhibition.image, class: "categoryFirstImage" do
+                  .categoryList__exhibition__body
+                    .exhibition-item-name
+                      = exhibition.item_name
+                    .exhibition-price
+                      .exhibition-price__box
+                        = exhibition.price 
+                        %span 円
+                      .exhibition-icon
+                        %i.fas.fa-star
+                        %p.star-count 0
+                    %h3.tax-include
+                      (税込)
+                - else
+                  = link_to new_user_session_path, class: 'link-showpage', method: :get do
+                    .categoryList__exhibition__image
+                      = image_tag asset_path("nanase.png"), size: "220x130",class:"nanase" do
+                        -# = image_tag @exhibition.image, class: "categoryFirstImage"
+                    .categoryList__exhibition__body
+                      .exhibition-item-name
+                        = exhibition.item_name
+                      .exhibition-price
+                        .exhibition-price__box
+                          = exhibition.price 
+                          %span 円
+                        .exhibition-icon
+                          %i.fas.fa-star
+                          %p.star-count 0
+                      %h3.tax-include
+                        (税込)
+    -# .top-item-contents
+    -#   .top-item-contents__infomation
+    -#     %h2.picup-category
+    -#       ピックアップブランド
+    -#     .categoryBox
+    -#       .categoryHead
+    -#         = link_to "#" do
+    -#           %h3.category-text アーカイブ
+    -#       .categoryList
+    -#         - @exhibitions.each do |exhibition|
+    -#           .categoryList__exhibition
+    -#             = link_to exhibition_path(exhibition.id), class: 'link-showpage', method: :get do
+    -#               .categoryList__exhibition__image
+    -#                 = image_tag asset_path("nanase.jpg"), size: "220x150",class:"nanase"
+    -#               .categoryList__exhibition__body
+    -#                 .exhibition-item-name
+    -#                   = exhibition.item_name
+    -#                 .exhibition-price
+    -#                   .exhibition-price__box
+    -#                     = exhibition.price 
+    -#                     %span 円
+    -#                   .exhibition-icon
+    -#                     %i.fas.fa-star
+    -#                     %p.star-count 0
+    -#                 %h3.tax-include
+    -#                   (税込)
+    .span-box-second
+    .appFooter
+      .appFooter__box
+        %h2.banner-text
+          だれでもかんたん、人生を変えるフリマアプリ
+        %p.banner-body
+          今すぐ無料ダウンロード！
+        .appFooter-icon
+          =link_to "#", class: "appFooter-icon__App", size: '180x53' do
+            = image_tag asset_path("app-store")
+          =link_to "#",class: "appFooter-icon__Google", size: '180x53' do
+            = image_tag asset_path("google-play")
+    .top-footer
+      .footer-top-content
+      .footer-contents
+        .footer-box
+          FURIMAについて
+          .box-link
+            = link_to "#", class: "aaa" do
+              会社概要 （運営会社）
+          .box-link
+            = link_to "#", class: "aaa" do
+              プライバシー
+          .box-link
+            = link_to "#", class: "aaa" do
+              FURIMA利用規約
+          .box-link
+            = link_to "#", class: "aaa" do
+              ポイントに関する特約
+        .footer-box
+          FURIMAを観る
+          .box-link
+            = link_to "#", class: "aaa" do
+              カテゴリー一覧
+          .box-link
+            = link_to "#", class: "aaa" do
+              ブランド一覧
+        .footer-box
+          ヘルプ＆ガイド
+          .box-link
+            = link_to "#", class: "aaa" do
+              FURIMAガイド
+          .box-link
+            = link_to "#", class: "aaa" do
+              FURIMAロゴ利用ガイドライン
+          .box-link
+            = link_to "#", class: "aaa" do
+              お知らせ
+    
+      .footer-icon-box
+        .footer-icon
+          = image_tag src ="http://furima.tokyo/assets/logo-white-f61961ed5170064c5f33dd4524bdceeb5a5df2c83eb76fba31143f63fbab2c5e.svg"
+        .footer-second-icon
+          &#169;FURIMA
   = render "shared/sell_page_box"
