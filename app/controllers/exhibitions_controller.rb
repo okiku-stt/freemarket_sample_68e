@@ -1,6 +1,7 @@
 class ExhibitionsController < ApplicationController
   before_action :set_exhibition, only: [:show, :edit, :update]
   before_action :set_user, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:show, :edit, :update]
 
   def index
     @exhibitions = Exhibition.all
