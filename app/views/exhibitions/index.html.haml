@@ -113,18 +113,18 @@
                     .categoryList__exhibition__image
                     = image_tag asset_path("nanase.png"), size: "220x130",class:"nanase" do
                       -# = image_tag @exhibition.image, class: "categoryFirstImage" do
-                  .categoryList__exhibition__body
-                    .exhibition-item-name
-                      = exhibition.item_name
-                    .exhibition-price
-                      .exhibition-price__box
-                        = exhibition.price 
-                        %span 円
-                      .exhibition-icon
-                        %i.fas.fa-star
-                        %p.star-count 0
-                    %h3.tax-include
-                      (税込)
+                    .categoryList__exhibition__body
+                      .exhibition-item-name
+                        = exhibition.item_name
+                      .exhibition-price
+                        .exhibition-price__box
+                          = exhibition.price 
+                          %span 円
+                        .exhibition-icon
+                          %i.fas.fa-star
+                          %p.star-count 0
+                      %h3.tax-include
+                        (税込)
                 - else
                   = link_to new_user_session_path, class: 'link-showpage', method: :get do
                     .categoryList__exhibition__image

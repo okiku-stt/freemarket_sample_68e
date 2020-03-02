@@ -4,7 +4,7 @@ class ExhibitionsController < ApplicationController
   before_action :set_exhibition, only: [:show, :edit, :update, :buy]
   before_action :set_user, only: [:edit, :update]
   before_action :authenticate_user!, only: [:show, :edit, :update]
-
+  before_action :set_card, only: [:buy, :pay]
   def index
     @exhibitions = Exhibition.all.includes(:user).order("created_at DESC")
     @categories = Category.roots
@@ -55,23 +55,21 @@ class ExhibitionsController < ApplicationController
   end
     # ---pay.jpの処理---
   def buy
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
+    if @card.blank?
       redirect_to new_card_path
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 
   def pay
-    card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     exhibition = Exhibition.find(params[:id])
     Payjp::Charge.create(
     amount: exhibition.price, #支払金額を入力（itemテーブル等に紐づけても良い）
-    customer: card.customer_id, #顧客ID
+    customer: @card.customer_id, #顧客ID
     currency: 'jpy', #日本円
     )
     redirect_to action: 'done' #完了画面に移動
@@ -131,4 +129,9 @@ class ExhibitionsController < ApplicationController
   def set_user
     @user = Exhibition.find_by(user_id: params[:user_id])
   end
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
+  end
+
 end
