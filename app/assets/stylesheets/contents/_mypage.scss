@@ -1,0 +1,431 @@
+@import "mixin";
+
+.mypage {
+  height: 100vh;
+  width: 100%;
+  background-color: #eeeeee;
+  padding: 40px;
+  overflow: scroll;
+  &__flex {
+    display: flex;
+    &__left {
+      display: flex;
+      flex-flow: column;
+      &__list {
+        height: 48px;
+        background-color: white;
+        border: 1px solid #eeeeee;
+        padding: 16px;
+        font-size: 14px;
+        position: relative;
+      }
+      .current-page {
+        background-color: whitesmoke;
+      }
+      .mypage-left-list-title {
+        margin-top: 40px;
+        font-weight: bold;
+      }
+      .mypage-icon-1 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-2 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-3 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-4 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-5 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-6 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-7 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-8 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-9 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-10 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-11 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-12 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-13 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-14 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-15 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-16 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-17 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-18 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-19 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-20 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-21 {
+        @include mypage-list-position;
+      }
+      .mypage-icon-22 {
+        @include mypage-list-position;
+      }
+    }
+    &__right {
+      display: flex;
+      flex-flow: column;
+      &__user {
+        height: 160px;
+        width: 100%;
+        margin-right: 20px;
+        background-image: image-url("mypage.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 200px;
+        &__wrapper:hover {
+          opacity: 0.7;
+        }
+        &__wrapper {
+          display: block;
+          height: 100px;
+          font-size: 14px;
+          margin: 25px 0px;
+          text-align: center;
+          &__img {
+            height: 60px;
+            width: 60px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background-image: image-url("user.png");
+            background-size: 60px 60px;
+            object-fit: cover;
+          }
+          &__name {
+            font-weight: bold;
+            margin-top: 8px;
+          }
+          &__info {
+            display: flex;
+            justify-content: center;
+            margin-top: 8px;
+            margin: 0 auto;
+            &__assess {
+              height: 16px;
+            }
+            &__exhibition {
+              height: 16px;
+              margin-left: 16px;
+            }
+            .mypage-span {
+              font-weight: bold;
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+      &__tab {
+        width: 100%;
+        display: flex;
+        height: 74px;
+        background-color: white;
+        font-weight: bold;
+        text-align: center;
+        line-height: 72px;
+        cursor: pointer;
+        &__left {
+          height: 72px;
+          width: 50%;
+          background-color: white;
+          border-top: 2px solid #3CCACE;
+        }
+        &__left:hover {
+          opacity: 0.7;
+        }
+        &__right {
+          height: 74px;
+          width: 50%;
+          background-color: #f5f5f5;
+        }
+        &__right:hover {
+          opacity: 0.7;
+        }
+      }
+      &__message {
+        height: 16px;
+        background-color: white;
+        margin-bottom: 40px;
+        height: 220px;
+        padding: 160px 0px 60px 0px;
+        text-align: center;
+        background-image: image-url("logo.png");
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        background-size: auto 75px;
+        &__attention {
+          color: #cccccc;
+          font-weight: 600;
+        }
+      }
+      &__history {
+        height: 72px;
+        background-color: #fafafa;
+        padding: 0px 20px;
+        font-weight: bold;
+        line-height: 72px;
+      }
+    }
+  }
+}
+
+.mypage__flex__right__address {
+  height: 1133px;
+  width: 700px;
+  background-color: white;
+  &__top {
+    height: 34px;
+    width: 652px;
+    padding: 8px 24px;
+    border-bottom: 2px solid #f5f5f5;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+  &__main {
+    height: 879px;
+    width: 620px;
+    padding: 40px 40px 64px;
+  }
+  .address__form {
+    display: flex;
+    flex-flow: column;
+    width: 343px;
+    margin: 0px 138.5px;
+    input {
+      @include address-input;
+    }
+    &__top {
+      height: 126px;
+      width: 343px;
+      margin-top: 0px;
+      &__label {
+        @include address-label;
+      }
+      &__label::after {
+        @include chevron-down-red;
+
+      }
+    }
+    &__group {
+      height: 126px;
+      width: 343px;
+      margin-top: 32px;
+      &__label {
+        @include address-label;
+      }
+      &__label::after {
+        @include chevron-down-red;
+      }
+    }
+    &__content {
+      height: 70px;
+      width: 343px;
+      margin-top: 32px;
+      position: relative;
+      &__label {
+        @include address-label;
+      }
+      &__option {
+        @include address-label;
+      }
+      &__label::after {
+        @include chevron-down-red;
+      }
+      select#prefectures {
+        @include address-input;
+        height: 50px;
+        width: 345px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+      }
+      select#prefectures::-ms-expand {
+        display: none;
+      }
+      &__icon {
+        position: absolute;
+        top: 48px;
+        right: 20px;
+        color: #cccccc
+      }
+      &__option::after {
+        @include chevron-down-red;
+        content: "任意";
+        background-color: #cccccc;
+        font-weight: normal;
+      }
+    }
+    .address-edit-btn {
+      height: 50px;
+      width: 343px;
+      background-color: #ea352d;
+      color: white;
+      margin-top: 32px;
+      border-radius: 0px;
+      border: none;
+    }
+  }
+}
+
+.mypage__flex__right__editmails {
+  &__title {
+    height: 34px;
+    width: 652px;
+    background-color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px 24px;
+    border-bottom: 2px solid #f5f5f5;
+    .editmails-title {
+      font-weight: normal;
+    }
+  }
+  &__main {
+    height: 591px;
+    width: 572px;
+    background-color: white;
+    padding: 64px;
+    .editmails__form {
+      display: flex;
+      flex-flow: column;
+      width: 343px;
+      margin: 0px 138.5px;
+      input {
+        @include edit-mail-input;
+      }
+      &__top {
+        &__label {
+          @include edit-mail-label;
+          margin-top: 0px;
+        }
+      }
+      &__content {
+        &__label {
+          @include edit-mail-label;
+        }
+      }
+      .editmails-attention {
+        width: 320px;
+        margin-top: 8px;
+        color: #888888;
+        font-size: 14px;
+      }
+    }
+    input.editmails-edit-btn {
+      height: 50px;
+      width: 320px;
+      background-color: #ea352d;
+      color: white;
+      margin-top: 32px;
+      border-radius: 0px;
+      border: none;
+    }
+  }
+}
+.mypage__flex__right__logout {
+  height: 51px;
+  width: 572px;
+  background-color: white;
+  text-align: center;
+  line-height: 51px;
+  padding: 64px;
+  &__btn {
+    display: inline-block;
+    height: 50px;
+    width: 320px;
+    background-color: #ea352d;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+  }
+}
+
+.mypage__flex__right__paymethod {
+  text-align: center;
+  &__title {
+    height: 34px;
+    width: 652px;
+    background-color: white;
+    padding: 8px 24px;
+    border-bottom: 2px solid #f5f5f5;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+  }
+  &__main {
+    height: 180px;
+    width: 572px;
+    background-color: white;
+    padding: 64px;
+    display: flex;
+    flex-flow: column;
+    .maypage-select-cards {
+      height: 16px;
+      width: 320px;
+      font-weight: bold;
+      margin-left: 46px;
+    }
+    &__btn {
+      height: 107px;
+      width: 572px;
+      line-height: 107px;
+      border-bottom: 2px solid #f5f5f5;
+      &__item {
+        display: inline-block;
+        height: 50px;
+        width: 320px;
+        background-color: #ea352d;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+        margin-bottom: 8px;
+      }
+      .paymethod-card-icon {
+        color: white;
+        margin-right: 10px;
+      }
+    }
+    &__link {
+      margin-top: 40px;
+      color: #0099e8;
+      font-size: 14px;
+      text-align: right;
+      .paymethod-chevron-icon {
+        color: #0099e8;
+        margin-left: 5px;
+      }
+    }
+  }
+}
