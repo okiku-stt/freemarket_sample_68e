@@ -56,3 +56,12 @@ a {
     }
   }
 }
+.main__show__content__top__itemInfo__image__ul__li{
+  &__top{
+    object-fit: contain;
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+  }
+}
+

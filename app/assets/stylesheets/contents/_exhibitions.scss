@@ -1,5 +1,14 @@
 @import "mixin";
 
+.destory-btn {
+  font-size: 20px;
+  position: relative; top:30px; left:520px;
+  background: #3CCACE;
+  padding: 10px;
+  border-radius: 40px;
+  color: #fff;
+}
+
 .exhead {
   width: 100%;
   border-top: 1px solid #eee;
@@ -43,6 +52,7 @@
       }
       &__body {
         margin: 16px 0 0;
+        width: 100%;
         ul {
           display: flex;
           position: relative;
@@ -50,9 +60,11 @@
           li {
             display: flex;
             flex-direction: column;
-            width: 560px;
             align-items: center;
-            margin: 0 auto;
+            max-width: 100%;
+            width: auto;
+            height: 100%;
+            object-fit: contain;
             img {
               object-fit: cover;
               height: 346px;
@@ -103,17 +115,18 @@
           }
         }
         &__tax {
-          margin-top: 5px;
+          margin-top: 15px;
           margin-right: 3px;
           span {
             font-size: 10px;
             font-weight: normal;
+            margin-top: 10px;
           }
         }
         &__shipping {
-          margin-top: 5px;
+          margin-top: 14px;
           span {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: normal;
           }
         }
@@ -122,10 +135,11 @@
         display: block;
         margin: 16px 0 10px;
         background: #3CCACE;
-        font-size: 16px;
+        font-size: 25px;
         line-height: 56px;
         text-align: center;
         font-weight: normal;
+        color: #fff;
         a {
           color: #fff;
         }

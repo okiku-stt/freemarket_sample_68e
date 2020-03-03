@@ -1,6 +1,6 @@
 $(function(){
-  $('.sell-form-number').on('input', function(){   //リアルタイムで表示したいのでinputを使う｡入力の度にイベントが発火するようになる｡
-    var data = $('.sell-form-number').val(); // val()でフォームのvalueを取得(数値)
+  $('.sell-form__number').on('input', function(){   //リアルタイムで表示したいのでinputを使う｡入力の度にイベントが発火するようになる｡
+    var data = $('.sell-form__number').val(); // val()でフォームのvalueを取得(数値)
     var profit = Math.round(data * 0.9)  // 手数料計算を行う｡dataにかけているのが0.9なのは単に引きたい手数料が10%のため｡
     var fee = (data - profit) // 入力した数値から計算結果(profit)を引く｡それが手数料となる｡
     $('.sell-price__box__fee__tax').html(fee) //  手数料の表示｡html()は追加ではなく､上書き｡入力値が変わる度に表示も変わるようにする｡
