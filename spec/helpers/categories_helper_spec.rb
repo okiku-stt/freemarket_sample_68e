@@ -12,4 +12,7 @@ require 'rails_helper'
 # end
 # RSpec.describe CategoriesHelper, type: :helper do
 #   pending "add some examples to (or delete) #{__FILE__}"
+#   # railsがコントローラを作った時に親切心で生成しているちなみにここの上の文は
+#   # ここの表記にテストコードかけよというただの文章
+
 # end

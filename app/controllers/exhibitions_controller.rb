@@ -1,10 +1,12 @@
 class ExhibitionsController < ApplicationController
-  before_action :set_exhibition, only: [:show, :edit, :update]
+
+  require 'payjp'
+  before_action :set_exhibition, only: [:show, :edit, :update, :buy]
   before_action :set_user, only: [:edit, :update]
   before_action :authenticate_user!, only: [:show, :edit, :update]
-
+  before_action :set_card, only: [:buy, :pay]
   def index
-    @exhibitions = Exhibition.all
+    @exhibitions = Exhibition.all.includes(:user).order("created_at DESC")
     @categories = Category.roots
   end
 
@@ -38,12 +40,41 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-    @deal = Exhibition.find_by(deal: params[:deal])
     # @images = Image.where(exhibition_id: 3)
+    if user_signed_in?
+      @deal = Exhibition.find_by(deal: params[:deal])
+      @exhibition = Exhibition.find(params[:id])
+      render :show
+    else
+      redirect_to user_session_path method: :post
+    end
+
   end
 
   def edit
   end
+    # ---pay.jpの処理---
+  def buy
+    if @card.blank?
+      redirect_to new_card_path
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
+  end
+
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    exhibition = Exhibition.find(params[:id])
+    Payjp::Charge.create(
+    amount: exhibition.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    customer: @card.customer_id, #顧客ID
+    currency: 'jpy', #日本円
+    )
+    redirect_to action: 'done' #完了画面に移動
+  end
+  # ---pay.jpの処理ここまで---
 
   def update
     if @exhibition.update(exhibition_params)
@@ -98,4 +129,9 @@ class ExhibitionsController < ApplicationController
   def set_user
     @user = Exhibition.find_by(user_id: params[:user_id])
   end
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
+  end
+
 end
