@@ -1,61 +1,58 @@
 .top__header
-  .top__header__left
-    .top__header__left__logo
-      .top__header__left__logo__side
+  .top__header__logo
+    .top__header__logo__wrapper
+      .top__header__logo__wrapper__home
         = image_tag asset_path("logo.png"),size:'140x40'
-      .top__header__right
+      .top__header__logo__wrapper__search
         = form_with  model: @exhibition, url: "#", local: true, method: :get, class: "new-message" do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-box" 
           -# = form.submit "#", class: "#"
           %button{type: "submit", placeholder: "キーワードから探す",class: "search-btn" } 
             %i.fas.fa-search
-  .item-header
-    .item-header__box
-      .category-box
-        .category
-          .category__wrapper
-            %i.fas.fa-list-ul.category__wrapper__icon
-            %p.category__wrapper__target カテゴリ
-            .category__wrapper__flex
-              .category__wrapper__flex__parents
+  .top__header__item
+    .top__header__item__box
+      .top__header__item__box__type
+        .top__header__item__box__type__category
+          .top__header__item__box__type__category__wrapper
+            %i.fas.fa-list-ul.top__header__item__box__type__category__wrapper__icon
+            %p.top__header__item__box__type__category__wrapper__target カテゴリ
+            .top__header__item__box__type__category__wrapper__flex
+              .top__header__item__box__type__category__wrapper__flex__parents
                 - @categories.each do |category|
-                  = link_to "#", class: "category__wrapper__flex__parents__item" do
-                    .category__wrapper__flex__parents__item__text{"data-item-id": category.id}
+                  = link_to "#", class: "top__header__item__box__type__category__wrapper__flex__parents__item" do
+                    .top__header__item__box__type__category__wrapper__flex__parents__item__text{"data-item-id": category.id}
                       #{category.item}
-              .category__wrapper__flex__children
-              .category__wrapper__flex__grandchildren
-      .category__brand  
-        %i.fas.fa-tag.category__brand__icon
-        %p.category__brand__target ブランドから探す
-        %ul.category__brand__navi  
-          = link_to "#", class: "category__brand__navi__item" do
-            %li.category__brand__navi__item__text{"data-brand-id": "1"}
-              シャネル
-          = link_to "#", class: "category__brand__navi__item" do
-            %li.category__brand__navi__item__text{"data-brand-id": "2"}
-              ナイキ
-          = link_to "#", class: "category__brand__navi__item" do
-            %li.category__brand__navi__item__text{"data-brand-id": "3"}
-              ルイ ヴィトン        
-          = link_to "#", class: "category__brand__navi__item" do
-            %li.category__brand__navi__item__text{"data-brand-id": "4"}
-              シュプリーム
-          = link_to "#", class: "category__brand__navi__item" do
-            %li.category__brand__navi__item__text{"data-brand-id": "5"}
-              アディダス
-          = link_to "#", class: "category__brand__navi__item" do
-            %li.category__brand__navi__item__text{"data-brand-id": "6"}
-              ブランド一覧
-
-
-
-      - if user_signed_in?
-        .mypage-index.adjustment
-          = link_to "マイページへ", mypage_index_path, method: :get
-        .mypage-index
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
-      - else
-        .mypage-index.adjustment
-          = link_to "ログイン", new_user_session_path
-        .mypage-index
-          = link_to "新規登録", new_user_registration_path
+              .top__header__item__box__type__category__wrapper__flex__children
+              .top__header__item__box__type__category__wrapper__flex__grandchildren
+        .top__header__item__box__type__brand  
+          %i.fas.fa-tag.top__header__item__box__type__brand__icon
+          %p.top__header__item__box__type__brand__target ブランドから探す
+          %ul.top__header__item__box__type__brand__navi  
+            = link_to "#", class: "top__header__item__box__type__brand__navi__item" do
+              %li.top__header__item__box__type__brand__navi__item__text{"data-brand-id": "1"}
+                シャネル
+            = link_to "#", class: "top__header__item__box__type__brand__navi__item" do
+              %li.top__header__item__box__type__brand__navi__item__text{"data-brand-id": "2"}
+                ナイキ
+            = link_to "#", class: "top__header__item__box__type__brand__navi__item" do
+              %li.top__header__item__box__type__brand__navi__item__text{"data-brand-id": "3"}
+                ルイ ヴィトン        
+            = link_to "#", class: "top__header__item__box__type__brand__navi__item" do
+              %li.top__header__item__box__type__brand__navi__item__text{"data-brand-id": "4"}
+                シュプリーム
+            = link_to "#", class: "top__header__item__box__type__brand__navi__item" do
+              %li.top__header__item__box__type__brand__navi__item__text{"data-brand-id": "5"}
+                アディダス
+            = link_to "#", class: "top__header__item__box__type__brand__navi__item" do
+              %li.top__header__item__box__type__brand__navi__item__text{"data-brand-id": "6"}
+                ブランド一覧
+  - if user_signed_in?
+    .top__header__item__mypage
+      = link_to "マイページへ", mypage_index_path, method: :get
+    .top__header__item__log-out
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+  - else
+    .top__header__log-in
+      = link_to "ログイン", new_user_session_path
+    .top__header__new-user
+      = link_to "新規登録", new_user_registration_path
