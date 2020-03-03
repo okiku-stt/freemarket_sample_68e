@@ -22,7 +22,7 @@
 @import "contents/exhibitions";
 @import "contents/top-page";
 @import "contents/mypage";
-@import "contents/reset";
+@import "reset";
 @import "contents/search";
 @import "contents/sell";
 @import "contents/user";
@@ -35,4 +35,8 @@
 
 .nanase {
   object-fit: cover;
+}
+
+.error {
+  color: red;
 }

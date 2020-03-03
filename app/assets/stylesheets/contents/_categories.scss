@@ -1,3 +1,5 @@
+@import "mixin";
+
 @mixin for_children_grandchildren {
   min-width: 220px;
   font-size: 12px;
