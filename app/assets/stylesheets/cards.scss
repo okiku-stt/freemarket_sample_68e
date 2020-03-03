@@ -8,11 +8,16 @@
   .card-header {
     width: 100%;
     height: 20vh;
-    background-color: chartreuse;
+    background-color: #ffffff;
     filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
-    margin-bottom: 50px;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
   }
   .card-body {
+    margin-top: 50px;
     padding: 0 200px;
     display: flex;
     justify-content: space-between;
@@ -81,7 +86,6 @@
               display: inline-block;
               width: calc(50% - 2px);
               height: 48px;
-              // background-color: forestgreen;
               #exp_month {
                 width: 131.5px;
                 height: 48px;
@@ -97,7 +101,6 @@
               display: inline-block;
               width: calc(50% - 2px);
               height: 48px;
-              // background-color: hotpink;
               #exp_year {
                 width: 131.5px;
                 height: 48px;
@@ -191,7 +194,6 @@
     .card-contents-registration{
       width: 700px;
       height: 380px;
-      // padding: 64px;
       background-color: white;
       .card-head-registration {
         height: 48px;
@@ -204,35 +206,30 @@
         border-bottom: 2px solid #eeeeee;
         margin-bottom: 64px;
       }
-      .card-details-registration {
-        max-width: 343px;
-        margin: 0 64px;
-        &__section {
-          width: 572px;
-          height: 16px;
-          margin-left: 112px;
-          .card-font {
-            font-weight: bold;
-          }
+      .card-registration {
+        margin-left: 9%;
+        width: 572px;
+        &__infomation {
+          
         }
-        &__submit-box {
-          width: 572px;
-          height: 107px;
-          border-bottom: 2px solid #eeeeee;
-          text-align: center;
-          #token_submit {
-            background-color: #EA352D;
-            color: #FFFFFF;
-            width: 343px;
-            height: 48px;
-            cursor: pointer;
-            user-select: none;
-            display: inline-block;
-            line-height: 48px;
-            margin-top: 30px;
-          }
+      }
+      .card-submit-box {
+        width: 572px;
+        height: 107px;
+        border-bottom: 2px solid #eeeeee;
+        text-align: center;
+        margin-left: 9%;
+        #token_submit {
+          background-color: #EA352D;
+          color: #FFFFFF;
+          width: 343px;
+          height: 48px;
+          cursor: pointer;
+          user-select: none;
+          display: inline-block;
+          line-height: 48px;
+          margin-top: 30px;
         }
-        
       }
       .card-pay-style {
         margin: 45px 60px 0 0;
@@ -247,21 +244,6 @@
           font-size: 14px;
         }
       }
-    }
-  }
-  .card-footer {
-    padding-top: 40px;
-    width: 100%;
-    height: 520px;
-    .card-top-footer{
-      width: 100%;
-      height: 260px;
-      background-color: indianred;
-    }
-    .card-bottom-footer {
-      width: 100%;
-      height: 260px;
-      background-color: darkcyan;
     }
   }
 }

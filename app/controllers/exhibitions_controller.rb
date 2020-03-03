@@ -1,17 +1,19 @@
 class ExhibitionsController < ApplicationController
 
-  before_action :set_exhibition, only: [:show, :edit, :update]
+  require 'payjp'
+  before_action :set_exhibition, only: [:show, :edit, :update, :buy]
   before_action :set_user, only: [:edit, :update]
-
+  before_action :authenticate_user!, only: [:show, :edit, :update]
+  before_action :set_card, only: [:buy, :pay]
   def index
-    @exhibitions = Exhibition.all
+    @exhibitions = Exhibition.all.includes(:user).order("created_at DESC")
     @categories = Category.roots
   end
 
   def new
     @categories = Category.roots
     @exhibition = Exhibition.new
-    @exhibition.images.build()
+    # @exhibition.images.build()
   end
 
   def create
@@ -38,14 +40,41 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-    @deal = Exhibition.find_by(deal: params[:deal])
-    @exhibition = Exhibition.find(params[:id])
 
     @images = Image.where(exhibition_id: params[:id])
+    if user_signed_in?
+      @deal = Exhibition.find_by(deal: params[:deal])
+      @exhibition = Exhibition.find(params[:id])
+      render :show
+    else
+      redirect_to user_session_path method: :post
+    end
   end
 
   def edit
   end
+    # ---pay.jpの処理---
+  def buy
+    if @card.blank?
+      redirect_to new_card_path
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
+  end
+
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    exhibition = Exhibition.find(params[:id])
+    Payjp::Charge.create(
+    amount: exhibition.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    customer: @card.customer_id, #顧客ID
+    currency: 'jpy', #日本円
+    )
+    redirect_to action: 'done' #完了画面に移動
+  end
+  # ---pay.jpの処理ここまで---
 
   def update
     if @exhibition.update(exhibition_params)
@@ -53,6 +82,14 @@ class ExhibitionsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def category_children  
+    @category_children = Category.find(params[:parent]).children 
+  end
+
+  def category_grandchildren
+    @category_grandchildren = Category.find(params[:child]).children
   end
 
   def search_children
@@ -65,14 +102,6 @@ class ExhibitionsController < ApplicationController
     end
   end
 
-  def category_children
-    @category_children = Category.find(params[:parent]).children
-  end
-
-  def category_grandchildren
-    @category_grandchildren = Category.find(params[:child]).children
-  end
-
   def search_grandchildren
     respond_to do |format|
       format.html
@@ -82,18 +111,27 @@ class ExhibitionsController < ApplicationController
     end
   end
 
+  def destroy
+    @exhibition = Exhibition.find(params[:id])
+    @exhibition.destroy
+    redirect_to root_path
+  end
+
   private
   def exhibition_params
     params.require(:exhibition).permit(:price,:shipping_date,:category_id,:prefecture_id,:shipping_charges,:item_description,:item_status, :item_name, :brand, images_attributes: [:image, :id]).merge(user_id: current_user.id)
-    # params.require(:exhibition).permit(:category_id, :shipping_charges, :prefecture_id, :shipping_date, :price, :item_name, :item_status, :prefecture, :item_description, images_attributes: [:image]).merge(user_id: current_user.id)
   end
-
 
   def set_exhibition
     @exhibition = Exhibition.find(params[:id])
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = Exhibition.find_by(user_id: params[:user_id])
   end
+
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
+  end
+
 end
