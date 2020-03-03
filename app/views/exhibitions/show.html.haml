@@ -50,8 +50,8 @@
             %span 送料込み
         .show-buy-btn
         - if @exhibition.user_id == current_user.id
-          = link_to "編集画面に進む", edit_exhibition_path(@exhibition), class: "#"
-          = link_to "商品削除", exhibition_path(@exhibition), method: :delete, class: "#"
+          = link_to "編集画面に進む", edit_exhibition_path(@exhibition), class: "show-buy-btn"
+          = link_to "商品削除", exhibition_path(@exhibition), method: :delete, class: "destory-btn"
         - else
           = link_to "購入画面に進む", buy_exhibition_path(@exhibition), class: "#"
         .show-exbox

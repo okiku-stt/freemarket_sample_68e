@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   # resources :categories doに7つのアクションがないと指摘を受けました。対応をお願いします  
 
-  resources :exhibitions ,except: :destroy do
+  resources :exhibitions do
     collection do
       get 'modal'
       get 'search'

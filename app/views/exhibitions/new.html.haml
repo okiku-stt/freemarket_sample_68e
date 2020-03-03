@@ -7,7 +7,6 @@
       %h2.sell-main-head
         商品の情報を入力
 
-      
       = form_with(model:@exhibition, url: exhibitions_path, method: :post, local: true, class: "sell-form", id: "item-dropzone") do |form|
         .sell__image
           .sell__image__flex
@@ -25,8 +24,8 @@
         = image.label :image, class: "dropzone-box", for: "upload-image" do
           .input_area
             = image.file_field :image, multiple: true, name: 'exhibition_images[image][]', class: "upload-image", 'data-image': 0, type: "file", id: "upload-image"
-                %p ここをクリックしてください
-                %i.fa.fa-camera
+              %p ここをクリックしてください
+              %i.fa.fa-camera
           .dropzone-container
             #preview2
             .dropzone-area2
