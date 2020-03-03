@@ -16,16 +16,16 @@
   }
   .card-body {
     margin-top: 50px;
-    padding: 0 200px;
+    padding: 0 70px;
     display: flex;
     justify-content: space-between;
     .card-contents {
-      width: 700px;
+      width: 75%;
       height: 562px;
       background-color: white;
       .card-head {
         height: 48px;
-        width: 700px;
+        width: 100%;
         background-color: #ffffff;
         font-size: 24px;
         font-weight: bold;

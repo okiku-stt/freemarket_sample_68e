@@ -129,23 +129,3 @@
   }
 }
 
-@media screen and (min-width: 768px) {
-  .user__input__select{
-    width: 76px;
-  }
-  .user__registration__main{
-    width: 700px;
-    margin: 0 auto;
-    &__title__contents__contents{
-      padding:64px;
-    }
-  }
-}
-
-@media screen and (min-width: 1068px){
-  .user__registration__main__title__contents{
-    padding: 40px 40px 64px;
-  }
-}
-
-
