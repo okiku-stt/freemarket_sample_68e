@@ -16,7 +16,18 @@
 
 @import "font-awesome-sprockets";
 @import "./font-awesome";
-@import "cards";
+@import "contents/buy";
+@import "contents/cards";
+@import "contents/categories";
+@import "contents/exhibition_image";
+@import "contents/exhibitions";
+@import "contents/index";
+@import "contents/mypage";
+@import "contents/paymethods";
+@import "contents/reset";
+@import "contents/search";
+@import "contents/sell";
+@import "contents/user";
 
 * {
   box-sizing: border-box;
