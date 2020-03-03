@@ -26,21 +26,19 @@
         %h2.show-box__name
           = @exhibition.item_name
         .show-box__body
-          %ul
-            %li.show-box__body__item
-              = image_tag asset_path("nanase.png"),class:"nanase"
-              - if @exhibition.deal == "SOLDOUT"
+
+          %ul.main__show__content__top__itemInfo__image__ul
+            = image_tag @exhibition.images[0].image.url,class:"main__show__content__top__itemInfo__image__ul__li__top"
+            - if @exhibition.deal == "SOLDOUT"
                 = image_tag asset_path("sold_out.png"), size: "220x130", class: "sold-out"
-              .soldOut
-              
+
         .show-box__foot 
           %ul
             %li 
-              = image_tag asset_path("asuka.jpg"), size: "140x75",class:"nanase"
-            %li 
-              = image_tag asset_path("ikuta.jpg"), size: "140x75",class:"nanase"
-            %li 
-              = image_tag asset_path("nanamin.jpg"), size: "140x75",class:"nanase"
+            - objects = @exhibition.images
+            - objects.each do |object|
+              %li.main__show__content__top__itemInfo__image__ul__li
+                = image_tag object.image.url
         .show-price
           .show-price__number
             %i.fa.fa-yen-sign
@@ -49,8 +47,7 @@
             %span (税込)
           .show-price__shipping
             %span 送料込み
-        .show-buy-btn
-        
+        .show-buy-btn 
         - if user_signed_in? && @exhibition.user_id == current_user.id
           = link_to "編集画面に進む", edit_exhibition_path(@exhibition), class: "#"
           = link_to "商品削除", exhibition_path(@exhibition), method: :delete, class: "#"
@@ -78,7 +75,8 @@
                   %a{:href => "#"} アウター
               %tr
                 %th ブランド
-                %td 
+                %td
+                  = @exhibition.brand
               %tr
                 %th 商品のサイズ
                 %td 
@@ -99,6 +97,7 @@
                 %td 
                   = @exhibition.shipping_date
         .item-table
+          = @exhibition.item_description
         .option-table
           %ul
             %li

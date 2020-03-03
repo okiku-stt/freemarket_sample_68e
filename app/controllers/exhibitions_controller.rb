@@ -21,9 +21,9 @@ class ExhibitionsController < ApplicationController
     @exhibition = Exhibition.new(exhibition_params)
     respond_to do |format|
       if @exhibition.save
-          # params[:exhibition_images][:image].each do |image|
-          #   @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
-          # end
+          params[:exhibition_images][:image].each do |image|
+            @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
+          end
         format.html{redirect_to modal_exhibitions_path}
       else
         @exhibition.images.build
@@ -40,7 +40,8 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-    # @images = Image.where(exhibition_id: 3)
+
+    @images = Image.where(exhibition_id: params[:id])
     if user_signed_in?
       @deal = Exhibition.find_by(deal: params[:deal])
       @exhibition = Exhibition.find(params[:id])
@@ -48,7 +49,6 @@ class ExhibitionsController < ApplicationController
     else
       redirect_to user_session_path method: :post
     end
-
   end
 
   def edit
