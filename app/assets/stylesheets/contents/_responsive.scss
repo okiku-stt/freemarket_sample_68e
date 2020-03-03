@@ -1,34 +1,97 @@
-@media screen and (max-width: 768px){
+/* スマホサイズ */
+
+@media screen and (max-width: 420px){
   .mypage__flex{
-    display: flex;
     flex-flow:column-reverse nowrap;
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     &__left{
+      margin-top: 50px;
       width: 100%;
     }
     &__right{
       width: 100%;
     }
   }
+  .card-body{
+    flex-flow:column-reverse nowrap;
+    width: 80%;
+    margin: 0 auto;
+    .card-contents{
+      width: 100%;
+      .card-head{
+        font-size: 16px;
+      }
+      .card-details{
+        width: 100%;
+      }
+    }
+  }
+
+  .card-blands{
+    flex-wrap:wrap;
+  }
+  .card-image{
+    margin-right: 8px;
+  }
+  #token_submit{
+    width: 100%;
+  }
 }
 
-@media screen and (min-width: 769px){
+/* タブレットサイズ */
+
+@media screen and (min-width: 421px) and (max-width: 800px){
   .mypage__flex{
-    display: flex;
-    justify-content: center;
+    flex-flow:column-reverse nowrap;
+    width: 80%;
+    margin: 0 auto;
     &__left{
-      width: 250px;
-      margin-right: 40px;
+      margin-top: 50px;
+      width: 100%;
     }
     &__right{
-      width: 65%;
+      width: 100%;
     }
+  }
+  .card-blands{
+    flex-wrap:wrap;
+  }
+  .card-image{
+    margin-right: 8px;
+  }
+  .card-body{
+    flex-flow:column-reverse nowrap;
+    width: 80%;
+    margin: 0 auto;
+    .card-contents{
+      width: 100%;
+      .card-head{
+        font-size: 24px;
+      }
+    }
+  }
+  #charge-form{
+    width: 100%;
+  }
+  #token-submit{
+    width: 343px;
+  }
+  .card-image{
+    margin-right: 18px;
+  }
+  .form-group{
+    width: 75%;
+    margin: 0 auto;
+  }
+  #token_submit{
+    width: 100%;
   }
 }
 
+/* pcサイズ */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 801px){
   .user__input__select{
     width: 76px;
   }
@@ -39,7 +102,49 @@
       padding:64px;
     }
   }
+  .mypage__flex{
+    justify-content: center;
+    &__left{
+      width: 250px;
+      margin-right: 40px;
+    }
+    &__right{
+      width: 65%;
+    }
+  }
+  .card-head{
+    padding: 0 10%;
+  }
+  .card-body{
+    justify-content: space-between;
+  }
+  .card-contents{
+    width: 75%;
+    .card-head{
+      font-size: 24px;
+    }
+  }
+  .card-image{
+    margin-right: 18px;
+  }
+  .card-input{
+    width: 343px;
+  }
+  #token_submit{
+    width: 343px;
+  }
+  .card-details{
+    padding: 0 10%;
+  }
+  .form-group{
+    width: 50%;
+    margin: 0 auto;
+  }
+  .number{
+    width: 100%;
+  }
 }
+
 
 @media screen and (min-width: 1068px){
   .user__registration__main__title__contents{
