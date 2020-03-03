@@ -27,10 +27,11 @@ $(document).ready(function(){
     }
     // 画像の読み込み（DataURLは、http:からでなく、data:から始まる特殊なURL）
     // file = filesプロパティの最初のファイル
+    $('.must-message__image').hide();
     reader.readAsDataURL(file);
     // imgを配列に追加
     images.push(img);
-
+    
     if (images.length > 0) {
       dropzone.find('p').replaceWith('');
       dropzone.find('i').css('top', '50%');

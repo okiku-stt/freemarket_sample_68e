@@ -1,6 +1,6 @@
 window.addEventListener("load", function(){
   $(function(){
-    $( '.error-item-name' ).on('click', function(){
+    $( '.error-item-name' ).on('blur', function(){
       let name = $(this).val();
       if(name == 0){
         $('.error-item-name').css('border-color','red')
@@ -20,7 +20,7 @@ window.addEventListener("load", function(){
         $('.must-message__item__name').text('')
       }
     });
-    $('.error-item-description').on('click',function(){
+    $('.error-item-description').on('blur',function(){
       let description = $(this).val();
       if(description == 0){
         $('.error-item-description').css('border-color','red')
@@ -41,28 +41,7 @@ window.addEventListener("load", function(){
       }
     });
     
-    $('.error-category').on('click',function(){
-      let status = $(this).val();
-      if(status == "選択してください"){
-        $('.error-category').css('border-color','red')
-        $('.must-message__category').text('必須項目です')
-      }else{
-        $('.error-category').css('border-color','')
-        $('.must-message__category').text('')
-      }
-    });
-    $('.error-category').on('change',function(){
-      let status = $(this).val();
-      if(status == "選択してください"){
-        $('.error-category').css('border-color','red')
-        $('.must-message__category').text('必須項目です')
-      }else{
-        $('.error-category').css('border-color','')
-        $('.must-message__category').text('')
-      }
-    });
-    
-    $('.error-status').on('click',function(){
+    $('.error-status').on('blur',function(){
       let status = $(this).val();
       if(status == "選択してください"){
         $('.error-status').css('border-color','red')
@@ -83,7 +62,7 @@ window.addEventListener("load", function(){
       }
     });
     
-    $('.error-shipping-charge').on('click',function(){
+    $('.error-shipping-charge').on('blur',function(){
       let status = $(this).val();
       if(status == "選択してください"){
         $('.error-shipping-charge').css('border-color','red')
@@ -104,7 +83,7 @@ window.addEventListener("load", function(){
       }
     });
     
-    $('.error-shipping-area').on('click',function(){
+    $('.error-shipping-area').on('blur',function(){
       let status = $(this).val();
       if(status == ""){
         $('.error-shipping-area').css('border-color','red')
@@ -125,7 +104,7 @@ window.addEventListener("load", function(){
       }
     });
     
-    $('.error-shipping-date').on('click',function(){
+    $('.error-shipping-date').on('blur',function(){
       let status = $(this).val();
       if(status == "選択してください"){
         $('.error-shipping-date').css('border-color','red')
@@ -146,7 +125,7 @@ window.addEventListener("load", function(){
       }
     });
 
-    $( '.error-price' ).on('click', function(){
+    $( '.error-price' ).on('blur', function(){
       let price = $(this).val();
       if( price == 0){
         $('.error-price').css('border-color','red')
@@ -166,5 +145,49 @@ window.addEventListener("load", function(){
         $('.must-message__price').text('')
       }
     });
+
+    $('.error-category').on('blur',function(){
+      let select = $(this).val();
+      if(select == 0){
+        $('.error-category').css('border-color','red')
+        $('.must-message__category').text('必須項目です')
+      }else{
+        $('.error-category').css('border-color','')
+        $('.must-message__category').text('')
+      }
+    });
+    $('.error-category').on('change',function(){
+      
+      let select = $(this).val();
+      if(select == 0){
+        $('.error-category').css('border-color','red')
+        $('.must-message__category').text('必須項目です')
+      }else{
+        $('.error-category').css('border-color','')
+        $('.must-message__category').text('')
+      }
+    });
+  
+    $('.error-image').on('click',function(){ 
+      let image = $(this).val();
+      if(image == 0){
+        $('.error-image').css('border-color','red')
+        $('.must-message__image').text('画像がありません')
+      }else{
+        $('.error-image').css('border-color','')
+        $('.must-message__image').text('')
+      }
+    });
+    $('.error-image').on('change',function(){
+      let image = $(this).val();
+      if(image == 0){
+        $('.error-image').css('border-color','red')
+        $('.must-message__image').text('画像がありません')
+      }else{
+        $('.error-image').css('border-color','')
+        $('.must-message__image').text('')
+      }
+    });
+    
   });
 });
