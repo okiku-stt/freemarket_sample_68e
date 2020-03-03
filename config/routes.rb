@@ -14,13 +14,19 @@ Rails.application.routes.draw do
   end
   # resources :categories doに7つのアクションがないと指摘を受けました。対応をお願いします  
 
-
-  resources :exhibitions ,except: :destroy do
+  resources :exhibitions do
     collection do
       get 'modal'
       get 'search'
       get 'category_children'
       get 'category_grandchildren'
+      get 'search_children'
+      get 'search_grandchildren'
+      get 'done'
+    end
+    member do
+      get 'buy'
+      post 'pay'
     end
   end
 
@@ -32,12 +38,10 @@ Rails.application.routes.draw do
   
   resources :cards, only: [:new, :index, :show, :edit, :update] do
     collection do
-      post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
     end
   end
-  resources :buy ,only: :index
   resources :images ,only: :index
 
 end

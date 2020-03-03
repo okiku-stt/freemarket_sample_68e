@@ -27,12 +27,13 @@ $(function(){
   $('.category__wrapper__flex__parents__item__text').mouseover(function(){
     // 選択箇所が分かるように色を変える
     $('.category__wrapper__flex__parents__item__text').css({'background': '', 'color': 'dimgray'});
-    $(this).css({'background': 'red', 'color': 'white'});
+    $(this).css({'background': 'turquoise', 'color': 'white'});
     // 孫の枠を非表示
     $('.category__wrapper__flex__grandchildren').css('box-shadow', '');
+    $('.category__wrapper__flex__grandchildren').css('background', '');
     var id = $(this).data('item-id');
     $.ajax({
-      url: "/exhibitions/search_children",
+      url: "/categories/search_children",
       type: "GET",
       data: {
         parent_id: id
@@ -53,6 +54,7 @@ $(function(){
         if ($('.flag').length) {
           $('.category__wrapper__flex__children').append(insertHTML);
           $('.category__wrapper__flex__children').css('box-shadow', '0 0 1px dimgray'); // 枠を表示
+          $('.category__wrapper__flex__children').css('background', 'white');
         }
       }
     })
@@ -69,7 +71,7 @@ $(function(){
     $(this).css('background', 'whitesmoke');
     var id_child = $(this).data('item-id');
     $.ajax({
-      url: "/exhibitions/search_grandchildren",
+      url: "/categories/search_grandchildren",
       type: "GET",
       data: {
         child_id: id_child
@@ -85,6 +87,7 @@ $(function(){
         });
         $('.category__wrapper__flex__grandchildren').append(insertHTML);
         $('.category__wrapper__flex__grandchildren').css('box-shadow', '0 0 1px dimgray'); // 枠を表示
+        $('.category__wrapper__flex__grandchildren').css('background', 'white');
       }
     })
     .fail(function() {
@@ -107,11 +110,14 @@ $(function(){
     // 親の表示
     $('.category__wrapper__flex__parents__item').css('display', 'block');
     $('.category__wrapper__flex__parents').css('box-shadow', '0 0 1px dimgray');
+    $('.category__wrapper__flex__parents').css('background', 'white');
     // 子と孫を削除
     $('.category__wrapper__flex__children__item').remove();
     $('.category__wrapper__flex__children').css('box-shadow', '');
+    $('.category__wrapper__flex__children').css('background', '');
     $('.category__wrapper__flex__grandchildren__item').remove();
     $('.category__wrapper__flex__grandchildren').css('box-shadow', '');
+    $('.category__wrapper__flex__grandchildren').css('background', '');
   });
 
   // 親・子・孫を包むラッパーからマウスリーブした時の記述
@@ -135,6 +141,6 @@ $(function(){
   });
   $('.category__brand__navi__item__text').mouseover(function(){
     $('.category__brand__navi__item__text').css({'background': '', 'color': 'dimgray'});
-    $(this).css({'background': 'red', 'color': 'white'})
+    $(this).css({'background': 'turquoise', 'color': 'white'})
   });
 });
