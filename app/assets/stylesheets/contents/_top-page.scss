@@ -169,6 +169,7 @@
             font-size: 14px;
           }
         }
+        // 時間が取れれば、mixinにする
         &__new-user {
           border-width: 1px;
           border-style: solid;
@@ -251,11 +252,7 @@
         &__log-out:hover{
           background-color: #80cf3c;
         }
-
-
-
-
-
+        // mixinにしたい部分ここまで
       }
     }
   }

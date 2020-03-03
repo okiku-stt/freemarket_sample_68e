@@ -10,7 +10,6 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
  */
 
@@ -30,6 +29,11 @@
   box-sizing: border-box;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   color: #333333;
+}
+
+a {
+  color: #333333;
+  text-decoration: none;
 }
 
 .nanase {
