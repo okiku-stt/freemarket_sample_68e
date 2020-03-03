@@ -29,8 +29,9 @@
           %ul
             %li.show-box__body__item
               = image_tag asset_path("nanase.png"),class:"nanase"
+              - if @exhibition.deal == "SOLDOUT"
+                = image_tag asset_path("sold_out.png"), size: "220x130", class: "sold-out"
               .soldOut
-                -# = @exhibition.deal
               
         .show-box__foot 
           %ul
@@ -54,7 +55,10 @@
           = link_to "編集画面に進む", edit_exhibition_path(@exhibition), class: "#"
           = link_to "商品削除", exhibition_path(@exhibition), method: :delete, class: "#"
         - else
-          = link_to "購入画面に進む", buy_exhibition_path(@exhibition), class: "#"
+          - if @exhibition.deal == "SOLDOUT"
+            = link_to "売り切れました トップへ戻る", root_path
+          - else
+            = link_to "購入画面に進む", buy_exhibition_path(@exhibition), class: "#"
         .show-exbox
           = @exhibition.item_name
         .show-table

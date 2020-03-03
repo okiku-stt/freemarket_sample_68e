@@ -56,13 +56,22 @@
             align-items: center;
             margin: 0 auto;
             img {
+              position: relative;
               object-fit: cover;
               height: 346px;
               width: 100%;
+              
             }
           }
           &__item {
             position: relative;
+            .nanase {
+            }
+            .sold-out {
+              position: absolute;
+              top: 0;
+              opacity: 0.7;
+            }
           }
           .soldOut {
             &__sell {
@@ -71,7 +80,6 @@
             &__sold {
             position: absolute;
             transform: rotate3d(1, 1, 1, 45deg);
-            // height: auto;
             }
           }
 
