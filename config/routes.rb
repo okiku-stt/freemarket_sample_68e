@@ -18,8 +18,13 @@ Rails.application.routes.draw do
     collection do
       get 'modal'
       get 'search'
-      get 'category_children'
-      get 'category_grandchildren'
+      get 'search_children'
+      get 'search_grandchildren'
+      get 'done'
+    end
+    member do
+      get 'buy'
+      post 'pay'
     end
   end
 
@@ -31,12 +36,10 @@ Rails.application.routes.draw do
   
   resources :cards, only: [:new, :index, :show, :edit, :update] do
     collection do
-      post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
     end
   end
-  resources :buy ,only: :index
   resources :images ,only: :index
 
 end

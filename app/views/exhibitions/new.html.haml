@@ -15,12 +15,12 @@
             .sell__image__flex__require
               必須
           .sell__image__attention 最大10枚までアップロードできます
-
         = form.fields_for :images do |image|
           .dropzone-container
             #preview
             .dropzone-area
               -# forとはラベル付け対象要素のid属性値
+
         = image.label :image, class: "dropzone-box", for: "upload-image" do
           .input_area
             = image.file_field :image, multiple: true, name: 'exhibition_images[image][]', class: "upload-image", 'data-image': 0, type: "file", id: "upload-image"
@@ -31,7 +31,6 @@
             .dropzone-area2
               = image.label :image, class: "dropzone-box", for: "upload-image" do
                 %i.fa.fa-camera
-
         .sell-content
           .sell-name
             .sell-name__head
@@ -42,7 +41,6 @@
             .sell-name__form
               = form.text_field :item_name, placeholder: "商品名（必須40文字まで）", class:'sell-form-default error-item-name'
               .must-message__item-name
-
             .sell-description
               .sell-description__head
                 .sell-description__head__text
@@ -51,8 +49,7 @@
                     必須
               .sell-description__form
                 = form.text_area :item_description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:'sell-textarea-default error-item-description'
-                .must-message__item-description
-                
+                .must-message__item-description 
         .sell-content
           .sell-details
             .sell-details__text
@@ -68,7 +65,6 @@
                     = icon('fas', 'chevron-down sell-select-icon__allow')
                   .must-message__category
                 .sell-select-children
-
               .sell-details__box__status
                 商品の状態
                 %span.require
