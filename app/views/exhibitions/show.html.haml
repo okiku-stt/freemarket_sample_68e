@@ -26,20 +26,17 @@
         %h2.show-box__name
           = @exhibition.item_name
         .show-box__body
-          %ul
-            %li.show-box__body__item
-              = image_tag asset_path("nanase.png"),class:"nanase"
-              .soldOut
+          %ul.main__show__content__top__itemInfo__image__ul
+            = image_tag @exhibition.images[0].image.url,class:"main__show__content__top__itemInfo__image__ul__li__top"
+            -#   .soldOut
                 -# = @exhibition.deal
-              
         .show-box__foot 
           %ul
             %li 
-              = image_tag asset_path("asuka.jpg"), size: "140x75",class:"nanase"
-            %li 
-              = image_tag asset_path("ikuta.jpg"), size: "140x75",class:"nanase"
-            %li 
-              = image_tag asset_path("nanamin.jpg"), size: "140x75",class:"nanase"
+            - objects = @exhibition.images
+            - objects.each do |object|
+              %li.main__show__content__top__itemInfo__image__ul__li
+                = image_tag object.image.url
         .show-price
           .show-price__number
             %i.fa.fa-yen-sign
@@ -73,7 +70,8 @@
                   %a{:href => "#"} アウター
               %tr
                 %th ブランド
-                %td 
+                %td
+                  = @exhibition.brand
               %tr
                 %th 商品のサイズ
                 %td 
@@ -94,6 +92,7 @@
                 %td 
                   = @exhibition.shipping_date
         .item-table
+          = @exhibition.item_description
         .option-table
           %ul
             %li

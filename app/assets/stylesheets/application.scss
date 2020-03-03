@@ -17,24 +17,12 @@
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 @import "cards";
-.nanase {
-  object-fit: contain;
+.main__show__content__top__itemInfo__image__ul__li{
+  &__top{
+    object-fit: contain;
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+  }
 }
 
-// .link-showpage {
-//   overflow: hidden;
-// }
-// .link-showpage img {
-//   // -moz-transition: -moz-transform 0.5s linear;
-//   // -webkit-transition: -webkit-transform 0.5s linear;
-//   // -o-transition: -o-transform 0.5s linear;
-//   // -ms-transition: -ms-transform 0.5s linear;
-//   transition: transform 0.5s linear;
-// }
-// .link-showpage img:hover {
-//   // -webkit-transform: scale(3);
-//   // -moz-transform: scale(3);
-//   // -o-transform: scale(3);
-//   // -ms-transform: scale(3);
-//   transform: scale(3);
-// }
