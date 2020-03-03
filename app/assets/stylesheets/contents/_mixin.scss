@@ -1,0 +1,12 @@
+@mixin for_children_grandchildren {
+  min-width: 220px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+@mixin for_children_grandchildren_text {
+  max-height: 16px;
+  padding: 5px 20px;
+  background-color: white;
+  color: dimgray;
+}
