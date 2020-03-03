@@ -80,12 +80,12 @@
 
   %h3.mypage-left-list-title  設定
   .mypage__flex__left__list{"data-mypage" => "-16"}
-    = link_to edit_user_registration_path, class: "mypage__flex__left__list__link" do
+    = link_to "#", class: "mypage__flex__left__list__link" do
       %p プロフィール
       .mypage-icon-16
         = icon('fas', 'chevron-right' )
   .mypage__flex__left__list{"data-mypage" => "-17"}
-    = link_to "#", class: "mypage__flex__left__list__link" do
+    = link_to addresses_path, class: "mypage__flex__left__list__link" do
       %p 発送元・お届け先住所変更
       .mypage-icon-17
         = icon('fas', 'chevron-right' )
@@ -95,7 +95,7 @@
       .mypage-icon-18
         = icon('fas', 'chevron-right' )
   .mypage__flex__left__list{"data-mypage" => "-19"}
-    = link_to "#", class: "mypage__flex__left__list__link" do
+    = link_to editmails_path, class: "mypage__flex__left__list__link" do
       %p メール/パスワード
       .mypage-icon-19
         = icon('fas', 'chevron-right' )
