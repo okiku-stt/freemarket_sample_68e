@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     collection do
       get 'modal'
       get 'search'
+      get 'category_children'
+      get 'category_grandchildren'
       get 'search_children'
       get 'search_grandchildren'
       get 'done'
