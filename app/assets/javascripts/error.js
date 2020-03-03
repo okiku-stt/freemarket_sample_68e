@@ -41,27 +41,6 @@ window.addEventListener("load", function(){
       }
     });
     
-    // $('.error-category').on('blur',function(){
-    //   let status = $(this).val();
-    //   if(status == "選択してください"){
-    //     $('.error-category').css('border-color','red')
-    //     $('.must-message__category').text('必須項目です')
-    //   }else{
-    //     $('.error-category').css('border-color','')
-    //     $('.must-message__category').text('')
-    //   }
-    // });
-    // $('.error-category').on('change',function(){
-    //   let status = $(this).val();
-    //   if(status == "選択してください"){
-    //     $('.error-category').css('border-color','red')
-    //     $('.must-message__category').text('必須項目です')
-    //   }else{
-    //     $('.error-category').css('border-color','')
-    //     $('.must-message__category').text('')
-    //   }
-    // });
-    
     $('.error-status').on('blur',function(){
       let status = $(this).val();
       if(status == "選択してください"){
@@ -191,7 +170,6 @@ window.addEventListener("load", function(){
   
     $('.error-image').on('click',function(){ 
       let image = $(this).val();
-      console.log(image)
       if(image == 0){
         $('.error-image').css('border-color','red')
         $('.must-message__image').text('画像がありません')
