@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 .exhead {
   width: 100%;
   border-top: 1px solid #eee;
@@ -281,6 +277,122 @@
       font-weight: bold;
       font-size: 22px;
       position: relative;
+    }
+  }
+}
+@mixin exhibition_image_btn {
+  color: #0095ee;
+  width: 50%;
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px;
+  border-top: 2px solid #ccc;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+@mixin exhibition_image_dropbox {
+  display: block;
+  border: 1px dashed #ccc;
+  position: relative;
+  background: #f5f5f5;
+  width: 100%;
+  height: 162px;
+  cursor: pointer;
+}
+@mixin exhibition_image_p {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  right: 16px;
+  text-align: center;
+  font-size: 12px;
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.sell-form {
+    margin: 0 40px;
+  .sell__image {
+    width: 620px;
+    font-size: 14px;
+    margin: 0 auto;
+    padding: 40px 40px 0;
+    &__flex {
+      display: flex;
+      margin-bottom: 16px;
+      &__title {
+        font-weight: bold;
+      }
+      &__require {
+        height: 16px;
+        line-height: 12px;
+        background-color: #3ccace;
+        margin: 0 8px;
+        padding: 2px 4px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 2px;
+      }
+    }
+  }
+  .dropzone-container {
+    display: block;
+    margin: 16px auto 0;
+    display: flex;
+    #preview, #preview2 {
+      display: flex;
+      .img_view {
+        height: 162px;
+        width: 116px;
+        margin: 0 4px;
+        background-color: #f5f5f5;
+        img{
+          height: 128px;
+          width: 116px;
+          object-fit: contain;
+        }
+      }
+      .btn_wrapper {
+        display: flex;
+        text-align: center;
+        .btn.edit, .btn.delete {
+          @include exhibition_image_btn;
+        }
+      }
+    }
+    .dropzone-area {
+      margin-bottom: 10px;
+      width: 620px;
+      .dropzone-box {
+        @include exhibition_image_dropbox;
+        p {
+          @include exhibition_image_p;
+        }
+        i {
+          @include exhibition_image_p;
+          top: calc(50% - 20px);
+          font-size: 20px; 
+        }
+        .input_area {
+          display: none;
+        }
+      }
+    }
+    .dropzone-area2{
+      display: none;
+      margin-bottom: 10px;
+      width: 620px;
+      .dropzone-box {
+        @include exhibition_image_dropbox;
+        i {
+          @include exhibition_image_p;
+          font-size: 20px; 
+        }
+        .input_area {
+          display: none;
+        }
+      }
     }
   }
 }
