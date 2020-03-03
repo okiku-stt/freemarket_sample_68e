@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-describe Exhibition do
+describe Image do
   describe '#create' do
-    # 1. price,shipping_date,category_id,prefecture_id,shipping_charges,item_description,item_status, item_name, images_attributesが存在すれば登録できること
-    it "is valid with a price,shipping_date,category_id,prefecture_id,shipping_charges,item_description,item_status,item_name" do
-      user = create(:user)
-      category = create(:category)
-      exhibition = build(:exhibition, user_id: user.id, category_id: category.id)
-      expect(exhibition).to be_valid
+    # 1. imageが空では登録できないこと
+    it "is invalid without a image" do
+      exhibition = create(:exhibition)
+      image = build(:image, exhibition_id: exhibition.id)
+      # user = create(:user)
+      # category = create(:category)
+      
+      # image = build(:image, image: nil)
+      image.valid?
+      expect(image.errors[:image]).to include("can't be blank")
     end
-    # 2. item_nameが空では登録できないこと
-    it "is invalid without a item_name" do
-      exhibition = build(:exhibition, item_name: nil)
-      exhibition.valid?
-      expect(exhibition.errors[:item_name]).to include("can't be blank")
-    end
+  end
+end

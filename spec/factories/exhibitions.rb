@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :exhibition do
-    # images_attributes                 {"kkk@gmail.com"} 
     item_name                 {"アンパンマンぐみ"}   
     item_description          {"高知県限定バージョンです"}
     category_id               {"1270"}

@@ -51,13 +51,7 @@ describe Exhibition do
       exhibition.valid?
       expect(exhibition.errors[:price]).to include("can't be blank")
     end
-    # 9. images_attributesが空では登録できないこと
-    # it "is invalid without a images_attributes do
-    #   exhibition = build(:exhibition, images_attributes: nil)
-    #   exhibition.valid?
-    #   expect(exhibition.errors[:images_attributes]).to include("can't be blank")
-    # end
-    # 10. category_idが空では登録できないこと
+    # 9. category_idが空では登録できないこと
     it "is invalid without a category_id" do
       exhibition = build(:exhibition, category_id: nil)
       exhibition.valid?
