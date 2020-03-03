@@ -4,12 +4,6 @@ a {
   color: #333333;
   text-decoration: none;
 }
-@mixin mypage-list-position {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  opacity: 0.5;
-}
 
 .mypage {
   height: 100vh;
@@ -211,35 +205,6 @@ a {
   }
 }
 
-@mixin address-label {
-  display: block;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-@mixin address-input {
-  height: 30px;
-  width: 311px;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px 16px 8px;
-  margin-top: 8px;
-}
-
-@mixin chevron-down-red {
-  content: "必須";
-  height: 15px;
-  width: 24px;
-  background-color: #ea352d;
-  padding: 2px 4px;
-  margin-left: 8px; 
-  font-size: 12px;
-  font-weight: normal;
-  color: white;
-  border-radius: 2px;
-}
-
 .mypage__flex__right__address {
   height: 1133px;
   width: 700px;
@@ -338,23 +303,6 @@ a {
       border: none;
     }
   }
-}
-
-@mixin edit-mail-label {
-  display: block;
-  font-weight: bold;
-  font-size: 14px;
-  margin-top: 31px;
-}
-
-@mixin edit-mail-input {
-  height: 30px;
-  width: 286px;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px 16px 8px;
-  margin-top: 8px;
 }
 
 .mypage__flex__right__editmails {

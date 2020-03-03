@@ -207,8 +207,7 @@
       .card-registration {
         margin-left: 9%;
         width: 572px;
-        &__infomation {
-          
+        &__infomation { 
         }
       }
       .card-submit-box {
@@ -242,6 +241,30 @@
           font-size: 14px;
         }
       }
+    }
+  }
+}
+
+.card-registration {
+  display: flex;
+  height: 60px;
+  width: 500px;
+  justify-content: space-between;
+  &__infomation {
+    margin: 20px auto;
+    &__card-number {
+    }
+  }
+  .card-delete {
+    display: flex;
+    &__button {
+      height: 30px;
+      width: 60px;
+      margin-top: 30px;
+      border-radius: 4px;
+      background-color:red;
+      color: #ffffff;
+      cursor: pointer;
     }
   }
 }

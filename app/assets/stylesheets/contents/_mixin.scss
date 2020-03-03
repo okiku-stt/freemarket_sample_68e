@@ -10,3 +10,85 @@
   background-color: white;
   color: dimgray;
 }
+@mixin exhibition_image_btn {
+  color: #0095ee;
+  width: 50%;
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px;
+  border-top: 2px solid #ccc;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+@mixin exhibition_image_dropbox {
+  display: block;
+  border: 1px dashed #ccc;
+  position: relative;
+  background: #f5f5f5;
+  width: 100%;
+  height: 162px;
+  cursor: pointer;
+}
+@mixin exhibition_image_p {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  right: 16px;
+  text-align: center;
+  font-size: 12px;
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+@mixin mypage-list-position {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  opacity: 0.5;
+}
+
+@mixin address-label {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+@mixin address-input {
+  height: 30px;
+  width: 311px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px 16px 8px;
+  margin-top: 8px;
+}
+
+@mixin chevron-down-red {
+  content: "必須";
+  height: 15px;
+  width: 24px;
+  background-color: #ea352d;
+  padding: 2px 4px;
+  margin-left: 8px; 
+  font-size: 12px;
+  font-weight: normal;
+  color: white;
+  border-radius: 2px;
+}
+
+@mixin edit-mail-label {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 31px;
+}
+
+@mixin edit-mail-input {
+  height: 30px;
+  width: 286px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px 16px 8px;
+  margin-top: 8px;
+}
