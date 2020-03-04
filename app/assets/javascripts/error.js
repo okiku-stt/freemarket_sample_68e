@@ -171,7 +171,7 @@ window.addEventListener("load", function(){
     $('.error-image').on('click',function(){ 
       let image = $(this).val();
       if(image == 0){
-        $('.error-image').css('border-color','red')
+        $('.error-image')
         $('.must-message__image').text('画像がありません')
       }else{
         $('.error-image').css('border-color','')
@@ -181,7 +181,7 @@ window.addEventListener("load", function(){
     $('.error-image').on('change',function(){
       let image = $(this).val();
       if(image == 0){
-        $('.error-image').css('border-color','red')
+        $('.error-image')
         $('.must-message__image').text('画像がありません')
       }else{
         $('.error-image').css('border-color','')

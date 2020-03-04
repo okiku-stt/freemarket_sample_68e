@@ -167,6 +167,13 @@
     padding: 40px 0;
     &__box {
       width: 456px;
+      .footer-ul {
+        display: flex;
+        justify-content: space-evenly;
+        .footer-li {
+          list-style: none;
+        }
+      }
     }
     &__image {
       margin: 40px auto 0;
@@ -194,12 +201,4 @@
 h3.buy {
   font-weight: bold;
   font-size: 14px;
-}
-
-ul.buy {
-  display: flex;
-  justify-content: space-evenly;
-  li.buy {
-    list-style: none;
-  }
 }

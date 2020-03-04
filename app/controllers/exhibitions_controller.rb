@@ -13,7 +13,7 @@ class ExhibitionsController < ApplicationController
   def new
     @categories = Category.roots
     @exhibition = Exhibition.new
-    # @exhibition.images.build()
+    @exhibition.images.build()
   end
 
   def create
@@ -41,7 +41,9 @@ class ExhibitionsController < ApplicationController
 
   def show
 
-    @images = Image.where(exhibition_id: params[:id])
+    # images = Image.find_by(exhibition_id: params[:iexhibition_id])
+    # @images = images.order(id: "DESC")
+    @images = Image.where(exhibition_id: params[:id]).order("created_at DESC")
     if user_signed_in?
       @deal = Exhibition.find_by(deal: params[:deal])
       @exhibition = Exhibition.find(params[:id])
