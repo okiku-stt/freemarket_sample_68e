@@ -493,7 +493,13 @@
               margin-right: 30px;
               background-color: #ffffff;
               &__image {
-                .exhibition-item-name {
+                position: relative;
+                .sold-out {
+                  position: absolute;
+                  top: 0;
+                  opacity: 0.7; 
+                }
+                .nanase {
                 }
               }
               &__body {

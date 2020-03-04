@@ -66,13 +66,20 @@
             height: 100%;
             object-fit: contain;
             img {
+              position: relative;
               object-fit: cover;
               height: 346px;
               width: 100%;
+              
             }
           }
           &__item {
             position: relative;
+            .sold-out {
+              position: absolute;
+              top: 0;
+              opacity: 0.7;
+            }
           }
           .soldOut {
             &__sell {
@@ -81,7 +88,6 @@
             &__sold {
             position: absolute;
             transform: rotate3d(1, 1, 1, 45deg);
-            // height: auto;
             }
           }
 

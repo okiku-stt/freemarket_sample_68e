@@ -111,8 +111,9 @@
                 - if user_signed_in?
                   = link_to exhibition_path(exhibition), class: 'link-showpage', method: :get do
                     .categoryList__exhibition__image
-                    = image_tag asset_path("nanase.png"), size: "220x130",class:"nanase" do
-                      -# = image_tag @exhibition.image, class: "categoryFirstImage" do
+                      - if exhibition.deal == "SOLDOUT"
+                        = image_tag asset_path("sold_out.png"), size: "220x130", class: "sold-out"
+                      = image_tag asset_path("nanase.png"), size: "220x130",class:"nanase"
                     .categoryList__exhibition__body
                       .exhibition-item-name
                         = exhibition.item_name
@@ -128,8 +129,7 @@
                 - else
                   = link_to new_user_session_path, class: 'link-showpage', method: :get do
                     .categoryList__exhibition__image
-                      = image_tag asset_path("nanase.png"), size: "220x130",class:"nanase" do
-                        -# = image_tag @exhibition.image, class: "categoryFirstImage"
+                      = image_tag asset_path("nanase.png"), size: "220x130",class:"nanase"
                     .categoryList__exhibition__body
                       .exhibition-item-name
                         = exhibition.item_name
