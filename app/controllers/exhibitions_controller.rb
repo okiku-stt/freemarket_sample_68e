@@ -13,7 +13,7 @@ class ExhibitionsController < ApplicationController
   def new
     @categories = Category.roots
     @exhibition = Exhibition.new
-    # @exhibition.images.build()
+    @exhibition.images.build()
   end
 
   def create
