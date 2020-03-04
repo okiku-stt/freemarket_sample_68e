@@ -98,6 +98,9 @@
         line-height: 37px;
         &__number {
           font-size: 46px;
+          .fa-yen-sign {
+            margin-right: 15px;
+          }
           span {
             font-size: 32px;
             font-weight: bold;
@@ -107,6 +110,7 @@
         &__tax {
           margin-top: 5px;
           margin-right: 3px;
+          line-height: 50px;
           span {
             font-size: 10px;
             font-weight: normal;
@@ -114,6 +118,7 @@
         }
         &__shipping {
           margin-top: 5px;
+          line-height: 50px;
           span {
             font-size: 16px;
             font-weight: normal;
@@ -123,11 +128,36 @@
       .show-buy-btn {
         display: block;
         margin: 16px 0 10px;
-        background: #3CCACE;
-        font-size: 16px;
-        line-height: 56px;
-        text-align: center;
-        font-weight: normal;
+        width: 620px;
+        &__buy {
+          height: 50px;
+          margin: 0 auto;
+          background-color: #3ccace;
+          line-height: 50px;
+          color: white;
+          cursor: pointer;
+          width: 408px;
+          display: block;
+          text-decoration: none;
+          text-align: center;
+          font-weight: bold;
+        }
+        &__edit {
+          font-size: 20px;
+          position: relative; top:30px; left:347px;
+          background: #3CCACE;
+          padding: 10px;
+          border-radius: 40px;
+          color: #fff;
+        }
+        &__delete {
+          font-size: 20px;
+          position: relative; top:30px; left:357px;
+          background: red;
+          padding: 10px;
+          border-radius: 40px;
+          color: #fff;
+        }
         a {
           color: #fff;
         }

@@ -236,29 +236,6 @@
               }
             }
           }
-          .sell-link {
-            text-decoration: none;
-            &__note {
-            color: #0099e8;
-            }
-            &__back {
-              color: white;
-              padding: 17px 101px;
-            }
-            &__continue {
-              height: 50px;
-              margin-top: 40px;
-              background-color: #3ccace;
-              line-height: 50px;
-              color: white;
-              cursor: pointer;
-              width: 400px;
-              text-decoration: none;
-              border-top: 1px solid #ccc;
-              display: block;
-              margin: 30px auto 0;
-            }
-          }
         }
       }
     }
@@ -390,6 +367,30 @@
       width: 200px;
       margin: 0 auto;
     }
+  }
+}
+
+.sell-link {
+  text-decoration: none;
+  &__note {
+  color: #0099e8;
+  }
+  &__back {
+    color: white;
+    padding: 17px 101px;
+  }
+  &__continue {
+    height: 50px;
+    margin-top: 40px;
+    background-color: #3ccace;
+    line-height: 50px;
+    color: white;
+    cursor: pointer;
+    width: 400px;
+    text-decoration: none;
+    border-top: 1px solid #ccc;
+    display: block;
+    margin: 30px auto 0;
   }
 }
 

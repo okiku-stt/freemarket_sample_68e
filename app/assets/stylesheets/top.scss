@@ -400,14 +400,14 @@
             }
           }
           .categoryList {
-            width: 780px;
+            width: 795px;
             margin: 0px auto;
             padding: 26px 0;
             display: flex;
             overflow: scroll;
             justify-content: space-between;
             &__exhibition {
-              width: 220px;
+              width: 230px;
               display: inline-block;
               margin-right: 30px;
               background-color: #ffffff;
@@ -545,4 +545,25 @@
       }
     }
   }
+}
+
+.image-top {
+  object-fit: contain;
+  // max-width: 100%;
+  // height: 100%;
+  // width: auto;
+  // height: auto;
+}
+
+.categoryList::-webkit-scrollbar {
+  height: 7px;
+  width: 0;
+}
+.categoryList::-webkit-scrollbar-thumb {
+  background: linear-gradient(0deg,#43e2c6,#3183d0);
+  border-radius: 3px;
+}
+.categoryList::-webkit-scrollbar-track {
+  background: rgba(100,100,100, .5);
+  border-radius: 3px;
 }
