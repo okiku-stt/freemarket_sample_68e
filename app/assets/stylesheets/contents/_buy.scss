@@ -1,3 +1,5 @@
+@import "mixin";
+
 .buy-wrapper {
   background-color:rgb(245, 245, 245);
   height: 100%;
@@ -187,7 +189,6 @@
     color: #0099e8;
     font-size: 14px;
     text-decoration: none;
-
   }
 }
 
