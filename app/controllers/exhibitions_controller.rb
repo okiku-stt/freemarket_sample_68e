@@ -23,7 +23,7 @@ class ExhibitionsController < ApplicationController
       if @exhibition.save
           # params[:exhibition_images][:image].each do |image|
           #   @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
-          end
+          # end
         format.html{redirect_to modal_exhibitions_path}
       else
         flash.now[:alert] = '必須項目を入力してください。'
@@ -35,6 +35,7 @@ class ExhibitionsController < ApplicationController
     # else
     #   render :new
     # end
+    end
   end
 
   def modal
