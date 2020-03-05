@@ -28,8 +28,7 @@
         .show-box__body
           %ul.main__show__content__top__itemInfo__image__ul
             - @exhibition.images.each_with_index do |image, i|
-              = image_tag image.image.url,class:"main__show__content__top__itemInfo__image__ul__li__top"
-              -# = image_tag @exhibition.images[1].image.url,class:"main__show__content__top__itemInfo__image__ul__li__top"
+              = image_tag image.image.url,class:"main__show__content__top__itemInfo__image__ul__li__top"     
         .show-box__foot 
           %ul
             %li 
