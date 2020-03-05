@@ -34,7 +34,6 @@ class CardsController < ApplicationController
       ) #念の為metadataにuser_idを入れましたがなくてもOK
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        # ここにdealの０と１うんぬんの記述を書く
         redirect_to action: "index"
       else
         redirect_to action: "pay"
