@@ -73,11 +73,8 @@ $(document).ready(function(){
     // inputタグの削除（コントローラーに渡さないようにする）
     const input_remove = $(`div[data-index="${targetIndex}"].file-group`)[0];
     input_remove.remove();
-    // ここまで
 
     $('.upload-area:last').css({'display': 'block'})
-
   });
-  if ($('.upload-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
 });
 
