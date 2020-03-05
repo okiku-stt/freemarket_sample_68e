@@ -12,27 +12,6 @@
           .sell-img-box__upload
             .sell-img-box__upload__title
               出品画像
-              -#     .sell__image__flex__require
-              -#       必須
-              -#   .sell__image__attention 最大10枚までアップロードできます
-              -# = form.fields_for :images do |image|
-              -#   .dropzone-container
-              -#     #preview
-              -#     .dropzone-area
-              -#       -# forとはラベル付け対象要素のid属性値
-
-
-              -#       = image.label :image, class: "dropzone-box error-image", for: "upload-image" do
-              -#         .input_area
-              -#           = image.file_field :image, multiple: true, name: 'exhibition_images[image][]', class: "upload-image", 'data-image': 0, type: "file", id: "upload-image"
-              -#           %p ここをクリックしてください
-              -#           %i.fa.fa-camera
-              -#   .must-message__image.error
-              -#   .dropzone-container
-              -#     #preview2
-              -#     .dropzone-area2
-              -#       = image.label :image, class: "dropzone-box", for: "upload-image" do
-              -#         %i.fa.fa-camera
               %span.require
                 必須
             .sell-img-box__upload__text
@@ -46,8 +25,6 @@
                 .file-group{data:{index:image.index}}
                   = image.file_field :image, class: "upload-file", id: "upload-for"
                   %i.fa.fa-camera-retro#camera
-            .must-message__image.error
-
         .sell-content
           .sell-name
             .sell-name__head

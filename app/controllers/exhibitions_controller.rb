@@ -21,20 +21,12 @@ class ExhibitionsController < ApplicationController
     @exhibition = Exhibition.new(exhibition_params)
     respond_to do |format|
       if @exhibition.save
-          # params[:exhibition_images][:image].each do |image|
-          #   @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
-          # end
         format.html{redirect_to modal_exhibitions_path}
       else
         flash.now[:alert] = '必須項目を入力してください。'
         @exhibition.images.build
         format.html{render action: 'new'}
       end
-    # if @exhibition.save
-    #   redirect_to root_path
-    # else
-    #   render :new
-    # end
     end
   end
 
