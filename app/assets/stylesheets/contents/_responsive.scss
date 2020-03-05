@@ -80,6 +80,7 @@
     font-size: 16px;
   }
   .topic-first,.topic-second{
+    filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
     text-align: center;
     padding: 0.5em 1em;
     background: -moz-linear-gradient(#ffb03c, #ff708d);
@@ -105,10 +106,16 @@
     bottom: 30px;
     &__App img{
       margin-bottom: 15px;
+    }
+  }
+  .top-content-text{
+    height: calc( 100vh - 105px);
+    .top-introduction{
+      // margin-top: 25px;
+    }
+  }
+  .top-content-imageBox{
 
-    }
-    &__Google img{
-    }
   }
 }
 
@@ -198,6 +205,7 @@
       // padding-top: 200px;
     }
   }
+
   .topic-first{
     font-size: 32px;
   }
@@ -205,12 +213,24 @@
     font-size: 24px;
   }
   .topic-first,.topic-second{
+    filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
     text-align: center;
     padding: 0.5em 1em;
     background: -moz-linear-gradient(#ffb03c, #ff708d);
     background: -webkit-linear-gradient(#ffb03c, #ff708d);
     background: linear-gradient(to right, #ffb03c, #ff708d);
     color: #FFF;
+  }
+
+  .topic-items{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    // width: 100%;
+    // margin: 0 auto;
+    &__App{
+      margin-right: 32px;
+    }
   }
 
   #parents{
@@ -309,17 +329,38 @@
     padding: 0 30px;
     height: 560px;
     &__box{
-      padding-top: 200px;
+      padding-top: 100px;
     }
   }
   .topic-first{
-    font-size: 48px;
+    font-size: 32px;
     color: #ffffff;
+    
   }
   .topic-second{
-    font-size: 36px;
+    font-size: 24px;
     color: #ffffff;
+    margin-bottom: 7px;
   }
+  .topic-first,.topic-second{
+  filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
+  text-align: center;
+  padding: 0.5em 1em;
+  background: -moz-linear-gradient(#ffb03c, #ff708d);
+  background: -webkit-linear-gradient(#ffb03c, #ff708d);
+  background: linear-gradient(to right, #ffb03c, #ff708d);
+  color: #FFF;
+  }
+
+  .topic-items{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    &__App{
+      margin-right: 32px;
+    }
+  }
+
   #parents{
     font-size: 14px;
     font-weight: 600;
