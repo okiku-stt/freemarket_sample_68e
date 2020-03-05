@@ -8,5 +8,8 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
+    .notifications
+    - flash.each do |key, value|
+      = content_tag(:div, value, class: key)
   %body
     = yield

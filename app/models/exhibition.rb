@@ -8,10 +8,10 @@ class Exhibition < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
 
   belongs_to_active_hash :prefecture
-  validates :price,                      presence: true
+  validates :price,                      presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: "入力してください" }
   validates :shipping_date,              presence: true
-  validates :item_name,                  presence: true
-  validates :item_description,           presence: true
+  validates :item_name,                  presence: true, length: { minimum: 1, maximum: 40, message: "入力してください" }
+  validates :item_description,           presence: true, presence: true, length: { minimum: 1, maximum: 1000, message: "入力してください" }
   validates :category_id,                presence: true
   validates :item_status,                presence: true
   validates :shipping_charges,           presence: true

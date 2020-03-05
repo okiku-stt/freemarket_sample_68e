@@ -26,6 +26,7 @@ class ExhibitionsController < ApplicationController
           end
         format.html{redirect_to modal_exhibitions_path}
       else
+        flash.now[:alert] = '必須項目を入力してください。'
         @exhibition.images.build
         format.html{render action: 'new'}
       end
@@ -54,6 +55,7 @@ class ExhibitionsController < ApplicationController
   end
 
   def edit
+    @categories = Category.roots
   end
     # ---pay.jpの処理---
   def buy
@@ -79,9 +81,11 @@ class ExhibitionsController < ApplicationController
   # ---pay.jpの処理ここまで---
 
   def update
+    @categories = Category.roots
     if @exhibition.update(exhibition_params)
-      redirect_to root_path
+      redirect_to root_path, notice: '編集が完了しました。'
     else
+      flash.now[:alert] = '必須項目を入力してください。'
       render :edit
     end
   end
@@ -116,7 +120,7 @@ class ExhibitionsController < ApplicationController
   def destroy
     @exhibition = Exhibition.find(params[:id])
     @exhibition.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: '削除が完了しました。'
   end
 
   private
