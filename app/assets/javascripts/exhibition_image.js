@@ -101,6 +101,6 @@ $(document).ready(function(){
       $('.upload-area:last').css({'display': 'block', 'width': `120px`})
     }
   });
-  // if ($('.upload-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+  if ($('.upload-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
 });
 
