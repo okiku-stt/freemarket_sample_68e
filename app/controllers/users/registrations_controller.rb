@@ -11,13 +11,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  # def create
-  #   @user = User.new(user_params)
-  #   if @user.save
-  #     redirect_to root_path
-  #   else
-  #   end
-  # end
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to root_path
+    else
+      
+    end
+  end
 
   private
 

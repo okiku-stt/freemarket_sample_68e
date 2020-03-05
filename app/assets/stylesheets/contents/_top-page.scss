@@ -6,8 +6,6 @@
   position: relative;
   &__header {
     height: 105px;
-    margin: 0 60px;
-    width: calc(100% - 120px );
     &__home {
       display: flex;
       min-height: 62px;
@@ -24,7 +22,7 @@
           border-radius: 4px;
         }
         &__search {
-          margin-left: auto;
+          // margin-left: auto;
           width: 100%;
         }
       }
@@ -59,7 +57,6 @@
         display: flex;
         &__category {
           width: 80px;
-          margin-right: 30px;
           &__wrapper {
             &__icon::before {
               color: #3ccace;
@@ -75,17 +72,17 @@
             &__flex {
               display: flex;
               &__parents {
-                min-width: 220px;
                 color: dimgray;
-                font-size: 14px;
-                font-weight: 600;
+                // font-size: 14px;
+                // font-weight: 600;
                 line-height: 36px;
                 z-index: 1;
                 &__item {
+                  // width: 220px;
                   display: none;
                   background-color: white;
                   &__text {
-                    padding: 10px 20px;
+                    // padding: 10px 20px;
                   }
                 }
               }
@@ -115,6 +112,7 @@
         }
         &__brand {
           z-index: 2;
+          width:90px;
           &__icon {
             color: #3CCACE;
             padding-left: 10px;
@@ -178,7 +176,6 @@
           background-color: #3CCACE;
           display: block;
           position: relative;
-          width: 100px;
           height: 30px;
           &__text{
             text-align: center;
@@ -187,7 +184,6 @@
             line-height: 30px;
             width: 100%;
             color: white;
-            font-size: 14px;
           }
         }
         &__log-in {
@@ -198,7 +194,6 @@
           border-radius: 4px;
           display: block;
           position: relative;
-          width: 100px;
           height: 30px;
           transition: all 0.3s ease-out 0s;
           z-index: 1;
@@ -209,7 +204,6 @@
             line-height: 30px;
             width: 100%;
             color: #cf413c;
-            font-size: 14px;
             z-index: 3;
             transition: all 0.3s ease-out 0s;
           }
@@ -262,8 +256,8 @@
     
     .top-upper {
       .upper-contents {
-        padding: 0 60px;
-        height: 560px;
+        // padding: 0 60px;
+        // height: 560px;
         width: 100%;
         background-image: image-url("bg-mainVisual-pict_pc.jpg");
         background: cover;
@@ -272,15 +266,15 @@
         &__box {
           padding-top: 200px;
           .topic-first {
-            font-size: 60px;
-            color: #ffffff;
+            // font-size: 60px;
+            // color: #ffffff;
             filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
             margin-bottom: 24px;
           }
           .topic-second {
             margin-bottom: 7px;
-            font-size: 18px;
-            color: #ffffff;
+            // font-size: 18px;
+            // color: #ffffff;
             filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
           }
           .topic-items {

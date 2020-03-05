@@ -37,6 +37,49 @@
   #token_submit{
     width: 100%;
   }
+  #top__header--logo{
+    width: 91px;
+    height: 26px;
+  }
+  .top__header{
+    margin: 0 10px;
+    width: calc(100% - 20px);
+    &__item{
+      &__user-function{
+        &__log-out,&__log-in{
+          margin-left: 5px;
+        }
+        &__my-page,&__new-user,&__log-in,&__log-out {
+          width: 80px;
+          &__text{
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  .upper-contents{
+    padding: 0 10px;
+    height: calc( 100vh  - 105px);
+  }
+  .topic-first{
+    font-size: 24px;
+    color: #2e8b57;
+  }
+  .topic-second{
+    font-size: 16px;
+    color: #2e8b57;
+  }
+  #parents{
+    font-size: 8px;
+  }
+  #parents-item{
+    width: 100px;
+  }
+  #parents-text{
+    padding-left: 5px;
+  }
+
 }
 
 /* タブレットサイズ */
@@ -87,6 +130,44 @@
   #token_submit{
     width: 100%;
   }
+  #top__header--logo{
+    width: 140px;
+    height: 40px;
+  }
+  .top__header{
+    margin: 0 40px;
+    width: calc(100% - 80px);
+    &__item{
+      &__type__category{
+        margin-right: 15px;
+      }
+      &__user-function{
+        &__log-out,&__log-in{
+          margin-left: 15px;
+        }
+        &__my-page,&__new-user,&__log-in,&__log-out {
+          width: 90px;
+          &__text{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .upper-contents{
+    padding: 0 30px;
+    height: 560px;
+  }
+  .topic-first{
+    font-size: 32px;
+    color: #2e8b57;
+  }
+  .topic-second{
+    font-size: 24px;
+    color: #2e8b57;
+  }
+
 }
 
 /* pcサイズ */
@@ -140,6 +221,43 @@
   .number{
     width: 100%;
   }
+  #top__header--logo{
+    width: 140px;
+    height: 40px;
+  }
+  .top__header{
+    margin: 0 80px;
+    width: calc(100% - 160px);
+    &__item{
+      &__type__category{
+        margin-right: 30px;
+      }
+      &__user-function{
+        &__log-out,&__log-in{
+          margin-left: 15px;
+        }
+        &__my-page,&__new-user,&__log-in,&__log-out {
+          width: 100px;
+          &__text{
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  .upper-contents{
+    padding: 0 30px;
+    height: 560px;
+  }
+  .topic-first{
+    font-size: 48px;
+    color: #ffffff;
+  }
+  .topic-second{
+    font-size: 36px;
+    color: #ffffff;
+  }
+
 }
 
 
