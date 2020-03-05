@@ -1,12 +1,12 @@
 class Exhibition < ApplicationRecord
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
 
   # has_many :comments
   belongs_to :category, optional: true
-  
-  has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :images, allow_destroy: true
 
   belongs_to_active_hash :prefecture
   validates :price,                      presence: true
