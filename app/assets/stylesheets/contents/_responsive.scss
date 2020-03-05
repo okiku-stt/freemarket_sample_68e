@@ -1,3 +1,5 @@
+/* ここからレスポンシブデザインのcss */
+
 /* スマホサイズ */
 
 @media screen and (max-width: 420px){
@@ -110,18 +112,13 @@
   }
   .top-content-text{
     height: calc( 100vh - 105px);
-    .top-introduction{
-      // margin-top: 25px;
-    }
-  }
-  .top-content-imageBox{
-
   }
 }
 
 /* タブレットサイズ */
 
 @media screen and (min-width: 421px) and (max-width: 800px){
+  /*マイページのレスポンシブ対応*/
   .mypage__flex{
     flex-flow:column-reverse nowrap;
     width: 80%;
@@ -134,6 +131,7 @@
       width: 100%;
     }
   }
+  /*カード情報入力画面のレスポンシブ対応*/
   .card-blands{
     flex-wrap:wrap;
   }
@@ -171,6 +169,7 @@
     width: 140px;
     height: 40px;
   }
+  /*トップページのレスポンシブ対応*/
   .top__header{
     margin: 0 40px;
     width: calc(100% - 80px);
@@ -201,8 +200,6 @@
       display: table-cell;
       vertical-align: middle;
       margin: 0 auto;
-      
-      // padding-top: 200px;
     }
   }
 
@@ -226,8 +223,6 @@
     margin-top: 40px;
     display: flex;
     justify-content: center;
-    // width: 100%;
-    // margin: 0 auto;
     &__App{
       margin-right: 32px;
     }
@@ -253,6 +248,7 @@
 /* pcサイズ */
 
 @media screen and (min-width: 801px){
+  /*マイページのレスポンシブ対応*/
   .user__registration__main{
     width: 700px;
     margin: 0 auto;
@@ -270,6 +266,7 @@
       width: 65%;
     }
   }
+  /*カード情報入力画面のレスポンシブ対応*/
   .card-head{
     padding: 0 10%;
   }
@@ -301,6 +298,7 @@
   .number{
     width: 100%;
   }
+  /*トップページのレスポンシブ対応*/
   #top__header--logo{
     width: 140px;
     height: 40px;
@@ -390,3 +388,4 @@
   }
 }
 
+/* レスポンシブデザイン終わり */

@@ -22,7 +22,6 @@
           border-radius: 4px;
         }
         &__search {
-          // margin-left: auto;
           width: 100%;
         }
       }
@@ -73,17 +72,11 @@
               display: flex;
               &__parents {
                 color: dimgray;
-                // font-size: 14px;
-                // font-weight: 600;
                 line-height: 36px;
                 z-index: 1;
                 &__item {
-                  // width: 220px;
                   display: none;
                   background-color: white;
-                  &__text {
-                    // padding: 10px 20px;
-                  }
                 }
               }
               &__children {
@@ -263,34 +256,20 @@
         background-size: cover;
         background-repeat: no-repeat;
         &__box {
-          // padding-top: 200px;
-          .topic-first {
-            // filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
-            // margin-bottom: 24px;
-          }
-          .topic-second {
-            // margin-bottom: 7px;
-            // filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
-          }
-          .topic-items {
-            // margin-top: 46px;
-            // display: flex;
-            &__App {
-              img {
-                display: block;
-              }
-              &:hover {
-                opacity: 0.5; 
-              }
+          &__App {
+            img {
+              display: block;
             }
-            &__Google {
-              // margin-left: 10px;
-              img{
-                display: block;
-              }
-              &:hover {
-                opacity: 0.5; 
-              }
+            &:hover {
+              opacity: 0.5; 
+            }
+          }
+          &__Google {
+            img{
+              display: block;
+            }
+            &:hover {
+              opacity: 0.5; 
             }
           }
         }     
@@ -351,14 +330,11 @@
     .top-content-text {
       width: 100%;
       height: auto;
-      // height: 658px;
-      // padding: 60px 20px;
       .top-introduction {
         margin: 25px 0;
         font-size: 26px;
         text-align: center;
         font-weight: bold;
-        // margin-bottom: 25px;
         padding-bottom: 15px;
         line-height: 1.4;
         position: relative;
@@ -373,41 +349,9 @@
           transform: translate(-50%);
         }
       }
-      // .introduction-head {
-      //   font-size: 26px;
-      //   text-align: center;
-      //   font-weight: bold;
-      //   margin-bottom: 25px;
-      //   padding-bottom: 15px;
-      //   line-height: 1.4;
-      //   position: relative;
-      //   &::after {
-      //     content: "";
-      //     width: 70px;
-      //     height: 4px;
-      //     background-color: #3CCACE;
-      //     position: absolute;
-      //     bottom: 0;
-      //     left: 50%;
-      //     transform: translate(-50%);
-      //   }
-      // }
       .top-content-imageBox {
-        // display: flex;
-        // max-width: 1020px;
-        // width: 100%;
-        // margin: 0 auto;
         .lists-imageBox {
-          // display: flex;
-          // max-width: 1020px;
-          // width: 100%;
-          
           .listOnly-imageBox {
-            // display: block;
-            // margin: 0 auto;
-            // width: 30%;
-            // margin: 16px 5% 0 0;
-            // display: flex;
             text-align: center;
             flex-direction: column;
             align-items: center;
@@ -446,13 +390,11 @@
               font-weight: bold;
             }
             .picUp-text {
-              // width: 306px;
               display: inline-block;
               text-align: center;
               width: 70%;
               font-size: 18px;
               line-height: 1.5;
-              // margin: 16px 0 0;
               margin-bottom: 15px;
               font-weight: normal;
             }
@@ -467,7 +409,6 @@
     .top-item-contents {
       background-color: #f8f8f8;
       &__infomation {
-        // padding: 80px 0 0;
         background-color: #f8f8f8;
         height: 100%;
 
@@ -484,11 +425,8 @@
         .categoryBox {
           .categoryHead {
             font-size: 24px;
-            // padding: 0.5em 1em;
-            // margin: 2em 0;
             color: #00BCD4;
             background: #e4fcff;/*背景色*/
-            // border-top: solid 6px #1dc1d6;
             box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
 
             .category-text {
@@ -498,7 +436,6 @@
           }
           .categoryList {
             margin: 0px auto;
-            // レスポンシブ非対応
             padding: 26px 80px;
             display: flex;
             overflow: scroll;
@@ -515,13 +452,9 @@
                   top: 0;
                   opacity: 0.7; 
                 }
-                .nanase {
-                }
               }
               &__body {
                 padding: 20px;
-                .exhibition-item-name {
-                }
                 .exhibition-price {
                   &__box {
                   }
