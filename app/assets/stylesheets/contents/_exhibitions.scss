@@ -378,63 +378,63 @@
       }
     }
   }
-  .dropzone-container {
-    display: block;
-    margin: 16px auto 0;
+}
+
+#previews {
+  width: 602px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 10px;
+  #upper-row, #lower-row {
     display: flex;
-    #preview, #preview2 {
-      display: flex;
-      .img_view {
-        height: 162px;
-        width: 116px;
-        margin: 0 4px;
-        background-color: #f5f5f5;
-        img{
-          height: 128px;
-          width: 116px;
-          object-fit: contain;
-        }
-      }
-      .btn_wrapper {
-        display: flex;
-        text-align: center;
-        .btn.edit, .btn.delete {
-          @include exhibition_image_btn;
-        }
-      }
-    }
-    .dropzone-area {
-      margin-bottom: 10px;
-      width: 620px;
-      .dropzone-box {
-        @include exhibition_image_dropbox;
-        p {
-          @include exhibition_image_p;
-        }
-        i {
-          @include exhibition_image_p;
-          top: calc(50% - 20px);
-          font-size: 20px; 
-        }
-        .input_area {
-          display: none;
-        }
-      }
-    }
-    .dropzone-area2{
-      display: none;
-      margin-bottom: 10px;
-      width: 620px;
-      .dropzone-box {
-        @include exhibition_image_dropbox;
-        i {
-          @include exhibition_image_p;
-          font-size: 20px; 
-        }
-        .input_area {
-          display: none;
-        }
-      }
-    }
   }
+}
+
+//jQueryで動的に追加した要素へのCSS
+.image-wrapper {
+  height: 190px;
+  width: 110px;
+  margin: 5px;
+  background-color: #eee;
+  img {
+    height: 140px;
+    width: 110px;
+    object-fit: contain;
+  }
+  .file-remove {
+    font-size: 14px;
+    text-align: center;
+    line-height: 48px;
+    border-top: 2px solid dimgray;
+    cursor: pointer;
+  }
+}
+
+.upload-area {
+  display: block;
+  height: 200px;
+  width: 600px;
+  border: 1px dashed dimgray;
+  cursor: pointer;
+  position: relative;
+  #upload-for {
+    display: none;
+  }
+}
+
+#camera {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 12px);
+}
+
+//以下editで使用
+.edit-img {
+  height: 140px;
+  width: 110px;
+  object-fit: contain;
+}
+//checkboxの非表示
+.hidden {
+  display: none;
 }

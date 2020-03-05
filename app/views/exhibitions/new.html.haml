@@ -8,31 +8,45 @@
         商品の情報を入力
 
       = form_with(model:@exhibition, url: exhibitions_path, method: :post, local: true, class: "sell-form", id: "item-dropzone") do |form|
-        .sell__image
-          .sell__image__flex
-            .sell__image__flex__title
+        .sell-img-box
+          .sell-img-box__upload
+            .sell-img-box__upload__title
               出品画像
-            .sell__image__flex__require
-              必須
-          .sell__image__attention 最大10枚までアップロードできます
-        = form.fields_for :images do |image|
-          .dropzone-container
-            #preview
-            .dropzone-area
-              -# forとはラベル付け対象要素のid属性値
+              -#     .sell__image__flex__require
+              -#       必須
+              -#   .sell__image__attention 最大10枚までアップロードできます
+              -# = form.fields_for :images do |image|
+              -#   .dropzone-container
+              -#     #preview
+              -#     .dropzone-area
+              -#       -# forとはラベル付け対象要素のid属性値
 
 
-              = image.label :image, class: "dropzone-box error-image", for: "upload-image" do
-                .input_area
-                  = image.file_field :image, multiple: true, name: 'exhibition_images[image][]', class: "upload-image", 'data-image': 0, type: "file", id: "upload-image"
-                  %p ここをクリックしてください
-                  %i.fa.fa-camera
-          .must-message__image.error
-          .dropzone-container
-            #preview2
-            .dropzone-area2
-              = image.label :image, class: "dropzone-box", for: "upload-image" do
-                %i.fa.fa-camera
+              -#       = image.label :image, class: "dropzone-box error-image", for: "upload-image" do
+              -#         .input_area
+              -#           = image.file_field :image, multiple: true, name: 'exhibition_images[image][]', class: "upload-image", 'data-image': 0, type: "file", id: "upload-image"
+              -#           %p ここをクリックしてください
+              -#           %i.fa.fa-camera
+              -#   .must-message__image.error
+              -#   .dropzone-container
+              -#     #preview2
+              -#     .dropzone-area2
+              -#       = image.label :image, class: "dropzone-box", for: "upload-image" do
+              -#         %i.fa.fa-camera
+              %span.require
+                必須
+            .sell-img-box__upload__text
+              最大10枚までアップロードできます
+        #previews
+          #upper-row
+          #lower-row
+          = form.fields_for :images, class: "form-image" do |image|
+            #image-input
+              = image.label :image, class: "upload-area error-image", for: "upload-for" do
+                .file-group{data:{index:image.index}}
+                  = image.file_field :image, class: "upload-file", id: "upload-for"
+                  %i.fa.fa-camera-retro#camera
+                .must-message__image.error
 
         .sell-content
           .sell-name

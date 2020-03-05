@@ -13,7 +13,7 @@ class ExhibitionsController < ApplicationController
   def new
     @categories = Category.roots
     @exhibition = Exhibition.new
-    @exhibition.images.build()
+    @exhibition.images.new
   end
 
   def create
@@ -21,8 +21,8 @@ class ExhibitionsController < ApplicationController
     @exhibition = Exhibition.new(exhibition_params)
     respond_to do |format|
       if @exhibition.save
-          params[:exhibition_images][:image].each do |image|
-            @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
+          # params[:exhibition_images][:image].each do |image|
+          #   @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
           end
         format.html{redirect_to modal_exhibitions_path}
       else
@@ -30,7 +30,11 @@ class ExhibitionsController < ApplicationController
         @exhibition.images.build
         format.html{render action: 'new'}
       end
-    end
+    # if @exhibition.save
+    #   redirect_to root_path
+    # else
+    #   render :new
+    # end
   end
 
   def modal
@@ -54,6 +58,7 @@ class ExhibitionsController < ApplicationController
 
   def edit
     @categories = Category.roots
+    @exhibition.images.new
   end
     # ---pay.jpの処理---
   def buy
@@ -124,9 +129,8 @@ class ExhibitionsController < ApplicationController
     redirect_to root_path, notice: '削除が完了しました。'
   end
 
-  private
   def exhibition_params
-    params.require(:exhibition).permit(:price,:shipping_date,:category_id,:prefecture_id,:shipping_charges,:item_description,:item_status, :item_name, :brand, images_attributes: [:image, :id]).merge(user_id: current_user.id)
+    params.require(:exhibition).permit(:price,:shipping_date,:category_id,:prefecture_id,:shipping_charges,:item_description,:item_status, :item_name, :brand, images_attributes: [:image,  :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_exhibition
