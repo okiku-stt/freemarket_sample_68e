@@ -256,37 +256,37 @@
     
     .top-upper {
       .upper-contents {
-        // padding: 0 60px;
-        // height: 560px;
         width: 100%;
         background-image: image-url("bg-mainVisual-pict_pc.jpg");
         background: cover;
         background-size: cover;
         background-repeat: no-repeat;
         &__box {
-          padding-top: 200px;
+          // padding-top: 200px;
           .topic-first {
-            // font-size: 60px;
-            // color: #ffffff;
             filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
-            margin-bottom: 24px;
+            // margin-bottom: 24px;
           }
           .topic-second {
             margin-bottom: 7px;
-            // font-size: 18px;
-            // color: #ffffff;
             filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
           }
           .topic-items {
-            margin-top: 46px;
-            display: flex;
+            // margin-top: 46px;
+            // display: flex;
             &__App {
+              img {
+                display: block;
+              }
               &:hover {
                 opacity: 0.5; 
               }
             }
             &__Google {
-              margin-left: 10px;
+              // margin-left: 10px;
+              img{
+                display: block;
+              }
               &:hover {
                 opacity: 0.5; 
               }
@@ -457,27 +457,39 @@
     .top-item-contents {
       background-color: #f8f8f8;
       &__infomation {
-        padding: 80px 0 0;
+        // padding: 80px 0 0;
         background-color: #f8f8f8;
         height: 100%;
+
         .picup-category {
           text-align: center;
           font-size: 28px;
           line-height: 1.4;
           font-weight: bold;
+          color: #00BCD4;
+          background: #e4fcff;/*背景色*/
+          border-top: solid 6px #1dc1d6;
+
         }
         .categoryBox {
           .categoryHead {
             font-size: 24px;
+            // padding: 0.5em 1em;
+            // margin: 2em 0;
+            color: #00BCD4;
+            background: #e4fcff;/*背景色*/
+            // border-top: solid 6px #1dc1d6;
+            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+
             .category-text {
               color: #3CCACE;
               text-align: center;
             }
           }
           .categoryList {
-            width: 780px;
             margin: 0px auto;
-            padding: 26px 0;
+            // レスポンシブ非対応
+            padding: 26px 80px;
             display: flex;
             overflow: scroll;
             justify-content: space-between;
