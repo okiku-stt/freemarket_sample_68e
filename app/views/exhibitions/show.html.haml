@@ -26,8 +26,11 @@
         %h2.show-box__name
           = @exhibition.item_name
         .show-box__body
+
           %ul.main__show__content__top__itemInfo__image__ul
-            = image_tag @exhibition.images.last.image.url,class:"main__show__content__top__itemInfo__image__ul__li__top"
+            - if @exhibition.deal == "SOLDOUT"
+              -# = image_tag asset_path("sold_out.png"), size: "220x130", class: "sold-out"
+              = image_tag @exhibition.images.last.image.url,class:"main__show__content__top__itemInfo__image__ul__li__top"
         .show-box__foot 
           %ul
             %li 
@@ -43,13 +46,12 @@
             %span (税込)
           .show-price__shipping
             %span 送料込み
-        .show-buyer-btn
-        
-          - if user_signed_in? && @exhibition.user_id == current_user.id
-            -# = link_to "編集画面に進む", edit_exhibition_path(@exhibition), class: "show-buy-btn__edit"
-            -# = link_to "商品削除", exhibition_path(@exhibition), method: :delete, class: "show-buy-btn__delete"
+        .show-buy-btn 
+        - if user_signed_in? && @exhibition.user_id != current_user.id
+          = link_to "購入画面に進む", buy_exhibition_path(@exhibition), class: "show-buy-btn__buy"
+          - if @exhibition.deal == "SOLDOUT"
+            = link_to "売り切れました トップへ戻る", root_path
           - else
-            = link_to "購入画面に進む", buy_exhibition_path(@exhibition), class: "show-buy-btn__buy"
         .show-exbox
           = @exhibition.item_description
         .show-table

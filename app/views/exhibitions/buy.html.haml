@@ -44,7 +44,7 @@
                   %h3.buy
                     支払い方法
                   .buy-pay__box__container__fee__price
-                    = link_to '変更する', '/', class: "buy-link__change"
+                    = link_to '変更する', cards_path, class: "buy-link__change"
                 %p.buy-pay__box__container__credit
                   クレジットカード
                   %br
@@ -60,7 +60,7 @@
                   %h3.buy
                     配送先
                   .buy-pay__box__container__ship__head__price
-                    = link_to '変更する', '/', class: "buy-link__change"
+                    = link_to '変更する', "", class: "buy-link__change"
                 .buy-pay__box__container__ship__price
                   %p
                     = "〒" + current_user.address.postal_code

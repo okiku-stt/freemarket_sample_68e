@@ -1,10 +1,9 @@
-* { 
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  color: #333333;
-}
+@import "mixin";
+
 .card-wrapper {
   width: 100%;
   background-color: #f5f5f5;
+  padding-bottom: 60px;
   .card-header {
     width: 100%;
     height: 20vh;
@@ -18,30 +17,26 @@
   }
   .card-body {
     margin-top: 50px;
-    padding: 0 200px;
+    padding: 0 30px;
     display: flex;
-    justify-content: space-between;
     .card-contents {
-      width: 700px;
       height: 562px;
       background-color: white;
       .card-head {
         height: 48px;
-        width: 700px;
+        width: 100%;
         background-color: #ffffff;
-        font-size: 24px;
         font-weight: bold;
         text-align: center;
         line-height: 50px;
         border-bottom: 2px solid #eeeeee;
       }
       .card-details {
-        max-width: 343px;
         margin: 20px auto;
-        width: 700px;
         height: 492px;
         background-color: #ffffff;
         .form-group {
+
           display: flex;
           .card-details-document {
             font-weight: bold;
@@ -61,12 +56,10 @@
             height: 25px;
             .card-image {
               height: 25px;
-              margin-right: 18px;
             }
           }
           .card-input {
             #card_number {
-              width: 311px;
               height: 48px;
               margin: 8px 0 0;
               padding: 0 16px;
@@ -84,10 +77,9 @@
             &__month {
               margin-top: 8px;
               display: inline-block;
-              width: calc(50% - 2px);
+              width: calc(50% - 12px);
               height: 48px;
               #exp_month {
-                width: 131.5px;
                 height: 48px;
                 border-radius: 4px;
                 border: 1px solid rgb(223, 221, 221);
@@ -99,10 +91,9 @@
             &__year {
               margin-top: 8px;
               display: inline-block;
-              width: calc(50% - 2px);
+              width: calc(50% - 12px);
               height: 48px;
               #exp_year {
-                width: 131.5px;
                 height: 48px;
                 border-radius: 4px;
                 border: 1px solid #ccc;
@@ -116,7 +107,6 @@
             }
           }
           #cvc {
-            width: 311px;
             height: 48px;
             margin: 8px 0 0;
             padding: 0 16px;
@@ -127,7 +117,6 @@
             margin: 32px 0 0;
           }
           .why-card-backnumber{
-            width: 175px;
             height: 21px;
             float: right;
             cursor: pointer;
@@ -182,7 +171,6 @@
           #token_submit {
             background-color: #EA352D;
             color: #FFFFFF;
-            width: 343px;
             height: 48px;
             cursor: pointer;
             user-select: none;
@@ -209,8 +197,7 @@
       .card-registration {
         margin-left: 9%;
         width: 572px;
-        &__infomation {
-          
+        &__infomation { 
         }
       }
       .card-submit-box {
@@ -244,6 +231,30 @@
           font-size: 14px;
         }
       }
+    }
+  }
+}
+
+.card-registration {
+  display: flex;
+  height: 60px;
+  width: 500px;
+  justify-content: space-between;
+  &__infomation {
+    margin: 20px auto;
+    &__card-number {
+    }
+  }
+  .card-delete {
+    display: flex;
+    &__button {
+      height: 30px;
+      width: 60px;
+      margin-top: 30px;
+      border-radius: 4px;
+      background-color:red;
+      color: #ffffff;
+      cursor: pointer;
     }
   }
 }

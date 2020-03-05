@@ -3,7 +3,8 @@ class Exhibition < ApplicationRecord
   belongs_to :user
 
   # has_many :comments
-  belongs_to :category
+  belongs_to :category, optional: true
+  
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
@@ -17,7 +18,8 @@ class Exhibition < ApplicationRecord
   validates :shipping_charges,           presence: true
   validates :prefecture_id,              presence: true
 
-  enum deal: { sell: 0, SOLDOUT: 1 }  
+  enum deal: { sell: 0, SOLDOUT: 1 }
+
   def self.search(search)
     if search
       Exhibition.where('item_name  LIKE(?)',"%#{search}%")
