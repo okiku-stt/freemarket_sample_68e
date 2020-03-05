@@ -332,7 +332,7 @@
 }
 
 #previews {
-  width: 602px;
+  width: 600px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 10px;
@@ -361,10 +361,15 @@
   }
 }
 
+#image-input {
+  flex-grow: 1;
+  order: 1;
+}
+
 .upload-area {
   display: block;
   height: 200px;
-  width: 600px;
+  // width: 600px;
   border: 1px dashed dimgray;
   cursor: pointer;
   position: relative;

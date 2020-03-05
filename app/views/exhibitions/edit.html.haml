@@ -17,33 +17,20 @@
             .sell-img-box__upload__text
               最大10枚までアップロードできます
         #previews
-          #upper-row
-            - @exhibition.images.each_with_index do |image, index|
-              - if index != (@exhibition.images.length - 1) && index < 5
-                .image-wrapper{data: {index: "#{index}"}}
-                  = image_tag image.image.url, data: {index:index}, class: "edit-img"
-                  .file-remove 削除
-                  %input{name: "exhibition[images_attributes][#{index}][_destroy]", class: "hidden", data: {index: index}, type: "checkbox"}
-          #lower-row
-            - @exhibition.images.each_with_index do |image, index|
-              - if index != (@exhibition.images.length - 1) && index >= 5
-                .image-wrapper{data: {index: "#{index}"}}
-                  = image_tag image.image.url, data: {index:index}, class: "edit-img"
-                  .file-remove 削除
-                  %input{name: "exhibition[images_attributes][#{index}][_destroy]", class: "hidden", data: {index: index}, type: "checkbox"}
+          - @exhibition.images.each_with_index do |image, index|
+            - if index != (@exhibition.images.length - 1)
+              .image-wrapper{data: {index: "#{index}"}}
+                = image_tag image.image.url, data: {index:index}, class: "edit-img"
+                .file-remove 削除
+                %input{name: "exhibition[images_attributes][#{index}][_destroy]", class: "hidden", data: {index: index}, type: "checkbox"}
           #image-input
             = form.fields_for :images, class: "form-image" do |image|            
               - if image.index === (@exhibition.images.length - 1) 
-                - if image.index <= 5
-                  = image.label :image, class: "upload-area", for: "upload-for", style: "width: calc(600px - (120px * #{image.index}));" do
-                    .file-group{data:{index:image.index}}
-                      = image.file_field :image, class: "upload-file", id: "upload-for"
-                      %i.fa.fa-camera-retro#camera
-                - elsif image.index > 5
-                  = image.label :image, class: "upload-area", for: "upload-for", style: "width: calc(600px - (120px * #{image.index - 5}));" do
-                    .file-group{data:{index:image.index}}
-                      = image.file_field :image, class: "upload-file", id: "upload-for"
-                      %i.fa.fa-camera-retro#camera
+                = image.label :image, class: "upload-area", for: "upload-for" do
+                  .file-group{data:{index:image.index}}
+                    = image.file_field :image, class: "upload-file", id: "upload-for"
+                    %i.fa.fa-camera-retro#camera
+
         .sell-content
           .sell-name
             .sell-name__head

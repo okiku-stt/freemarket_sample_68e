@@ -17,8 +17,6 @@
             .sell-img-box__upload__text
               最大10枚までアップロードできます
         #previews
-          #upper-row
-          #lower-row
           = form.fields_for :images, class: "form-image" do |image|
             #image-input
               = image.label :image, class: "upload-area", for: "upload-for" do
