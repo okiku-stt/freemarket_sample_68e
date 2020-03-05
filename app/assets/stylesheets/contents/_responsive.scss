@@ -45,11 +45,11 @@
     height: 26px;
   }
   .top__header{
-    // background-color: white;
-    // position: fixed;
+    background-color: white;
+    position: fixed;
     z-index: 100;
-    margin: 0 10px;
-    width: calc(100% - 20px);
+    padding: 0 10px;
+    width: 100%;
     &__item{
       &__user-function{
         &__log-out,&__log-in{
