@@ -154,7 +154,6 @@
                 = link_to exhibition_path(exhibition.id), class: 'link-showpage', method: :get do
                   .categoryList__exhibition__image
                   = image_tag("#{exhibition.images.first.image}", size: "230x230", class: 'image-top')
-
                   .categoryList__exhibition__body
                     .exhibition-item-name
                       = exhibition.item_name
