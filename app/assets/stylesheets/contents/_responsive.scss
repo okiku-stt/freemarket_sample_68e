@@ -40,6 +40,135 @@
   #token_submit{
     width: 100%;
   }
+  // ---ここから宮下出品ページ対応---
+  .sell-main {
+    width: 100%;
+  }
+  .sell-form__default {
+    width: 100%;
+  }
+  .sell-content {
+    width: 100%;
+    padding: 0;
+  }
+  .sell-textarea-default {
+    width: 100%;
+  }
+  .sell-select-wrap {
+    width: 100%;
+  }
+  .sell-form__brand {
+    // width: 200%;
+  }
+  .sell-details {
+    
+  }
+  .sell-ship {
+
+  }
+  .sell-wrapper .sell-body .sell-main .sell-form__number  {
+    width: 100px;
+    padding: 0;
+  }
+  .exhibition_price {
+    width: 100%;
+  }
+  .sell-footer__container {
+    width: 100%;
+  }
+  .ul.buy {
+    width: 100%;
+  }
+  .sell-form .sell__image {
+    width: 100%;
+  }
+  .buy-link {
+    font-size: 8px;
+  }
+}
+
+/* タブレットサイズ */
+
+@media screen and (min-width: 421px) and (max-width: 800px){
+  .mypage__flex{
+    flex-flow:column-reverse nowrap;
+    width: 80%;
+    margin: 0 auto;
+    &__left{
+      margin-top: 50px;
+      width: 100%;
+    }
+    &__right{
+      width: 100%;
+    }
+  }
+  .card-blands{
+    flex-wrap:wrap;
+  }
+  .card-image{
+    margin-right: 8px;
+  }
+  .card-body{
+    flex-flow:column-reverse nowrap;
+    width: 80%;
+    margin: 0 auto;
+    .card-contents{
+      width: 100%;
+      .card-head{
+        font-size: 24px;
+      }
+    }
+  }
+  #charge-form{
+    width: 100%;
+  }
+  #token-submit{
+    width: 343px;
+  }
+  .card-image{
+    margin-right: 18px;
+  }
+  .form-group{
+    width: 75%;
+    margin: 0 auto;
+  }
+  #token_submit{
+    width: 100%;
+  }
+  // ---ここから宮下出品ページ対応---
+  .sell-main {
+    width: 100%;
+  }
+  .sell-form__default {
+    width: 100%;
+  }
+  .sell-content {
+    width: 100%;
+    padding: 0;
+  }
+  .sell-textarea-default {
+    width: 100%;
+  }
+  .sell-select-wrap {
+    width: 50%;
+  }
+ 
+  .sell-wrapper .sell-body .sell-main .sell-form__number  {
+    width: auto;
+    padding: 0;
+  }
+  .exhibition_price {
+    width: 100%;
+  }
+  .sell-footer__container {
+    width: 100%;
+  }
+  .ul.buy {
+    width: 100%;
+  }
+  .sell-wrapper .sell-body .sell-main .sell-content .sell-btns__btn__back {
+    width: 80%;
+  }
 
   /*トップページのレスポンシブ対応*/
   #top__header--logo{
@@ -112,6 +241,7 @@
   }
   .top-content-text{
     height: calc( 100vh - 105px);
+
   }
 }
 
@@ -164,6 +294,47 @@
   }
   #token_submit{
     width: 100%;
+  }
+  // ---ここから宮下出品ページ対応---
+  .sell-main {
+    width: 100%;
+  }
+  .sell-form__default {
+    width: 100%;
+  }
+  .sell-content {
+    width: 100%;
+    padding: 0;
+  }
+  .sell-textarea-default {
+    width: 100%;
+  }
+  .sell-select-wrap {
+    width: 100%;
+  }
+  .sell-form__brand {
+    width: 100%;
+  }
+  
+  .dropzone-area {
+    width: 100%;
+    padding: 0 0 0 40px;
+  }
+  .dropzone-container {
+    margin: 0 auto;
+  }
+  .sell-wrapper .sell-body .sell-main .sell-form__number  {
+    width: 200px;
+    padding: 0;
+  }
+  .exhibition_price {
+    width: 100%;
+  }
+  .sell-footer__container {
+    width: 100%;
+  }
+  .ul.buy {
+    width: 80%;
   }
   #top__header--logo{
     width: 140px;
@@ -242,7 +413,6 @@
     min-width: 150px;
     font-size : 10px;
   }
-
 }
 
 /* pcサイズ */
@@ -297,6 +467,56 @@
   }
   .number{
     width: 100%;
+  }
+  // ---ここから宮下出品ページ対応---
+  .sell-main {
+    width: 48%;
+  }
+  .sell-form__default {
+    width: 100%;
+  }
+  
+  .sell-content {
+    width: 100%;
+    padding: 0;
+  }
+  .sell-textarea-default {
+    width: 80%;
+  }
+  .sell-select-wrap {
+    width: 100%;
+  }
+  .sell-form__brand {
+    width: 100%;
+  }
+  
+  .sell-textarea-default {
+    width: 100%;
+  }
+  .sell-wrapper .sell-body .sell-main .sell-form__number  {
+    // 金額入力バー
+    width: 200px;
+    padding: 0;
+  }
+  .exhibition_price {
+    width: 100%;
+  }
+  .sell-footer__container {
+    width: 100%;
+  }
+  .ul.buy {
+    width: 100%;
+  }
+  .sell-footer__container__box {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .sell-wrapper .sell-body .sell-main .sell-content .sell-ship__box {
+    width: 100%;
+  }
+  
+  .sell-form .sell__image {
+    width: auto;
   }
   /*トップページのレスポンシブ対応*/
   #top__header--logo{
@@ -378,7 +598,6 @@
   #children-text,#grandchildren-text{
     padding: 5px 20px;
   }
-
 }
 
 
