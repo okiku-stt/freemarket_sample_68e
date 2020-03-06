@@ -381,7 +381,7 @@ DEPENDENCIES
   mysql2 (>= 0.4.4, < 0.6.0)
   payjp
   pry-rails
-  puma (~> 3.12)
+  puma (~> 3.12.3)
   rails (~> 5.2.3)
   rails-controller-testing
   rspec-rails (~> 3.5)

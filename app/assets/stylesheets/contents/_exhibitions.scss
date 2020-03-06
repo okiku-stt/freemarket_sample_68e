@@ -9,6 +9,14 @@
   color: #fff;
 }
 
+.main__show__content__top__itemInfo__image__ul__li__top  {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
 .exhead {
   width: 100%;
   border-top: 1px solid #eee;
@@ -381,7 +389,7 @@
 }
 
 #previews {
-  width: 602px;
+  width: 600px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 10px;
@@ -410,10 +418,15 @@
   }
 }
 
+#image-input {
+  flex-grow: 1;
+  order: 1;
+}
+
 .upload-area {
   display: block;
   height: 200px;
-  width: 600px;
+  // width: 600px;
   border: 1px dashed dimgray;
   cursor: pointer;
   position: relative;
