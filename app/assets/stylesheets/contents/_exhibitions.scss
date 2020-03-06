@@ -389,10 +389,11 @@
 }
 
 #previews {
-  width: 600px;
+  // width: 600px;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 10px;
+  // margin: 0 10px;
+  margin: 0 auto;
   #upper-row, #lower-row {
     display: flex;
     #preview, #preview2 {
