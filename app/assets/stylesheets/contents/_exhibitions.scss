@@ -5,7 +5,7 @@
   position: relative; top:30px; left:520px;
   background: #3CCACE;
   padding: 10px;
-  border-radius: 40px;
+  border-radius: 4px;
   color: #fff;
 }
 
@@ -56,7 +56,7 @@
       &__name {
         text-align: center;
         font-weight: bold;
-        font-size: 24px;
+        font-size: 30px;
       }
       &__body {
         margin: 16px 0 0;
@@ -122,6 +122,9 @@
         line-height: 37px;
         &__number {
           font-size: 46px;
+          .fa-yen-sign {
+            margin-right: 15px;
+          }
           span {
             font-size: 32px;
             font-weight: bold;
@@ -129,8 +132,9 @@
           }
         }
         &__tax {
-          margin-top: 15px;
+          margin-top: 8px;
           margin-right: 3px;
+          line-height: 50px;
           span {
             font-size: 10px;
             font-weight: normal;
@@ -138,7 +142,8 @@
           }
         }
         &__shipping {
-          margin-top: 14px;
+          line-height: 50px;
+          margin-top: 8px;
           span {
             font-size: 20px;
             font-weight: normal;
@@ -146,16 +151,46 @@
         }
       }
       .show-buy-btn {
-        display: block;
         margin: 16px 0 10px;
-        background: #3CCACE;
-        font-size: 25px;
-        line-height: 56px;
-        text-align: center;
-        font-weight: normal;
-        color: #fff;
+        width: 620px;
+        &__buy {
+          height: 50px;
+          margin: 0 auto 30px auto;
+          background-color: #3ccace;
+          line-height: 50px;
+          color: white;
+          cursor: pointer;
+          // width: 408px;
+          display: block;
+          text-decoration: none;
+          text-align: center;
+          font-weight: bold;
+          border-radius: 4px;
+        }
         a {
           color: #fff;
+        }
+      }
+      .show-user-btn {
+        margin-top: 15px;
+        &__edit {
+          font-size: 20px;
+          background: #3CCACE;
+          padding: 10px;
+          border-radius: 4px;
+          color: #fff;
+          display: block;
+          text-align: center;
+        }
+        &__delete {
+          font-size: 20px;
+          background: #ea352d;
+          padding: 10px;
+          border-radius: 4px;
+          color: #fff;
+          display: block;
+          text-align: center;
+          margin-top: 15px;
         }
       }
       .show-exbox {
@@ -312,7 +347,21 @@
 }
 
 .sell-form {
-    margin: 0 40px;
+  margin: 0 40px;
+  background-color: #fff;
+  height: 100%;
+  border-top: solid 1px #eee;
+  &__default {
+    width: 540px;
+    margin: 8px 0 0;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+  }
   .sell__image {
     width: 620px;
     font-size: 14px;
@@ -402,5 +451,3 @@
 .hidden {
   display: none;
 }
-
-

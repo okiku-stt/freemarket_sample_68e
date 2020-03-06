@@ -1,24 +1,25 @@
 $(document).ready(function(){
 // imgタグの生成
-  const buildImg = (index, url)=> {
-    const html = `<div data-index="${index}" class="image-wrapper">
-                    <img data-index="${index}" src="${url}">
-                    <div class="file-remove">削除</div>                    
-                  </div>
-                  <input class="hidden" data-index="${index}" type="checkbox" value="1" name="exhibition[images_attributes][${index}][_destroy]" id="exhibition_images_attributes_${index}__destroy">
-                  `;
-    return html;
-  }
+const buildImg = (index, url)=> {
+  const html = `<div data-index="${index}" class="image-wrapper">
+  <img data-index="${index}" src="${url}">
+  <div class="file-remove">削除</div>                    
+  </div>
+  <input class="hidden" data-index="${index}" type="checkbox" value="1" name="exhibition[images_attributes][${index}][_destroy]" id="exhibition_images_attributes_${index}__destroy">
+  `;
+  return html;
+}
 // inputタグの生成（次の投稿の為）
-  const buildFileField = (num)=> {
-    const html = `<label class="upload-area" for="exhibition_images_attributes_${num}_image">
-                    <i class="fas fa-camera-retro" id="camera"></i>
-                    <div data-index="${num}" class="file-group">
-                      <input class="upload-file hidden" type="file" name="exhibition[images_attributes][${num}][image]" id="exhibition_images_attributes_${num}_image">
-                      </div>
-                  </label>`;
-    return html;
-  }
+const buildFileField = (num)=> {
+  const html = `<label class="upload-area" for="exhibition_images_attributes_${num}_image">
+  <i class="fas fa-camera-retro" id="camera"></i>
+  <div data-index="${num}" class="file-group">
+  <input class="upload-file hidden" type="file" name="exhibition[images_attributes][${num}][image]" id="exhibition_images_attributes_${num}_image">
+  </div>
+  </label>`;
+  return html;
+}
+
 
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   lastIndex = $('.file-group:last').data('index');
@@ -36,7 +37,7 @@ $(document).ready(function(){
     // 画像のプレビューと画像をアップするためのinputタグを生成
     $('#previews').append(buildImg(targetIndex, blobUrl));
 
-    // spliceしたfileIndexの最初の番号を引数として渡す（1枚目の場合"1"）
+  // spliceしたfileIndexの最初の番号を引数として渡す（1枚目の場合"1"）
     $('#image-input').append(buildFileField(fileIndex[0]));
 
     // 発火させたinputタグとラベルを非表示

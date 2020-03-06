@@ -43,7 +43,7 @@ window.addEventListener("load", function(){
     
     $('.error-status').on('blur',function(){
       let status = $(this).val();
-      if(status == "選択してください"){
+      if(status == 0){
         $('.error-status').css('border-color','red')
         $('.must-message__status').text('必須項目です')
       }else{
@@ -53,7 +53,7 @@ window.addEventListener("load", function(){
     });
     $('.error-status').on('change',function(){
       let status = $(this).val();
-      if(status == "選択してください"){
+      if(status == 0){
         $('.error-status').css('border-color','red')
         $('.must-message__status').text('必須項目です')
       }else{
@@ -64,7 +64,7 @@ window.addEventListener("load", function(){
     
     $('.error-shipping-charge').on('blur',function(){
       let status = $(this).val();
-      if(status == "選択してください"){
+      if(status == 0){
         $('.error-shipping-charge').css('border-color','red')
         $('.must-message__shipping-charge').text('必須項目です')
       }else{
@@ -74,7 +74,7 @@ window.addEventListener("load", function(){
     });
     $('.error-shipping-charge').on('change',function(){
       let status = $(this).val();
-      if(status == "選択してください"){
+      if(status == 0){
         $('.error-shipping-charge').css('border-color','red')
         $('.must-message__shipping-charge').text('必須項目です')
       }else{
@@ -106,7 +106,7 @@ window.addEventListener("load", function(){
     
     $('.error-shipping-date').on('blur',function(){
       let status = $(this).val();
-      if(status == "選択してください"){
+      if(status == 0){
         $('.error-shipping-date').css('border-color','red')
         $('.must-message__shipping-date').text('必須項目です')
       }else{
@@ -116,7 +116,7 @@ window.addEventListener("load", function(){
     });
     $('.error-shipping-date').on('change',function(){
       let status = $(this).val();
-      if(status == "選択してください"){
+      if(status == 0){
         $('.error-shipping-date').css('border-color','red')
         $('.must-message__shipping-date').text('必須項目です')
       }else{
@@ -166,28 +166,6 @@ window.addEventListener("load", function(){
         $('.error-category').css('border-color','')
         $('.must-message__category').text('')
       }
-    });
-  
-    $('.error-image').on('click',function(){ 
-      let image = $(this).val();
-      if(image == 0){
-        $('.error-image').css('border-color','red')
-        $('.must-message__image').text('画像がありません')
-      }else{
-        $('.error-image').css('border-color','')
-        $('.must-message__image').text('')
-      }
-    });
-    $('.error-image').on('change',function(){
-      let image = $(this).val();
-      if(image == 0){
-        $('.error-image').css('border-color','red')
-        $('.must-message__image').text('画像がありません')
-      }else{
-        $('.error-image').css('border-color','')
-        $('.must-message__image').text('')
-      }
-    });
-    
+    });    
   });
 });

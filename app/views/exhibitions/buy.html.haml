@@ -12,6 +12,8 @@
             .buy-item-container__box
               .buy-item-container__box__img
                 = image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size: "60x80"
+                -# = image_tag @exhibition.images.last.image.url,class:"main__show__content__top__itemInfo__image__ul__li__top"
+
               .buy-item-container__box__detail
                 %p.buy-item-container__box__detail__name
                   = @exhibition.item_name
@@ -75,12 +77,12 @@
   .sell-footer
     .sell-footer__container
       .sell-footer__container__box
-        %ul.buy
-          %li.buy
+        %ul.footer-ul
+          %li.footer-li
             = link_to 'プライバシーポリシー', '/', class: "buy-link"
-          %li.buy
+          %li.footer-li
             = link_to 'メルカリ利用規約', '/', class: "buy-link"
-          %li.buy
+          %li.footer-li
             = link_to '特定商取引に関する表記', '/', class: "buy-link"
       .sell-footer__container__image
         = image_tag src="http://furima.tokyo/assets/logo-white-f61961ed5170064c5f33dd4524bdceeb5a5df2c83eb76fba31143f63fbab2c5e.svg", size: "160x46"
