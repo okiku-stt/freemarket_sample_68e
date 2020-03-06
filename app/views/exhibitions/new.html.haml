@@ -19,11 +19,10 @@
         #previews
           = form.fields_for :images, class: "form-image" do |image|
             #image-input
-              = image.label :image, class: "upload-area", for: "upload-for" do
+              = image.label :image, class: "upload-area error-image", for: "upload-for" do
                 .file-group{data:{index:image.index}}
                   = image.file_field :image, class: "upload-file", id: "upload-for"
                   %i.fa.fa-camera-retro#camera
-
         .sell-content
           .sell-name
             .sell-name__head
@@ -72,7 +71,7 @@
                   必須
                 .sell-select-wrap
                   .sell-select-icon
-                    = form.select :item_status, [["選択してください"],["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"]], {}, class:'sell-select-default error-status'
+                    = form.select :item_status, [["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"]], { prompt: "選択してください" }, class:'sell-select-default error-status'
                     = icon('fas', 'chevron-down sell-select-icon__allow')
                   .must-message__status.error
         .sell-content
@@ -86,7 +85,7 @@
                   必須
                 .sell-select-wrap
                   .sell-select-icon
-                    = form.select :shipping_charges, [["選択してください"],["送料込み（出品者負担）"],["着払い（購入者負担）"]], {}, class:'sell-select-default error-shipping-charge'
+                    = form.select :shipping_charges, [["送料込み（出品者負担）"],["着払い（購入者負担）"]], { prompt: "選択してください" }, class:'sell-select-default error-shipping-charge'
                     = icon('fas', 'chevron-down sell-select-icon__allow')
                   .must-message__shipping-charge.error
               .sell-ship__box__status
@@ -104,7 +103,7 @@
                   必須
                 .sell-select-wrap
                   .sell-select-icon
-                    = form.select :shipping_date, [["選択してください"],["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]], {}, class:'sell-select-default error-shipping-date'
+                    = form.select :shipping_date, [["1~2日で発送"],["2~3日で発送"],["4~7日で発送"]], { prompt: "選択してください" }, class:'sell-select-default error-shipping-date'
                     = icon('fas', 'chevron-down sell-select-icon__allow')
                   .must-message__shipping-date.error
         .sell-content
@@ -156,12 +155,12 @@
   .sell-footer
     .sell-footer__container
       .sell-footer__container__box
-        %ul.buy
-          %li.buy
+        %ul.footer-ul
+          %li.footer-li
             = link_to 'プライバシーポリシー', '/', class: "buy-link"
-          %li.buy
+          %li.footer-ul
             = link_to 'FURIMA利用規約', '/', class: "buy-link"
-          %li.buy
+          %li.footer-ul
             = link_to '特定商取引に関する表記', '/', class: "buy-link"
       .sell-footer__container__image
         = image_tag asset_path("logo.png"), size: "120x34"
