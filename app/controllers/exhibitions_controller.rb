@@ -13,18 +13,24 @@ class ExhibitionsController < ApplicationController
   def new
     @categories = Category.roots
     @exhibition = Exhibition.new
-    @exhibition.images.new
+    @image = @exhibition.images.new
   end
 
   def create
     @categories = Category.roots
     @exhibition = Exhibition.new(exhibition_params)
     respond_to do |format|
-      if @exhibition.save
-        format.html{redirect_to modal_exhibitions_path}
+      if params[:exhibition][:images_attributes] != nil
+        if @exhibition.save
+          format.html{redirect_to modal_exhibitions_path}
+        else
+          flash.now[:alert] = '必須項目を入力してください。'
+          @image = @exhibition.images.new
+          format.html{render action: 'new'}
+        end
       else
         flash.now[:alert] = '必須項目を入力してください。'
-        @exhibition.images.build
+        @image = @exhibition.images.new
         format.html{render action: 'new'}
       end
     end

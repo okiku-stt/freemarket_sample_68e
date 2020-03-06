@@ -1,7 +1,14 @@
 -# = render "shared/sell_page_box"で呼び出し
 .top__sell-page
-  = link_to new_exhibition_path, class:' top__sell-page__link' do
-    .camera-content
-      %p.purchase-text
-        出品する
-      = image_tag asset_path("icon_camera.png"),size:"54x54",class:'camera-content__icon'
+  - if user_signed_in?
+    = link_to new_exhibition_path, class:' top__sell-page__link' do
+      .camera-content
+        %p.purchase-text
+          出品する
+        = image_tag asset_path("icon_camera.png"),size:"54x54",class:'camera-content__icon'
+  - else
+    = link_to new_user_session_path, class:' top__sell-page__link' do
+      .camera-content
+        %p.purchase-text
+          出品する
+        = image_tag asset_path("icon_camera.png"),size:"54x54",class:'camera-content__icon'
