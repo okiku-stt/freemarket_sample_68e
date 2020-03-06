@@ -40,6 +40,83 @@
   #token_submit{
     width: 100%;
   }
+  #top__header--logo{
+    width: 91px;
+    height: 26px;
+  }
+  .top__header{
+    background-color: white;
+    position: fixed;
+    z-index: 100;
+    padding: 0 10px;
+    width: 100%;
+    &__item{
+      &__user-function{
+        &__log-out,&__log-in{
+          margin-left: 5px;
+        }
+        &__my-page,&__new-user,&__log-in,&__log-out {
+          width: 80px;
+          &__text{
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  .upper-contents{
+    padding: 0 10px;
+    height: calc( 100vh  - 105px);
+    &__box{
+      padding-top: 120px;
+      height: 100%;
+      position: relative;
+    }
+  }
+  .topic-first{
+    font-size: 24px;
+  }
+  .topic-second{
+    font-size: 16px;
+  }
+  .topic-first,.topic-second{
+    filter: drop-shadow(3px 3px 3px rgba(100,100,100,0.6));
+    text-align: center;
+    padding: 0.5em 1em;
+    background: -moz-linear-gradient(#ffb03c, #ff708d);
+    background: -webkit-linear-gradient(#ffb03c, #ff708d);
+    background: linear-gradient(to right, #ffb03c, #ff708d);
+    color: #FFF;
+  }
+  #parents{
+    font-size: 6px;
+  }
+  #parents-item{
+    width: 130px;
+  }
+  #parents-text{
+    padding-left: 5px;
+  }
+  #children,#grandchildren{
+    min-width: 135px;
+    font-size : 8px;
+  }
+  .topic-items{
+    position: absolute;
+    bottom: 30px;
+    &__App img{
+      margin-bottom: 15px;
+    }
+  }
+  .top-content-text{
+    height: calc( 100vh - 105px);
+    .top-introduction{
+      // margin-top: 25px;
+    }
+  }
+  .top-content-imageBox{
+
+  }
   // ---ここから宮下出品ページ対応---
   .sell-main {
     width: 100%;
@@ -85,6 +162,7 @@
   .buy-link {
     font-size: 8px;
   }
+
 }
 
 /* タブレットサイズ */
