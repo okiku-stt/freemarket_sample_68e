@@ -237,16 +237,16 @@
     font-size: 12px;
     padding: 40px 0;
     &__box {
-      // width: 100%;
-      width: 456px;
-      .footer-ul {
-        display: flex;
-        justify-content: space-evenly;
-        .footer-li {
-          list-style: none;
-        }
+      width: 100%;
+      // width: 456px;
+      // .footer-ul {
+      //   display: flex;
+      //   justify-content: space-evenly;
+      //   .footer-li {
+      //     list-style: none;
+      //   }
       }
-    }
+    
     &__image {
       margin: 40px auto 0;
       text-align: center;
@@ -394,7 +394,6 @@ ul.buy {
   }
   &__back {
     color: white;
-    padding: 17px 101px;
   }
   &__continue {
     height: 50px;
