@@ -8,5 +8,7 @@ FactoryBot.define do
     prefecture_id             {"37"}
     shipping_date             {"1~2日で発送"}
     price                     {"300"}
+    user
+    category
   end
 end

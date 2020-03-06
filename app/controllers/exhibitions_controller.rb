@@ -13,7 +13,7 @@ class ExhibitionsController < ApplicationController
   def new
     @categories = Category.roots
     @exhibition = Exhibition.new
-    @exhibition.images.build()
+    @exhibition.images.new
   end
 
   def create
@@ -21,11 +21,9 @@ class ExhibitionsController < ApplicationController
     @exhibition = Exhibition.new(exhibition_params)
     respond_to do |format|
       if @exhibition.save
-          params[:exhibition_images][:image].each do |image|
-            @exhibition.images.create(image: image, exhibition_id: @exhibition.id)
-          end
         format.html{redirect_to modal_exhibitions_path}
       else
+        flash.now[:alert] = '必須項目を入力してください。'
         @exhibition.images.build
         format.html{render action: 'new'}
       end
@@ -41,7 +39,7 @@ class ExhibitionsController < ApplicationController
 
   def show
 
-    @images = Image.where(exhibition_id: params[:id])
+    @images = Image.where(exhibition_id: params[:id]).order("created_at DESC")
     if user_signed_in?
       @deal = Exhibition.find_by(deal: params[:deal])
       @exhibition = Exhibition.find(params[:id])
@@ -52,6 +50,8 @@ class ExhibitionsController < ApplicationController
   end
 
   def edit
+    @categories = Category.roots
+    @exhibition.images.new
   end
     # ---pay.jpの処理---
   def buy
@@ -80,9 +80,11 @@ class ExhibitionsController < ApplicationController
   # ---pay.jpの処理ここまで---
 
   def update
+    @categories = Category.roots
     if @exhibition.update(exhibition_params)
-      redirect_to root_path
+      redirect_to root_path, notice: '編集が完了しました。'
     else
+      flash.now[:alert] = '必須項目を入力してください。'
       render :edit
     end
   end
@@ -117,12 +119,11 @@ class ExhibitionsController < ApplicationController
   def destroy
     @exhibition = Exhibition.find(params[:id])
     @exhibition.destroy
-    redirect_to root_path
+    redirect_to root_path, notice: '削除が完了しました。'
   end
 
-  private
   def exhibition_params
-    params.require(:exhibition).permit(:price,:shipping_date,:category_id,:prefecture_id,:shipping_charges,:item_description,:item_status, :item_name, :brand, images_attributes: [:image, :id]).merge(user_id: current_user.id)
+    params.require(:exhibition).permit(:price,:shipping_date,:category_id,:prefecture_id,:shipping_charges,:item_description,:item_status, :item_name, :brand, images_attributes: [:image,  :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_exhibition

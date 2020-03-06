@@ -16,6 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   if @user.save
   #     redirect_to root_path
   #   else
+      
   #   end
   # end
 

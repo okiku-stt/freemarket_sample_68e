@@ -7,9 +7,7 @@
           %h2.topic-first
             人生を変えるフリマアプリ
           %h3.topic-second
-            FURIMAはだれでもかんたんに出品・購入できる
-          %h4.topic-second
-            フリマアプリです
+            FURIMAはだれでもかんたんに出品・購入できるフリマアプリです
           .topic-items
             =link_to "#", class: "topic-items__App", size: '180x53' do
               = image_tag asset_path("app-store.svg"),size: '180x53'
@@ -65,7 +63,7 @@
               =link_to "#",class: "topic-items-2__Google", size: '180x53' do
                 = image_tag asset_path("google-play"), size: '180x53'
     .top-content-text
-      %h2.introduction-head
+      %h2.top-introduction
         FURIMAの特徴
       .top-content-imageBox
         %ul.lists-imageBox
@@ -113,7 +111,7 @@
                     .categoryList__exhibition__image
                       - if exhibition.deal == "SOLDOUT"
                         = image_tag asset_path("sold_out.png"), size: "220x130", class: "sold-out"
-                      = image_tag asset_path("nanase.png"), size: "220x130",class:"nanase"
+                      = image_tag("#{exhibition.images.first.image}", size: "230x230", class: 'image-top')
                     .categoryList__exhibition__body
                       .exhibition-item-name
                         = exhibition.item_name
@@ -129,7 +127,7 @@
                 - else
                   = link_to new_user_session_path, class: 'link-showpage', method: :get do
                     .categoryList__exhibition__image
-                      = image_tag asset_path("nanase.png"), size: "220x130",class:"nanase"
+                    = image_tag("#{exhibition.images.first.image}", size: "230x230", class: 'image-top')
                     .categoryList__exhibition__body
                       .exhibition-item-name
                         = exhibition.item_name
@@ -155,7 +153,8 @@
               .categoryList__exhibition
                 = link_to exhibition_path(exhibition.id), class: 'link-showpage', method: :get do
                   .categoryList__exhibition__image
-                    = image_tag asset_path("nanase.jpg"), size: "220x150",class:"nanase"
+                  = image_tag("#{exhibition.images.first.image}", size: "230x230", class: 'image-top')
+
                   .categoryList__exhibition__body
                     .exhibition-item-name
                       = exhibition.item_name

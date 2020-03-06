@@ -3,8 +3,8 @@ $(function(){
   //「子のカテゴリー」に関するHTMLを生成
   var buildHTML = function(child) {
     var html =
-      `<a class="top__header__item__type__category__wrapper__flex__children__item" href="#">
-        <div class="top__header__item__type__category__wrapper__flex__children__item__text" data-item-id=${child.id}>
+      `<a class="top__header__item__type__category__wrapper__flex__children__item" id="children-item" href="#">
+        <div class="top__header__item__type__category__wrapper__flex__children__item__text" id="children-text" data-item-id=${child.id}>
           ${child.item}
         </div>
       </a>`
@@ -14,8 +14,8 @@ $(function(){
   //「孫のカテゴリー」に関するHTMLを生成
   var buildHTML_grandchildren = function(grandchild) {
     var html =
-      `<a class="top__header__item__type__category__wrapper__flex__grandchildren__item" href="#">
-        <div class="top__header__item__type__category__wrapper__flex__grandchildren__item__text" data-item-id=${grandchild.id}>
+      `<a class="top__header__item__type__category__wrapper__flex__grandchildren__item" id="grandchildren-item" href="#">
+        <div class="top__header__item__type__category__wrapper__flex__grandchildren__item__text" id="grandchildren-text" data-item-id=${grandchild.id}>
           ${grandchild.item}
         </div>
       </a>`

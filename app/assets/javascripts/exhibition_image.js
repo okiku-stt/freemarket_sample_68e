@@ -1,145 +1,81 @@
 $(document).ready(function(){
-  var images = [];
-  var inputs  =[];
-  var input_area = $('.input_area');
-  var dropzone = $('.dropzone-area');
-  var dropzone2 = $('.dropzone-area2');
-  var preview = $('#preview');
-  var preview2 = $('#preview2');
+// imgタグの生成
+const buildImg = (index, url)=> {
+  const html = `<div data-index="${index}" class="image-wrapper">
+  <img data-index="${index}" src="${url}">
+  <div class="file-remove">削除</div>                    
+  </div>
+  <input class="hidden" data-index="${index}" type="checkbox" value="1" name="exhibition[images_attributes][${index}][_destroy]" id="exhibition_images_attributes_${index}__destroy">
+  `;
+  return html;
+}
+// inputタグの生成（次の投稿の為）
+const buildFileField = (num)=> {
+  const html = `<label class="upload-area" for="exhibition_images_attributes_${num}_image">
+  <i class="fas fa-camera-retro" id="camera"></i>
+  <div data-index="${num}" class="file-group">
+  <input class="upload-file hidden" type="file" name="exhibition[images_attributes][${num}][image]" id="exhibition_images_attributes_${num}_image">
+  </div>
+  </label>`;
+  return html;
+}
 
-  $(document).on('change', 'input[type= "file"].upload-image',function(e) {
-    // 選択したファイル情報を取得し変数に格納
-    // filesプロパティの最初のファイルをpropで取得
-    var file = $(this).prop('files')[0];
-    // ファイルを読むオブジェクトFileReaderをインスタンス化
-    var reader = new FileReader();
-    // thisを配列に追加
-    inputs.push($(this));
-    var img = $(`<div class= "img_view" data-image= ${(images.length)}><img></div>`);
-    // 読み込み完了時にイベント発火
-    reader.onload = function(e) {
-      var btn_wrapper = $('<div class="btn_wrapper"><div class="btn edit">編集</div><div class="btn delete">削除</div></div>');
-      img.append(btn_wrapper);
-      // 変数imgの<img>をFileReaderオブジェクトのresultプロパティにある読み込み結果をsrcに置き換える
-      img.find('img').attr({
-        src: e.target.result
-      })
-    }
-    // 画像の読み込み（DataURLは、http:からでなく、data:から始まる特殊なURL）
-    // file = filesプロパティの最初のファイル
-    $('.must-message__image').hide();
-    reader.readAsDataURL(file);
-    // imgを配列に追加
-    images.push(img);
-    
-    if (images.length > 0) {
-      dropzone.find('p').replaceWith('');
-      dropzone.find('i').css('top', '50%');
-    }
-    if (images.length <= 4) {
-      // #previewの子要素を削除（removeはそのものの削除）
-      $('#preview').empty();
-      $.each(images, function(index, image) {
-        // form.fields_forの|image|より
-        // 各imageのカスタムデータ属性'image'を'data-image': index番号 とする
-        image.data('image', index);
-        preview.append(image);
-      })
-      dropzone.css('width', `calc(100% - (20% * ${images.length}))`);
-    } else if (images.length == 5) {
-      $('#preview').empty();
-      $.each(images, function(index, image) {
-        image.data("image", index);
-        preview.append(image);
-      });
-      dropzone.css('display', 'none');
-      dropzone2.css('display', 'block'); 
-      preview2.empty();
-    } else if (images.length >= 6) {
-      // １〜５枚目の画像を抽出（配列番号０から５未満を選択）
-      var pickup_images1 = images.slice(0,5);
-      // １〜５枚目を１段目に表示
-      $('#preview').empty();
-      $.each(pickup_images1, function(index, image) {
-        image.data('image', index);
-        preview.append(image);
-      })
-      // ６枚目以降の画像を抽出（配列番号５以降を選択）
-      var pickup_images2 = images.slice(5);
-      // ６枚目以降を２段目に表示
-      $.each(pickup_images2, function(index, image) {
-        image.data('image', index + 5);
-        preview2.append(image);
-      })
-      dropzone.css('display', 'none')
-      dropzone2.css({
-        'display': 'block',
-        'width': `calc(100% - (20% * ${images.length - 5}))`
-      })
-      if (images.length == 10) {
-        dropzone2.css('display', 'none');
-      }
-    }
-    // 画像がアップされるごとにデータ属性が異なるinputタグを生成
-    var new_image = $(`<input multiple= "multiple" name="exhibition_images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
-    input_area.prepend(new_image);
+
+  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  lastIndex = $('.file-group:last').data('index');
+  // splice(x, y) → x番目からyつの要素を削除
+  // 1枚目をアップ(元々あるinputタグを使用/file-groupのデータ属性indexの番号は0)
+  // → 0番目から0つの要素を削除([1,2,3,4,5,6,7,8,9,10])
+  // 2枚目をアップ → 0番目から1つの要素を削除([2,3,4,5,6,7,8,9,10])
+  fileIndex.splice(0, lastIndex);
+  // upload-fileクラスに変化が起きたらイベント発火（ファイルが選択されたら）
+
+  $('#previews').on('change', '.upload-file', function(e) {
+    const targetIndex = $(this).parent().data('index');
+    const file = e.target.files[0];
+    const blobUrl = window.URL.createObjectURL(file);
+    // 画像のプレビューと画像をアップするためのinputタグを生成
+    $('#previews').append(buildImg(targetIndex, blobUrl));
+
+  // spliceしたfileIndexの最初の番号を引数として渡す（1枚目の場合"1"）
+    $('#image-input').append(buildFileField(fileIndex[0]));
+
+    // 発火させたinputタグとラベルを非表示
+    $(this).parent().parent().css('display', 'none');
+    $(`#exhibition_images_attributes_${fileIndex[0]}_image`).css('display', 'none');
+
+    // fileIndexの最初の要素を削除
+    // 1枚目の場合[2,3,4,5,6,7,8,9,10]
+    fileIndex.shift();
+    // fileIndexの最後に要素を追加
+    // 1枚目の場合 fileIndex(9-1)→fileIndex(8)→配列は0始まりなので、0が2、8が10
+    // 10 + 1 = 11 となり、11を追加([2,3,4,5,6,7,8,9,10,11])
+    fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
   });
 
-  $(document).on('click', '.delete', function() {
-    var target_image = $(this).parent().parent();
-    $.each(inputs, function(index, input){
-      if ($(this).data('image') == target_image.data('image')){
-        $(this).remove();
-        target_image.remove();
-        var num = $(this).data('image');
-        // 配列imagesよりnum番目から1つの要素を削除
-        images.splice(num, 1);
-        inputs.splice(num, 1);
-        if (inputs.length == 0) {
-          $('input[type= "file"].upload-image').attr({
-          })
-        }
-      }
-    })
-    // 削除後、残りのうち最初の画像のデータ型を配列の番号に置き換える
-    // 105行目でprependしてるので、最後の投稿が最初となる
-    $('input[type= "file"].upload-image:first').attr({
-      'data-image': inputs.length
-    })
-    $.each(inputs, function(index, input) {
-      var input = $(this)
-      input.attr({
-        'data-image': index
-      })
-      $('input[type= "file"].upload-image:first').after(input)
-    })
-    if (images.length >= 5) {
-      dropzone2.css({
-        'display': 'block'
-      })
-      $.each(images, function(index, image) {
-        image.attr('data-image', index);
-        preview2.append(image);
-      })
-      dropzone2.css({
-        'width': `calc(100% - (135px * ${images.length - 5}))`
-      })
-    } else {
-      dropzone.css({
-        'display': 'block'
-      })
-      $.each(images, function(index, image) {
-        image.attr('data-image', index + 1);
-        preview.append(image);
-      })
-      dropzone.css({
-        'width': `calc(100% - (135px * ${images.length}))`
-      })
-    }
-    if (images.length == 4) {
-      dropzone2.css({
-        'display': 'none'
-      })
-    }
-  })
+  // ラベルの大きさに関する記述
+  $(document).on('change', '.upload-area', function(){
+    var images = $('.image-wrapper').length
+    if (images === 10 ) ($('.upload-area').css('display', 'none'));
+  });
+
+  // 削除した際の記述
+  $('#previews').on('click', '.file-remove', function() {
+    const targetIndex = $(this).parent().data('index');
+
+    // editページでのみ使用（「削除」と「checkbox」の連携）
+    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden`);
+    // もしチェックボックスが存在すればチェックを入れる
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
+
+    // newページのみ使用
+    // imgタグの削除（ビュー上での表示を消す）
+    $(this).parent().remove();
+    // inputタグの削除（コントローラーに渡さないようにする）
+    const input_remove = $(`div[data-index="${targetIndex}"].file-group`)[0];
+    input_remove.remove();
+
+    $('.upload-area:last').css({'display': 'block'})
+  });
 });
+
