@@ -34,7 +34,7 @@
         .show-box__foot 
           %ul
             %li 
-            - objects = @exhibition.images.order("created_at DESC")
+            - objects = @exhibition.images
             - objects.each do |object|
               %li.main__show__content__top__itemInfo__image__ul__li
                 = image_tag object.image.url
