@@ -25,7 +25,7 @@
               .image-wrapper{data: {index: "#{index}"}}
                 = image_tag image.image.url, data: {index:index}, class: "edit-img"
                 .file-remove 削除
-                %input{name: "exhibition[images_attributes][#{index}][_destroy]", class: "hidden", data: {index: index}, type: "checkbox"}
+              %input{name: "exhibition[images_attributes][#{index}][_destroy]", class: "hidden", data: {index: index}, type: "checkbox"}
           #image-input
             = form.fields_for :images, class: "form-image" do |image|
               // 配列番号と画像枚数が一緒の時 => 最後の要素のとき
