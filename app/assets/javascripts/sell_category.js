@@ -10,7 +10,7 @@ $(function(){
     console.log("success")
     child_html = `<div class="sell-select-wrap" id="children_wrapper">
                     <div class="sell-select-icon">
-                      <select class="sell-select-default" id="child_category" name="exhibition[categorys_id]">
+                      <select class="sell-select-default" id="child_category" name="exhibition[category_id]">
                         <option value>---</option>
                         ${insertHTML}
                       </select>
@@ -25,7 +25,7 @@ $(function(){
     var grandchildren_html = '';
     grandchildren_html = `<div class="sell-select-wrap" id= "grandchildren_wrapper">
                             <div class="sell-select-icon">
-                              <select class="sell-select-default" id="grandchild_category" name="exhibition[categorys_id]">
+                              <select class="sell-select-default" id="grandchild_category" name="exhibition[category_id]">
                                 <option value="">---</option>
                                 ${insertHTML} 
                               </select>
