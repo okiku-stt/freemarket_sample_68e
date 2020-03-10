@@ -48,6 +48,7 @@ class ExhibitionsController < ApplicationController
     if user_signed_in?
       @deal = Exhibition.find_by(deal: params[:deal])
       @exhibition = Exhibition.find(params[:id])
+      @categories = Category.find(params[:id])
       render :show
     else
       redirect_to user_session_path method: :post

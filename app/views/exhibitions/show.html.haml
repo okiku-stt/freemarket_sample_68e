@@ -64,7 +64,9 @@
               %tr
                 %th カテゴリー
                 %td
-                  = @exhibition.category.item
+                  =link_to "#{@exhibition.category.root.item}", "#"
+                  =link_to ">#{@exhibition.category.parent.item}", "#"
+                  =link_to ">#{@exhibition.category.item}","#"
               %tr
                 %th ブランド
                 %td
