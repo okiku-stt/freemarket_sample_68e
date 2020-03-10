@@ -105,12 +105,14 @@
         margin-top: 10px;
         ul {
           display: flex;
-          justify-content: center;
+          flex-wrap: wrap;  //複数行に折り返し
+          margin-left: 40px;        
           li {
-            margin-right: 10px;
             img {
               object-fit: cover;
-              height: 87px;
+              width: 100px;
+              height: 100px;
+              margin: 5px;
             }
           }
         }
