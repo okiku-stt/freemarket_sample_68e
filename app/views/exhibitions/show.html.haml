@@ -64,23 +64,9 @@
               %tr
                 %th カテゴリー
                 %td
-                  -# - @categories.each do |category|
-                  
-                  -# = @exhibition.category.item
-                  -# = @categories.item
-                  -# = @categories.children.id
-                  -# = @categories.parent.id
                   =link_to "#{@exhibition.category.root.item}", "#"
                   =link_to ">#{@exhibition.category.parent.item}", "#"
                   =link_to ">#{@exhibition.category.item}","#"
-                  -# = @categories.id
-                  -# = @children
-                  -# = @grandchildren
-                  -# = @children.item
-                  -# - @exhibition.each do |category|
-                  -#   =link_to "#{category.root.item}", "#"
-                  -#   =link_to ">#{category.parent.item}", "#"
-                  -#   =link_to ">#{category.item}","#"
               %tr
                 %th ブランド
                 %td

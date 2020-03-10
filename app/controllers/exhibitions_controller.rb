@@ -17,7 +17,6 @@ class ExhibitionsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @categories = Category.roots
     @exhibition = Exhibition.new(exhibition_params)
     respond_to do |format|
@@ -51,11 +50,6 @@ class ExhibitionsController < ApplicationController
       @deal = Exhibition.find_by(deal: params[:deal])
       @exhibition = Exhibition.find(params[:id])
       @categories = Category.find(params[:id])
-      # @categories = Category.find(@exhibition.category_id)
-      
-      # @children = Category.find(params[:parent_id]).children
-      # @grandchildren = Category.find(params[:child_id]).children
-      # binding.pry
       render :show
     else
       redirect_to user_session_path method: :post
