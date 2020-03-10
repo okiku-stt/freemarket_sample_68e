@@ -44,7 +44,6 @@ class ExhibitionsController < ApplicationController
   end
 
   def show
-
     @images = Image.where(exhibition_id: params[:id]).order("created_at DESC")
     if user_signed_in?
       @deal = Exhibition.find_by(deal: params[:deal])
@@ -54,6 +53,7 @@ class ExhibitionsController < ApplicationController
     else
       redirect_to user_session_path method: :post
     end
+
   end
 
   def edit

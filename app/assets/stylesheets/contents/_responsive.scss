@@ -102,16 +102,18 @@
     font-size : 8px;
   }
   .topic-items{
-    position: absolute;
-    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
     &__App img{
-      margin-bottom: 15px;
+      margin-top: 40px;
     }
   }
   .top-content-text{
     height: calc( 100vh - 105px);
     .top-introduction{
-      // margin-top: 25px;
     }
   }
   .top-content-imageBox{
