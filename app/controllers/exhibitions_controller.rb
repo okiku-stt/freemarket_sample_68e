@@ -89,9 +89,6 @@ class ExhibitionsController < ApplicationController
   
   def update
     @categories = Category.roots
-    # @selected_category = Category.find(@exhibition.category_id)
-    # if @exhibition.update(exhibition_params)
-    # binding.pry
     if @exhibition.update(exhibition_params)
       redirect_to root_path, notice: '編集が完了しました。'
     else
