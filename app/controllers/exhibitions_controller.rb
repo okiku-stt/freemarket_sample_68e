@@ -60,7 +60,7 @@ class ExhibitionsController < ApplicationController
     @categories = Category.roots
     @exhibition.images.new
   end
-  # ---pay.jpの処理---
+    # ---pay.jpの処理---
   def buy
     if @card.blank?
       redirect_to new_card_path
@@ -76,9 +76,9 @@ class ExhibitionsController < ApplicationController
     exhibition = Exhibition.find(params[:id])
     
     Payjp::Charge.create(
-      amount: exhibition.price, #支払金額を入力（itemテーブル等に紐づけても良い）
-      customer: @card.customer_id, #顧客ID
-      currency: 'jpy', #日本円
+    amount: exhibition.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+    customer: @card.customer_id, #顧客ID
+    currency: 'jpy', #日本円
     )
     
     exhibition.update!(deal: 1)
