@@ -106,40 +106,23 @@
           .categoryList
             - @exhibitions.each do |exhibition|
               .categoryList__exhibition
-                - if user_signed_in?
-                  = link_to exhibition_path(exhibition), class: 'link-showpage', method: :get do
-                    .categoryList__exhibition__image
-                      - if exhibition.deal == "SOLDOUT"
-                        = image_tag asset_path("sold_out.png"), size: "220x130", class: "sold-out"
-                      = image_tag("#{exhibition.images.first.image}", size: "230x230", class: 'image-top')
-                    .categoryList__exhibition__body
-                      .exhibition-item-name
-                        = exhibition.item_name
-                      .exhibition-price
-                        .exhibition-price__box
-                          = exhibition.price 
-                          %span 円
-                        .exhibition-icon
-                          %i.fas.fa-star
-                          %p.star-count 0
-                      %h3.tax-include
-                        (税込)
-                - else
-                  = link_to new_user_session_path, class: 'link-showpage', method: :get do
-                    .categoryList__exhibition__image
+                = link_to exhibition_path(exhibition), class: 'link-showpage', method: :get do
+                  .categoryList__exhibition__image
+                    - if exhibition.deal == "SOLDOUT"
+                      = image_tag asset_path("sold_out.png"), size: "220x130", class: "sold-out"
                     = image_tag("#{exhibition.images.first.image}", size: "230x230", class: 'image-top')
-                    .categoryList__exhibition__body
-                      .exhibition-item-name
-                        = exhibition.item_name
-                      .exhibition-price
-                        .exhibition-price__box
-                          = exhibition.price 
-                          %span 円
-                        .exhibition-icon
-                          %i.fas.fa-star
-                          %p.star-count 0
-                      %h3.tax-include
-                        (税込)
+                  .categoryList__exhibition__body
+                    .exhibition-item-name
+                      = exhibition.item_name
+                    .exhibition-price
+                      .exhibition-price__box
+                        = exhibition.price 
+                        %span 円
+                      .exhibition-icon
+                        %i.fas.fa-star
+                        %p.star-count 0
+                    %h3.tax-include
+                      (税込)
     .span-box-second
     .appFooter
       .appFooter__box

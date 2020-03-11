@@ -3,7 +3,8 @@ class ExhibitionsController < ApplicationController
   require 'payjp'
   before_action :set_exhibition, only: [:show, :edit, :update, :buy]
   before_action :set_user, only: [:edit, :update]
-  before_action :authenticate_user!, only: [:show, :edit, :update]
+  # before_action :authenticate_user!, only: [:show, :edit, :update]
+  # 一応エラーに備えて残しておきます
   before_action :set_card, only: [:buy, :pay]
   def index
     @exhibitions = Exhibition.all.includes(:user).order("created_at DESC")
@@ -45,15 +46,9 @@ class ExhibitionsController < ApplicationController
 
   def show
     @images = Image.where(exhibition_id: params[:id]).order("created_at DESC")
-    if user_signed_in?
-      @deal = Exhibition.find_by(deal: params[:deal])
-      @exhibition = Exhibition.find(params[:id])
-      @categories = Category.find(params[:id])
-      render :show
-    else
-      redirect_to user_session_path method: :post
-    end
-
+    @deal = Exhibition.find_by(deal: params[:deal])
+    @exhibition = Exhibition.find(params[:id])
+    @categories = Category.find(params[:id])
   end
 
   def edit
