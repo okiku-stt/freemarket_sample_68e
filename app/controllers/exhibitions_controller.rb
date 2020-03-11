@@ -59,8 +59,9 @@ class ExhibitionsController < ApplicationController
   def edit
     @categories = Category.roots
     @exhibition.images.new
+    # binding.pry
   end
-    # ---pay.jpの処理---
+  # ---pay.jpの処理---
   def buy
     if @card.blank?
       redirect_to new_card_path
@@ -70,27 +71,31 @@ class ExhibitionsController < ApplicationController
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
-
+  
   def pay
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     exhibition = Exhibition.find(params[:id])
-  
+    
     Payjp::Charge.create(
-    amount: exhibition.price, #支払金額を入力（itemテーブル等に紐づけても良い）
-    customer: @card.customer_id, #顧客ID
-    currency: 'jpy', #日本円
+      amount: exhibition.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+      customer: @card.customer_id, #顧客ID
+      currency: 'jpy', #日本円
     )
     
     exhibition.update!(deal: 1)
     redirect_to action: 'done' #完了画面に移動
   end
   # ---pay.jpの処理ここまで---
-
+  
   def update
     @categories = Category.roots
+    # @selected_category = Category.find(@exhibition.category_id)
+    # if @exhibition.update(exhibition_params)
+    # binding.pry
     if @exhibition.update(exhibition_params)
       redirect_to root_path, notice: '編集が完了しました。'
     else
+      @exhibition = Exhibition.find(@exhibition.id)
       flash.now[:alert] = '必須項目を入力してください。'
       render :edit
     end
