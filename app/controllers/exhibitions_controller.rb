@@ -59,7 +59,6 @@ class ExhibitionsController < ApplicationController
   def edit
     @categories = Category.roots
     @exhibition.images.new
-    # binding.pry
   end
   # ---pay.jpの処理---
   def buy
