@@ -102,7 +102,8 @@
           - if user_signed_in? && @exhibition.user_id == current_user.id
             = link_to "編集画面に進む", edit_exhibition_path(@exhibition), class: "show-user-btn__edit"
             = link_to "商品削除", exhibition_path(@exhibition), method: :delete, class: "show-user-btn__delete"
-
+          - unless user_signed_in?
+            = link_to "ログイン画面へ", new_user_session_path, class: "show-buy-btn__buy"
       .excomment-box
         %textarea#comment_body{:name => "comment[body]", :required => "required"}
         %p.message

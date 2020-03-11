@@ -16,8 +16,9 @@ class Exhibition < ApplicationRecord
   validates :item_status,                presence: true
   validates :shipping_charges,           presence: true
   validates :prefecture_id,              presence: true
-
   enum deal: { sell: 0, SOLDOUT: 1 }
+  validates_associated :images,          presence: true
+  validates :images,          presence: true
 
   def self.search(search)
     if search
