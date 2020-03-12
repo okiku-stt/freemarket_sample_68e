@@ -91,3 +91,5 @@
 ### Association
 - belongs_to :user
 - belongs_to :exhibition
+
+確認
