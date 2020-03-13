@@ -15,7 +15,7 @@ class ExhibitionsController < ApplicationController
     @exhibition = Exhibition.new
     @image = @exhibition.images.new
   end
-
+  
   def create
     @categories = Category.roots
     @exhibition = Exhibition.new(exhibition_params)
@@ -35,10 +35,10 @@ class ExhibitionsController < ApplicationController
       end
     end
   end
-
+  
   def modal
   end
-
+  
   def search
     @exhibitions = Exhibition.search(params[:keyword])
   end
@@ -53,14 +53,26 @@ class ExhibitionsController < ApplicationController
     else
       redirect_to user_session_path method: :post
     end
-
+    
   end
-
+  
   def edit
     @categories = Category.roots
     @exhibition.images.new
   end
-    # ---pay.jpの処理---
+  
+  def update
+    @categories = Category.roots
+    if @exhibition.update(exhibition_params)
+      redirect_to root_path, notice: '編集が完了しました。'
+    else
+      @exhibition = Exhibition.find(@exhibition.id)
+      flash.now[:alert] = '必須項目を入力してください。'
+      render :edit
+    end
+  end
+  
+  # ---pay.jpの処理---
   def buy
     if @card.blank?
       redirect_to new_card_path
@@ -85,17 +97,6 @@ class ExhibitionsController < ApplicationController
     redirect_to action: 'done' #完了画面に移動
   end
   # ---pay.jpの処理ここまで---
-  
-  def update
-    @categories = Category.roots
-    if @exhibition.update(exhibition_params)
-      redirect_to root_path, notice: '編集が完了しました。'
-    else
-      @exhibition = Exhibition.find(@exhibition.id)
-      flash.now[:alert] = '必須項目を入力してください。'
-      render :edit
-    end
-  end
 
   def category_children  
     @category_children = Category.find(params[:parent]).children 

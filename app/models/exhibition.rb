@@ -16,6 +16,8 @@ class Exhibition < ApplicationRecord
   validates :item_status,                presence: true
   validates :shipping_charges,           presence: true
   validates :prefecture_id,              presence: true
+  validates_associated :images,          presence: true
+  validates :images,          presence: true
 
   enum deal: { sell: 0, SOLDOUT: 1 }
 
