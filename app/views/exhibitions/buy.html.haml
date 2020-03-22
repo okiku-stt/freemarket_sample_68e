@@ -11,9 +11,7 @@
           .buy-item-container
             .buy-item-container__box
               .buy-item-container__box__img
-                = image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size: "60x80"
-                -# = image_tag @exhibition.images.last.image.url,class:"main__show__content__top__itemInfo__image__ul__li__top"
-
+                = image_tag @exhibition.images.first.image.url,size: "80x60"
               .buy-item-container__box__detail
                 %p.buy-item-container__box__detail__name
                   = @exhibition.item_name

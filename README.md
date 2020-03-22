@@ -3,7 +3,7 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false, unique: true, add_index｜
+|nickname|string|null: false, unique: true, add_index|
 |email|string|null: false, unique: true, add_index|
 |password|string|null: false|
 |family_name|string|null: false|
@@ -15,18 +15,15 @@
 |birth_day|integer|null: false|
 ### Association
 - has_one :address
-- has_many :pays
+- has_many :cards
 - has_many: exibitions
-- has_one: purchase
 
 ## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|card_number|integer|null: false|
-|year|integer|null: false|
-|month|integer|null: false|
-
+|customer_id|integer|null: false|
+|card_id|integer|null: false|
 ### Association
 - belongs_to :user
 
@@ -50,28 +47,27 @@
 ## exhibitionsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|category_id|string|null: false, foreign_key: true|
+|shipping_charges|string|null: false|
+|prefecture_id|integer|null: false|
+|shipping_date|string|null: false|
+|price|integer|null: false|
 |item_name|string|null: false|
 |item_status|string|null: false|
 |item_description|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|category_id|string|null: false, foreign_key: true|
-|bland_id|integer|null: false, foreign_key: true|
-|prefecture_id|integer|null: false|
-|shipping_charges|string|null: false|
-|shipping_date|string|null: false|
-|price|integer|null: false|
+|deal|integer|default: 0, null: false, limit: 1|
+|bland|string||
 ### Association
 - belongs_to :user
-- has_many :comments
 - belongs_to :category
-- belongs_to :image
-- belongs_to :purchase
+- has_many :images
 
 ## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
-|path|integer|null: false|
 |item|string|null: false, add_index|
+|ancestry|string||
 ### Association
 - has_many :exhibitions
 
@@ -81,13 +77,4 @@
 |image|text|null: false|
 |exhibitions_id|integer|null: false,foreign_key: true|
 ### Association
-- has_many :exhibitions
-
-## purchasesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|exhibitions_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :user
 - belongs_to :exhibition
